@@ -1,0 +1,284 @@
+# MobileInfo
+
+## UI Thread
+
+```
+{
+    //是否越狱
+　　"mobRootInfo":"false",  
+　　//手机settings信息
+　　"mobSettingsInfo":{
+　　    //androidId
+　　　　"androidId":"5771d057198cfc63"
+　　},
+　　//电池信息
+　　"mobBatteryInfo":{
+　　    //电量   
+　　　　"br":"100.0%",
+　　　　//电池状态
+　　　　"status":"full",
+　　　　//电池充电状态
+　　　　"plugState":"ac",
+　　　　//电池健康状况
+　　　　"health":"unknown",
+　　　　//是否有电池
+　　　　"present":"true",
+　　　　//电池的技术制造
+　　　　"technology":"Unknown",
+　　　　//电池温度
+　　　　"temperature":"0℃",
+　　　　//电池电压
+　　　　"voltage":"10.0V"
+　　},
+　　//cpu信息
+　　"mobCpuInfo":{
+　　    //cpu的名字
+　　　　"cpuName":"0",
+　　　　//cpu的频率
+　　　　"cpuFreq":"N/AKHZ",
+　　　　//cpu的最大频率
+　　　　"cpuMaxFreq":"KHZ",
+　　　　//cpu的最小频率
+　　　　"cpuMinFreq":"KHZ",
+　　　　//cpu的硬件名
+　　　　"cpuHardware":"vbox86",
+　　　　//cpu的核数
+　　　　"cpuCores":"4",
+　　　　//cpu的温度
+　　　　"cpuTemp":"$unknown℃",
+　　　　//cpu的架构
+　　　　"cpuAbi":"x86"
+　　},
+　　//内存信息
+　　"mobMemoryInfo":{
+　　    //ram的总内存大小
+　　　　"ramMemory":"3.86 GB",
+　　　　//当前系统的可用内存
+　　　　"ramAvailMemory":"3.56 GB",
+　　　　//rom的内存
+　　　　"romMemory":"12.15 GB/12.46 GB",
+　　　　//内存卡的内存
+　　　　"sdCardMemory":"12.15 GB/12.46 GB"
+　　},
+　　//手机版本信息
+　　"mobBandInfo":{
+　　    //基带版本
+　　　　"baseBand":"no message",
+　　　　//内部版本
+　　　　"innerBand":"vbox86p-userdebug 7.0 NRD90M eng.genymo.20170321.003020 test-keys",
+　　　　//linux的内核版本
+　　　　"linuxBand":"4.4.34-genymotion"
+　　},
+　　//包信息
+　　"mobPackageInfo":{
+　　    //app的名字
+　　　　"appName":"MobileInfo",
+　　　　//包名
+　　　　"packageName":"com.mobile.mobileinfo",
+　　　　//包签名
+　　　　"packageSign":"521cec5eb6984bc70f5b2a27e437b979",
+　　　　//app的版本号
+　　　　"appVersionCode":"1",
+　　　　//app的版本名字
+　　　　"appVersionName":"1.0"
+　　},
+　　//摄像头信息
+　　"mobCameraInfo":{
+　　     //后置摄像头
+        "backCamera_0":{
+             //是否支持变焦
+            "isZoomSupported":"false",
+            //是否支持自动对焦
+            "isAutoFocusSupported":"false",
+            //像素单位万
+            "cameraPixels":"30"
+        },
+        //前置摄像头
+        "frontCamera_1":{
+            "isZoomSupported":"false",
+            "isAutoFocusSupported":"false",
+            "cameraPixels":"30"
+        }
+    },
+　　//手机卡信息
+　　"mobCardInfo":{
+　　    //主卡是否激活
+　　　　"sim1Ready":"true",
+　　　　//副卡是否激活
+　　　　"sim2Ready":"false",
+　　　　//是否有两张卡
+　　　　"isTwoCard":"false",
+　　　　//是否有卡
+　　　　"isHaveCard":"true",
+　　　　//主卡的imei
+　　　　"sim1Imei":"000000000000000",
+　　　　//副卡的imei
+　　　　"sim2Imei":"000000000000000",
+　　　　//主卡的imsi
+　　　　"sim1Imsi":"310270000000000",
+　　　　//主卡的运营商
+　　　　"sim1ImsiOperator":"$unknown",
+　　　　//副卡的imsi
+　　　　"sim2Imsi":"310270000000000",
+　　　　//副卡的运营商
+　　　　"sim2ImsiOperator":"$unknown",
+　　　　//开启移动流量的卡
+　　　　"simHaveFlowCard":"1",
+　　　　//开启移动流量的卡的运营商
+　　　　"simHaveFlowCardOperator":"$unknown"
+　　},
+　　//手机信号信息
+　　"mobSignalInfo":{
+　　    //信号种类
+　　　　"type":"WIFI",
+　　　　//wifi的bssid
+　　　　"BSSID":"01:80:c2:00:00:03",
+　　　　//wifi的名字
+　　　　"SSID":""WiredSSID"",
+　　　　//ip地址
+　　　　"nIpAddress":"10.0.3.15",
+　　　　//mac地址
+　　　　"MacAddress":"$unknown",
+　　　　//网络id
+　　　　"NetworkId":"0",
+　　　　//传输速度
+　　　　"LinkSpeed":"0Mbps",
+　　　　//信息强度
+　　　　"Rssi":"-55",
+　　　　//信号强度等级
+　　　　"level":"4",
+　　　　//是否开代理
+　　　　"proxy":"false",
+　　　　//wifi连接状态
+　　　　"SupplicantState":"COMPLETED"
+　　},
+　　//工程信息
+　　"mobBuildInfo":{
+　　   //主板名称
+　　　　"board":"unknown",
+　　　　//系统引导程序版本号
+　　　　"bootloader":"unknown",
+　　　　//系统定制商
+　　　　"brand":"Android",
+　　　　//设备参数
+　　　　"device":"vbox86p",
+　　　　//显示屏参数
+　　　　"display":"vbox86p-userdebug 7.0 NRD90M eng.genymo.20170321.003020 test-keys",
+　　　　//硬件名
+　　　　"fingerprint":"Android/vbox86p/vbox86p:7.0/NRD90M/genymo03210030:userdebug/test-keys",
+　　　  //内核命令行中的硬件名
+　　　　"hardware":"vbox86",
+　　　　//host
+　　　　"host":"f9aa1288e010",
+　　　　//标签
+　　　　"id":"NRD90M",
+　　　　//硬件厂商
+　　　　"manufacturer":"Genymotion",
+　　　　//版本
+　　　　"model":"Samsung Galaxy S8 - 7.0.0 - API 24 - 1440x2960",
+　　　　//手机厂商
+　　　　"product":"vbox86p",
+　　　　//无线电固件的版本字符串
+　　　　"radio":"",
+　　　　//硬件序列号 
+　　　　"serial":"",
+　　　　//描述Build的标签
+　　　　"tags":"test-keys",
+　　　　//time
+　　　　"time":"1490056220000",
+　　　　//type
+　　　　"type":"userdebug",
+　　　  //user
+　　　　"user":"genymotion",
+　　　　//os版本
+　　　　"osVersion":"",
+　　　　//正式版本
+　　　　"releaseVersion":"7.0",
+　　　　//当前开发代码名称
+　　　　"codeName":"REL",
+　　　　//基础源代码控件用于表示此构建的内部值
+　　　　"incremental":"eng.genymo.20170321.003020",
+　　　　//SDK的版本
+　　　　"sdkInt":"24",
+　　　　//SDK的预览版本
+　　　　"previewSdkInt":"0",
+　　　　//用户可见的安全补丁程序级别
+　　　　"securityPatch":"2016-08-05"
+　　},
+　　//本地信息
+　　"mobLocalInfo":{
+　　   //国家
+　　　　"country":"US",
+　　　　//语言
+　　　　"language":"en"
+　　},
+　　//屏幕信息
+　　"mobScreenInfo":{
+　　   //当前屏幕密度与标准屏幕密度的比值
+　　　　"densityScale":"4.0",
+　　　　//屏幕密度
+　　　　"densityDpi":"640",
+　　　　//屏幕宽度
+　　　　"width":"1440",
+　　　　//屏幕高度
+　　　　"height":"2768"
+　　},
+　　//网络信息
+　　"mobNetWorkInfo":{
+　　   //网络类型
+　　　　"type":"WIFI",
+　　　　//网络是否可用
+　　　　"networkAvailable":"true",
+　　　　//是否开启流量
+　　　　"haveIntent":"true"
+　　},
+　　//模拟器信息
+　　"mobEmulatorInfo":{
+　    　//是否是模拟器
+　　　　"checkEmulator":"true",
+　　　　//模拟器的信息
+　　　　"emulatorData":{
+　　　　   //静态资源监测
+　　　　　　"checkBuild":"true",
+　　　　　　//包名检测
+　　　　　　"checkPkg":"true",
+　　　　　　//mac地址检测
+　　　　　　"checkMacAddress":"true",
+　　　　　　//管道检测
+　　　　　　"checkPipes":"false",
+　　　　　　//特征文件检测
+　　　　　　"checkQEmuDriverFile":"false",
+　　　　　　//蓝牙检测
+　　　　　　"checkHasBlueTooth":"true",
+　　　　　　//光传感器检测
+　　　　　　"checkHasLightSensorManager":"true",
+　　　　　　//cpu信息检测
+　　　　　　"checkCpuInfo":"true"
+　　　　}
+　　},
+　　//蓝牙信息
+    "mobBluetoothInfo":{
+        //蓝牙地址
+        "bluetoothAddress":"D8:C7:71:E4:47:9D"
+    }
+}
+```
+
+## Thread
+
+```
+{
+//某一个ip的dns,是一个集合
+"dns":["192.168.2.22"],
+//手机安装的APP的信息
+"mobApp":[
+         //包名
+         "name":"com.example.demo",
+         //版本号
+         "ver":"0.2.1"
+         ]
+
+
+}
+
+```
