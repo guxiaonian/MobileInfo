@@ -30,7 +30,7 @@
 　　　　//电池电压
 　　　　"voltage":"10.0V",
        //电池总电量
-       "power":"3100.0 mAh"
+       "power":"3100.0mAh"
 　　},
 　　//cpu信息
 　　"mobCpuInfo":{
@@ -154,7 +154,7 @@
        //开了代理拿到代理的地址与端口号
        "proxyData":{
             "proxyAddress":"192.168.0.0",
-            "proxyPort":8888
+            "proxyPort":"8888"
         },
 　　　　//wifi连接状态
 　　　　"SupplicantState":"COMPLETED"
@@ -328,6 +328,6 @@
 # 依赖
 
 ```
-implementation 'fairy.easy:mobilehardware:0.1.1'
+implementation 'fairy.easy:mobilehardware:0.1.2'
 
 ```
