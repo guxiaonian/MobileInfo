@@ -28,7 +28,9 @@
 　　　　//电池温度
 　　　　"temperature":"0℃",
 　　　　//电池电压
-　　　　"voltage":"10.0V"
+　　　　"voltage":"10.0V",
+       //电池总电量
+       "power":"3100.0 mAh"
 　　},
 　　//cpu信息
 　　"mobCpuInfo":{
@@ -148,7 +150,12 @@
 　　　　//信号强度等级
 　　　　"level":"4",
 　　　　//是否开代理
-　　　　"proxy":"false",
+　　　　"proxy":"true",
+       //开了代理拿到代理的地址与端口号
+       "proxyData":{
+            "proxyAddress":"192.168.0.0",
+            "proxyPort":8888
+        },
 　　　　//wifi连接状态
 　　　　"SupplicantState":"COMPLETED"
 　　},
@@ -221,7 +228,13 @@
 　　　　//屏幕宽度
 　　　　"width":"1440",
 　　　　//屏幕高度
-　　　　"height":"2768"
+　　　　"height":"2768",
+       //亮度是否为自动调节
+       "isScreenAuto":"false",
+       //屏幕亮度 0-255
+       "screenBrightness":"47",
+       //判断屏幕是否开启自动旋转
+       "isScreenAutoChange":"false"
 　　},
 　　//网络信息
 　　"mobNetWorkInfo":{
@@ -230,7 +243,30 @@
 　　　　//网络是否可用
 　　　　"networkAvailable":"true",
 　　　　//是否开启流量
-　　　　"haveIntent":"true"
+　　　　"haveIntent":"true",
+       //是否是飞行模式
+       "isFlightMode":"false",
+       //判断NFC功能是否开启
+       "isNFCEnabled":"false",
+       //判断热点是否开启
+       "isHotspotEnabled":"true",
+       //热点信息
+       "hotspotData":{
+           //黑名单的个数
+           "blackListNum":"0",
+           //黑名单的清单
+           "blackList":"null",
+           //连接设备的个数
+           "connectedClientsNum":"0",
+           //连接设备清单
+           "connectedClients":"null",
+           //加密的类型
+           "encryptionType":"4",
+           //热点密码
+           "hotspotPwd":"12344321",
+           //热点账号
+           "hotspotSSID":"Honor"
+               }
 　　},
 　　//模拟器信息
 　　"mobEmulatorInfo":{
@@ -259,7 +295,11 @@
 　　//蓝牙信息
     "mobBluetoothInfo":{
         //蓝牙地址
-        "bluetoothAddress":"D8:C7:71:E4:47:9D"
+        "bluetoothAddress":"D8:C7:71:E4:47:9D",
+        //蓝牙是否打开
+        "isEnabled":"true",
+        //设备名称.使用蓝牙互联、WLAN互联、热点共享和USB连接时,其他设备看到的名称
+        "phoneName":"Honor"
     }
 }
 ```
@@ -275,7 +315,9 @@
          //包名
          "name":"com.example.demo",
          //版本号
-         "ver":"0.2.1"
+         "ver":"0.2.1",
+         //判断是否是系统app
+         "isSystem":"true"
          ]
 
 
