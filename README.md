@@ -250,23 +250,21 @@
        "isNFCEnabled":"false",
        //判断热点是否开启
        "isHotspotEnabled":"true",
+       //热点账号
+       "hotspotSSID":"Honor",
+       //热点密码
+       "hotspotPwd":"12344321",
+       //加密的类型
+       "encryptionType":"WPA2_PSK",
        //热点信息
-       "hotspotData":{
-           //黑名单的个数
-           "blackListNum":"0",
-           //黑名单的清单
-           "blackList":"null",
-           //连接设备的个数
-           "connectedClientsNum":"0",
-           //连接设备清单
-           "connectedClients":"null",
-           //加密的类型
-           "encryptionType":"4",
-           //热点密码
-           "hotspotPwd":"12344321",
-           //热点账号
-           "hotspotSSID":"Honor"
-               }
+       "hotspotData":[
+                   {
+           //热点的ip
+           "ip":"192.168.43.65",
+           //热点的mac
+           "mac":"a0:93:47:60:87:4d"
+                   }
+               ]
 　　},
 　　//模拟器信息
 　　"mobEmulatorInfo":{
@@ -299,7 +297,16 @@
         //蓝牙是否打开
         "isEnabled":"true",
         //设备名称.使用蓝牙互联、WLAN互联、热点共享和USB连接时,其他设备看到的名称
-        "phoneName":"Honor"
+        "phoneName":"Honor",
+        //连接的设备信息
+        "device":[
+                    {
+          //设备名字
+          "name":"iPhone",
+          //设备地址
+          "address":"E0:90:70:80:C0:04"
+                    }
+                ]
     }
 }
 ```
@@ -328,6 +335,6 @@
 # 依赖
 
 ```
-implementation 'fairy.easy:mobilehardware:0.1.2'
+implementation 'fairy.easy:mobilehardware:0.1.3'
 
 ```

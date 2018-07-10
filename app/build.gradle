@@ -25,6 +25,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    //    implementation project(':mobilehardware')
-    implementation files('libs/mobile_hardware_android_v_20180709_2238.jar')
+//    implementation project(':mobilehardware')
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    implementation files('libs/mobile_hardware_android_v_20180710_2238.jar')
 }
