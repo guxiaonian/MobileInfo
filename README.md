@@ -255,16 +255,7 @@
        //热点密码
        "hotspotPwd":"12344321",
        //加密的类型
-       "encryptionType":"WPA2_PSK",
-       //热点信息
-       "hotspotData":[
-                   {
-           //热点的ip
-           "ip":"192.168.43.65",
-           //热点的mac
-           "mac":"a0:93:47:60:87:4d"
-                   }
-               ]
+       "encryptionType":"WPA2_PSK"
 　　},
 　　//模拟器信息
 　　"mobEmulatorInfo":{
@@ -335,6 +326,6 @@
 # 依赖
 
 ```
-implementation 'fairy.easy:mobilehardware:0.1.3'
+implementation 'fairy.easy:mobilehardware:0.1.4'
 
 ```

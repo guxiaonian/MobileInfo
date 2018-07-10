@@ -28,5 +28,5 @@ dependencies {
 //    implementation project(':mobilehardware')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-    implementation files('libs/mobile_hardware_android_v_20180710_2238.jar')
+    implementation files('libs/mobile_hardware_android_v_20180710_2038.jar')
 }
