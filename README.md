@@ -298,7 +298,35 @@
           "address":"E0:90:70:80:C0:04"
                     }
                 ]
-    }
+    },
+    //手机卡默认流量的运营商
+    "mobSimOperator":"unknown",
+    //手机卡信息
+    "mobSimCard":{
+          //状态
+          "status":"success",
+          //sim1的IMEI
+          "sim1Imei":"358240051111110",
+          //sim2的IMEI
+          "sim2Imei":"unknown",
+          //sim1的IMSI
+          "sim1Imsi":"310260000000000",
+          //sim2的IMSI
+          "sim2Imsi":"unknown",
+          //流量卡的ID
+          "simSlotIndex":"0"
+         },
+    //默认UserAgent
+    "mobUserAgent":"Mozilla/5.0 (Linux; Android 7.0; Android SDK built for x86 Build/NYC; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/51.0.2704.90 Mobile Safari/537.36",
+    //硬件构成的唯一标示
+    "mobUniqueID":"ffffffff-c7c2-9a12-ffff-ffffef05ac4a",
+    //xposed相关信息
+    "xposedInfo":{
+         //手机是否有xposed
+         "isHaveXposed":false,
+         //xposed是否hook本APP
+         "isXposedApp":false
+         }
 }
 ```
 
@@ -326,6 +354,6 @@
 # 依赖
 
 ```
-implementation 'fairy.easy:mobilehardware:0.1.4'
+implementation 'fairy.easy:mobilehardware:0.1.5'
 
 ```
