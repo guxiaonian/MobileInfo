@@ -1,20 +1,15 @@
 package com.mobile.mobileinfo;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.mobile.mobilehardware.MobileHardWareHelper;
-
-import org.json.JSONObject;
+import com.mobile.mobilehardware.block.CpuInternals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +21,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkPermission();
+        CpuInternals.getInstance().setCpuRateTime(1000L);
+        CpuInternals.getInstance().setMaxEntryCount(10);
+        CpuInternals.getInstance().getCpuSampler().start();
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i("MOB", MobileHardWareHelper.mobileInfo(getApplicationContext()).toString());
+                Log.i("MOB_CPU", CpuInternals.getInstance().getCpuSampler().getCpuList().toString());
+                CpuInternals.getInstance().getCpuSampler().stop();
             }
         });
     }
+
 
     /**
      * 动态权限申请

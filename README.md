@@ -267,8 +267,6 @@
 　　　　　　"checkBuild":"true",
 　　　　　　//包名检测
 　　　　　　"checkPkg":"true",
-　　　　　　//mac地址检测
-　　　　　　"checkMacAddress":"true",
 　　　　　　//管道检测
 　　　　　　"checkPipes":"false",
 　　　　　　//特征文件检测
@@ -323,9 +321,9 @@
     //xposed相关信息
     "xposedInfo":{
          //手机是否有xposed
-         "isHaveXposed":false,
+         "isHaveXposed":"false",
          //xposed是否hook本APP
-         "isXposedApp":false
+         "isXposedApp":"false"
          }
 }
 ```
@@ -354,6 +352,6 @@
 # 依赖
 
 ```
-implementation 'fairy.easy:mobilehardware:0.1.5'
+implementation 'fairy.easy:mobilehardware:0.1.8'
 
 ```
