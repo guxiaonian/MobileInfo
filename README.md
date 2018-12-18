@@ -352,6 +352,6 @@
 # 依赖
 
 ```
-implementation 'fairy.easy:mobilehardware:0.1.8'
+implementation 'fairy.easy:mobilehardware:0.1.9'
 
 ```
