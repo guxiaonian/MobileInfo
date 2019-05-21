@@ -6,6 +6,5 @@
 /build
 /captures
 .externalNativeBuild
-/mobilehardware
 /.idea
 /gradle

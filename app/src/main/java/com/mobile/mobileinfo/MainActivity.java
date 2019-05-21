@@ -21,15 +21,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkPermission();
-        CpuInternals.getInstance().setCpuRateTime(1000L);
-        CpuInternals.getInstance().setMaxEntryCount(10);
-        CpuInternals.getInstance().getCpuSampler().start();
+//        CpuInternals.getInstance().setCpuRateTime(1000L);
+//        CpuInternals.getInstance().setMaxEntryCount(10);
+//        CpuInternals.getInstance().getCpuSampler().start();
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i("MOB", MobileHardWareHelper.mobileInfo(getApplicationContext()).toString());
-                Log.i("MOB_CPU", CpuInternals.getInstance().getCpuSampler().getCpuList().toString());
-                CpuInternals.getInstance().getCpuSampler().stop();
+//                Log.i("MOB_CPU", CpuInternals.getInstance().getCpuSampler().getCpuList().toString());
+//                CpuInternals.getInstance().getCpuSampler().stop();
                 Log.i("MOB_AUDIO",MobileHardWareHelper.audioInfo(getApplicationContext()).toString());
             }
         });
