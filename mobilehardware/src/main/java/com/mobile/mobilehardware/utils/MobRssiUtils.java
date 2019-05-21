@@ -33,11 +33,14 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * Created by 谷闹年 on 2018/1/3.
+ *
+ * @author 谷闹年
+ * @date 2018/1/3
  */
 public class MobRssiUtils {
+
     private static final String WIFI = "WIFI";
-    private static final String TAG = "MobRssiUtils";
+    private static final String TAG = MobRssiUtils.class.getSimpleName();
 
 
     /**

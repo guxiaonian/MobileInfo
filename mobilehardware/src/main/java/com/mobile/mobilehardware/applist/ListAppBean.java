@@ -69,10 +69,10 @@ public class ListAppBean extends BaseBean {
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.AppList.PACKAGE_NAME, packageName);
-            jsonObject.put(BaseData.AppList.VERSION_NAME, versionName);
-            jsonObject.put(BaseData.AppList.VERSION_CODE, versionCode);
-            jsonObject.put(BaseData.AppList.IS_SYSTEM, isSystem);
+            jsonObject.put(BaseData.AppList.PACKAGE_NAME, isEmpty(packageName));
+            jsonObject.put(BaseData.AppList.VERSION_NAME, isEmpty(versionName));
+            jsonObject.put(BaseData.AppList.VERSION_CODE, isEmpty(versionCode));
+            jsonObject.put(BaseData.AppList.IS_SYSTEM, isEmpty(isSystem));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

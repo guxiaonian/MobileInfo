@@ -1,4 +1,4 @@
-package com.mobile.mobilehardware.utils;
+package com.mobile.mobilehardware.memory;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -15,27 +15,31 @@ import java.io.File;
 import java.io.FileReader;
 
 /**
- * Created by 谷闹年 on 2018/1/5.
+ * @author 谷闹年
+ * @date 2018/1/5
  */
-public class MobMemoryUtils {
- private static final String TAG="MobMemoryUtils";
+class MemoryInfo {
+    private static final String TAG = MemoryInfo.class.getSimpleName();
+
     /**
      * info
      *
      * @param context
      * @return
      */
-    public static JSONObject getMemoryInfo(Context context) {
-        JSONObject jsonObject = new JSONObject();
+    static JSONObject memoryInfo(Context context) {
+        MemoryBean memoryBean = new MemoryBean();
         try {
-            jsonObject.put("ramMemory", getTotalMemory(context));
-            jsonObject.put("ramAvailMemory", getAvailMemory(context));
-            jsonObject.put("romMemory", getRomSpace(context));
-            jsonObject.put("sdCardMemory", getSdcardSize(context));
-        } catch (JSONException e) {
+            memoryBean.setRamMemory(getTotalMemory(context));
+            memoryBean.setRamAvailMemory(getAvailMemory(context));
+            memoryBean.setRomMemoryAvailable(getRomSpace(context));
+            memoryBean.setRomMemoryTotal(getRomSpaceTotal(context));
+            memoryBean.setSdCardMemoryAvailable(getSdcardSize(context));
+            memoryBean.setSdCardMemoryTotal(getSdcardSizeTotal(context));
+        } catch (Exception e) {
             Log.i(TAG, e.toString());
         }
-        return jsonObject;
+        return memoryBean.toJSONObject();
     }
 
     /**
@@ -98,14 +102,16 @@ public class MobMemoryUtils {
         File path = Environment.getDataDirectory();
         StatFs stat = new StatFs(path.getPath());
         long blockSize = stat.getBlockSize();
-        long totalBlocks = stat.getBlockCount();
         long availableBlocks = stat.getAvailableBlocks();
-        //long usedBlocks=totalBlocks-availableBlocks;
+        return Formatter.formatFileSize(context, availableBlocks * blockSize);
+    }
 
-        String totalSize = Formatter.formatFileSize(context, totalBlocks * blockSize);
-        String availableSize = Formatter.formatFileSize(context, availableBlocks * blockSize);
-
-        return availableSize + "/" + totalSize;
+    private static String getRomSpaceTotal(Context context) {
+        File path = Environment.getDataDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        long blockSize = stat.getBlockSize();
+        long totalBlocks = stat.getBlockCount();
+        return Formatter.formatFileSize(context, totalBlocks * blockSize);
     }
 
 
@@ -119,13 +125,17 @@ public class MobMemoryUtils {
 
         File path = Environment.getExternalStorageDirectory();
         StatFs stat = new StatFs(path.getPath());
-        long blockCount = stat.getBlockCount();
         long blockSize = stat.getBlockSize();
         long availableBlocks = stat.getAvailableBlocks();
+        return Formatter.formatFileSize(context, availableBlocks * blockSize);
+    }
 
-        String totalSize = Formatter.formatFileSize(context, blockCount * blockSize);
-        String availableSize = Formatter.formatFileSize(context, availableBlocks * blockSize);
+    private static String getSdcardSizeTotal(Context context) {
 
-        return availableSize + "/" + totalSize;
+        File path = Environment.getExternalStorageDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        long blockCount = stat.getBlockCount();
+        long blockSize = stat.getBlockSize();
+        return Formatter.formatFileSize(context, blockCount * blockSize);
     }
 }

@@ -9,6 +9,7 @@ import com.mobile.mobilehardware.applist.ListAppHelper;
 import com.mobile.mobilehardware.audio.AudioHelper;
 import com.mobile.mobilehardware.band.BandHelper;
 import com.mobile.mobilehardware.bluetooth.BluetoothHelper;
+import com.mobile.mobilehardware.build.BuildHelper;
 import com.mobile.mobilehardware.xposed.XposedHookHelper;
 import com.mobile.mobilehardware.root.RootHelper;
 import com.mobile.mobilehardware.stack.StackSampler;
@@ -16,16 +17,15 @@ import com.mobile.mobilehardware.debug.DebugHelper;
 import com.mobile.mobilehardware.moreopen.MoreOpenHelper;
 import com.mobile.mobilehardware.hook.HookHelper;
 import com.mobile.mobilehardware.battery.BatteryHelper;
-import com.mobile.mobilehardware.utils.MobBuildUtils;
-import com.mobile.mobilehardware.utils.MobCameraUtils;
+import com.mobile.mobilehardware.camera.CameraHelper;
 import com.mobile.mobilehardware.utils.MobCardUtils;
 import com.mobile.mobilehardware.cpu.CpuHelper;
 import com.mobile.mobilehardware.dns.DnsHelper;
-import com.mobile.mobilehardware.utils.MobEmulatorUtils;
+import com.mobile.mobilehardware.emulator.EmulatorHelper;
 import com.mobile.mobilehardware.local.LocalHelper;
-import com.mobile.mobilehardware.utils.MobMemoryUtils;
-import com.mobile.mobilehardware.utils.MobNetWorkUtils;
-import com.mobile.mobilehardware.utils.MobPackageUtils;
+import com.mobile.mobilehardware.memory.MemoryHelper;
+import com.mobile.mobilehardware.network.NetWorkHelper;
+import com.mobile.mobilehardware.app.PackageHelper;
 import com.mobile.mobilehardware.utils.MobRssiUtils;
 import com.mobile.mobilehardware.screen.ScreenHelper;
 import com.mobile.mobilehardware.setting.SettingsHelper;
@@ -164,7 +164,7 @@ public class MobileHardWareHelper {
      * @return
      */
     public static JSONObject mobileMemory(@NonNull Context context) {
-        return MobMemoryUtils.getMemoryInfo(context);
+        return MemoryHelper.getMemoryInfo(context);
     }
 
     /**
@@ -182,7 +182,7 @@ public class MobileHardWareHelper {
      * @return
      */
     public static JSONObject mobilePackage(@NonNull Context context) {
-        return MobPackageUtils.getPackageInfo(context);
+        return PackageHelper.getPackageInfo(context);
     }
 
     /**
@@ -191,7 +191,7 @@ public class MobileHardWareHelper {
      * @return
      */
     public static JSONObject mobileCamera(@NonNull Context context) {
-        return MobCameraUtils.getCameraInfo(context);
+        return CameraHelper.getCameraInfo(context);
     }
 
     /**
@@ -219,8 +219,8 @@ public class MobileHardWareHelper {
      *
      * @return
      */
-    public static JSONObject mobileBuild(@NonNull Context context) {
-        return MobBuildUtils.mobGetBuildInfo(context);
+    public static JSONObject mobileBuild() {
+        return BuildHelper.mobGetBuildInfo();
     }
 
     /**
@@ -247,7 +247,7 @@ public class MobileHardWareHelper {
      * @return
      */
     public static JSONObject mobileNetWork(@NonNull Context context) {
-        return MobNetWorkUtils.mobGetMobNetWork(context);
+        return NetWorkHelper.mobGetMobNetWork(context);
     }
 
 
@@ -257,7 +257,7 @@ public class MobileHardWareHelper {
      * @return
      */
     public static JSONObject mobileEmulator(@NonNull Context context) {
-        return MobEmulatorUtils.mobCheckEmulator(context);
+        return EmulatorHelper.mobCheckEmulator(context);
     }
 
 

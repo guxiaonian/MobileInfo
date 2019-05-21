@@ -1,4 +1,4 @@
-package com.mobile.mobilehardware.utils;
+package com.mobile.mobilehardware.network;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,46 +9,49 @@ import android.nfc.NfcManager;
 import android.provider.Settings;
 import android.util.Log;
 
-import org.json.JSONArray;
+
+import com.mobile.mobilehardware.utils.MobDataUtils;
+
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 
 /**
- * Created by gunaonian on 2018/3/28.
+ * @author gunaonian
+ * @date 2018/3/28
  */
 
-public class MobNetWorkUtils {
-    private static final String TAG = "MobNetWorkUtils";
+class NetWorkInfo {
+    private static final String TAG = NetWorkInfo.class.getSimpleName();
 
-    public static JSONObject mobGetMobNetWork(Context context) {
-        JSONObject jsonObject = new JSONObject();
-        getNetWork(context, jsonObject);
-        return jsonObject;
-    }
-
-
-    private static void getNetWork(Context context, JSONObject jsonObject) {
+    static JSONObject getMobNetWork(Context context) {
+        NetWorkBean netWorkBean = new NetWorkBean();
         try {
-            jsonObject.put("type", MobDataUtils.networkTypeALL(context));
-            jsonObject.put("networkAvailable", MobDataUtils.isNetworkAvailable(context) + "");
-            jsonObject.put("haveIntent", MobDataUtils.haveIntent(context) + "");
-            jsonObject.put("isFlightMode", getAirplaneMode(context) + "");
-            jsonObject.put("isNFCEnabled", hasNfc(context) + "");
-            jsonObject.put("isHotspotEnabled", isWifiApEnabled(context) + "");
-            getHotPotParams(context, jsonObject);
+            netWorkBean.setType(MobDataUtils.networkTypeALL(context));
+            netWorkBean.setNetworkAvailable(MobDataUtils.isNetworkAvailable(context) + "");
+            netWorkBean.setHaveIntent(MobDataUtils.haveIntent(context) + "");
+            netWorkBean.setIsFlightMode(getAirplaneMode(context) + "");
+            netWorkBean.setIsNFCEnabled(hasNfc(context) + "");
+            netWorkBean.setIsHotspotEnabled(isWifiApEnabled(context) + "");
+            WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+            if (mWifiManager == null) {
+                return netWorkBean.toJSONObject();
+            }
+            WifiConfiguration config = getHotPotConfig(mWifiManager);
+            if (config == null) {
+                return netWorkBean.toJSONObject();
+            }
+            netWorkBean.setHotspotSSID(config.SSID);
+            netWorkBean.setHotspotPwd(config.preSharedKey);
+            netWorkBean.setEncryptionType(config.allowedKeyManagement.get(4) ? "WPA2_PSK" : "NONE");
         } catch (Exception e) {
-            Log.i(TAG, e.toString());
+            Log.e(TAG, e.toString());
         }
+        return netWorkBean.toJSONObject();
     }
+
 
     private static boolean getAirplaneMode(Context context) {
         int isAirplaneMode = Settings.System.getInt(context.getContentResolver(),
@@ -111,7 +114,6 @@ public class MobNetWorkUtils {
                 jsonObject.put("hotspotPwd", config.preSharedKey);
             }
             jsonObject.put("encryptionType", config.allowedKeyManagement.get(4) ? "WPA2_PSK" : "NONE");
-//            readArp(jsonObject);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -134,40 +136,4 @@ public class MobNetWorkUtils {
 
     }
 
-    private static void readArp(JSONObject jsonObject) {
-        List<Map<String, String>> list = new ArrayList<>();
-        Map<String, String> map = new HashMap<>();
-        try {
-            BufferedReader br = new BufferedReader(
-                    new FileReader("/proc/net/arp"));
-            String line;
-            String ip;
-            String flag;
-            String mac;
-
-            while ((line = br.readLine()) != null) {
-                try {
-                    line = line.trim();
-                    if (line.length() < 63) continue;
-                    if (line.toUpperCase(Locale.US).contains("IP")) continue;
-                    ip = line.substring(0, 17).trim();
-                    flag = line.substring(29, 32).trim();
-                    mac = line.substring(41, 63).trim();
-                    if (mac.contains("00:00:00:00:00:00")) continue;
-//                    Log.e("scanner", "readArp: mac= "+mac+" ; ip= "+ip+" ;flag= "+flag);
-                    map.put("ip", ip);
-                    map.put("mac", mac);
-                    list.add(map);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            br.close();
-            jsonObject.put("hotspotData",new JSONArray(list));
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

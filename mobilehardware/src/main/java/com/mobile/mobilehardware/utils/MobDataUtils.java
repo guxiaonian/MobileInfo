@@ -10,26 +10,20 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.mobile.mobilehardware.base.BaseData;
+
 import java.lang.reflect.Method;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
 
 /**
- * Created by 谷闹年 on 2018/1/3.
+ *
+ * @author 谷闹年
+ * @date 2018/1/3
  */
-class MobDataUtils {
+public class MobDataUtils {
     private static final String TAG = "MobDataUtils";
-
-    /**
-     * 查看是否为空的判断
-     *
-     * @param value
-     * @return
-     */
-    public static String chargeValueIsEmpty(String value) {
-        return TextUtils.isEmpty(value) ? "$unknown" : value;
-    }
 
     /**
      * 拿到具体的网络类型
@@ -37,7 +31,7 @@ class MobDataUtils {
      * @param context
      * @return
      */
-    static String networkTypeALL(Context context) {
+    public static String networkTypeALL(Context context) {
 
         ConnectivityManager manager = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -50,7 +44,7 @@ class MobDataUtils {
 
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context
                 .TELEPHONY_SERVICE);
-        if(telephonyManager==null){
+        if (telephonyManager == null) {
             return "unknown";
         }
         int networkType = telephonyManager.getNetworkType();
@@ -74,7 +68,7 @@ class MobDataUtils {
             case TelephonyManager.NETWORK_TYPE_LTE:
                 return "4G";
             default:
-                return "$unknown";
+                return BaseData.UNKNOWN_PARAM;
 
         }
     }
@@ -82,7 +76,7 @@ class MobDataUtils {
     /**
      * 网络是否可用
      */
-    static boolean isNetworkAvailable(Context context) {
+    public static boolean isNetworkAvailable(Context context) {
         try {
             ConnectivityManager mgr = (ConnectivityManager) context
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -100,12 +94,13 @@ class MobDataUtils {
                 }
             } else {
                 NetworkInfo[] info = mgr.getAllNetworkInfo();
-                if (info != null)
+                if (info != null) {
                     for (NetworkInfo anInfo : info) {
                         if (anInfo.getState() == NetworkInfo.State.CONNECTED) {
                             return true;
                         }
                     }
+                }
             }
         } catch (Exception e) {
             return true;
@@ -119,10 +114,10 @@ class MobDataUtils {
      * @param context
      * @return
      */
-    static boolean haveIntent(Context context) {
+    public static boolean haveIntent(Context context) {
         boolean mobileDataEnabled = false;
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(cm==null){
+        if (cm == null) {
             return false;
         }
         try {
@@ -167,7 +162,7 @@ class MobDataUtils {
         } catch (SocketException e) {
             Log.i(TAG, e.toString());
         }
-        return "$unknown";
+        return BaseData.UNKNOWN_PARAM;
     }
 
 
@@ -178,14 +173,14 @@ class MobDataUtils {
      * @return
      */
     @SuppressLint("HardwareIds")
-    static String getMac(Context mContext) {
+    public static String getMac(Context mContext) {
         if (Build.VERSION.SDK_INT >= 23) {
             return getMacForBuild();
         } else {
             try {
                 return MobRssiUtils.getWifiInfo(mContext).getMacAddress();
             } catch (Exception e) {
-                return "$unknown";
+                return BaseData.UNKNOWN_PARAM;
             }
 
         }

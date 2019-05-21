@@ -10,6 +10,10 @@ import android.view.View;
 
 import com.mobile.mobilehardware.MobileHardWareHelper;
 import com.mobile.mobilehardware.block.CpuInternals;
+import com.mobile.mobilehardware.camera.CameraHelper;
+import com.mobile.mobilehardware.emulator.EmulatorHelper;
+import com.mobile.mobilehardware.memory.MemoryHelper;
+import com.mobile.mobilehardware.network.NetWorkHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +31,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("MOB", MobileHardWareHelper.mobileInfo(getApplicationContext()).toString());
+//                Log.i("MOB", MobileHardWareHelper.mobileInfo(getApplicationContext()).toString());
+                Log.i("SSSSSSSSSSSSSSSSSSSSSS", NetWorkHelper.mobGetMobNetWork(getApplicationContext()).toString());
 //                Log.i("MOB_CPU", CpuInternals.getInstance().getCpuSampler().getCpuList().toString());
 //                CpuInternals.getInstance().getCpuSampler().stop();
-                Log.i("MOB_AUDIO",MobileHardWareHelper.audioInfo(getApplicationContext()).toString());
+//                Log.i("MOB_AUDIO",MobileHardWareHelper.audioInfo(getApplicationContext()).toString());
             }
         });
     }

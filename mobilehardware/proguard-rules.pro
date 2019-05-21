@@ -73,11 +73,13 @@
 -keep public class com.android.vending.licensing.ILicensingService
 
 
--keep class com.mobile.mobilehardware.MobileHardWareHelper{*;}
--keep class com.mobile.mobilehardware.block.CpuInternals{*;}
--keep class com.mobile.mobilehardware.block.CpuSampler{*;}
+#-keep class com.mobile.mobilehardware.MobileHardWareHelper{*;}
+#-keep class com.mobile.mobilehardware.block.CpuInternals{*;}
+#-keep class com.mobile.mobilehardware.block.CpuSampler{*;}
 
-
+-keep class com.mobile.mobilehardware.** {
+*;
+}
 
 -keepattributes InnerClasses
 -keepattributes EnclosingMethod

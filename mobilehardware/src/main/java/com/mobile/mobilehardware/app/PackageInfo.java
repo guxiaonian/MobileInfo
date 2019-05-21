@@ -1,8 +1,7 @@
-package com.mobile.mobilehardware.utils;
+package com.mobile.mobilehardware.app;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.util.Log;
@@ -12,35 +11,30 @@ import org.json.JSONObject;
 import java.security.MessageDigest;
 
 /**
- * Created by 谷闹年 on 2018/1/12.
+ * @author 谷闹年
+ * @date 2018/1/12
  */
-public class MobPackageUtils {
+class PackageInfo {
 
-    public static final String TAG = "MobPackageUtils";
+    private static final String TAG = PackageInfo.class.getSimpleName();
 
-    public static JSONObject getPackageInfo(Context context) {
-        JSONObject jsonObject = new JSONObject();
-        getPackageName(context, jsonObject);
-        return jsonObject;
-    }
-
-    private static void getPackageName(Context context, JSONObject jsonObject) {
-        PackageManager packageManager = context.getPackageManager();
-        PackageInfo packageInfo;
+    static JSONObject packageInfo(Context context) {
+        PackageBean packageBean = new PackageBean();
         try {
-            jsonObject.put("appName", packageManager.getApplicationLabel(context.getApplicationInfo()).toString());
-            packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+            PackageManager packageManager = context.getPackageManager();
+            packageBean.setAppName(packageManager.getApplicationLabel(context.getApplicationInfo()).toString());
+            android.content.pm.PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
             String packageName = packageInfo.packageName;
-            jsonObject.put("packageName", packageName);
-            jsonObject.put("packageSign", getSign(context, packageName));
-            jsonObject.put("appVersionCode", packageInfo.versionCode + "");
-            jsonObject.put("appVersionName", packageInfo.versionName);
-
-
+            packageBean.setPackageName(packageName);
+            packageBean.setPackageSign(getSign(context, packageName));
+            packageBean.setAppVersionCode(packageInfo.versionCode + "");
+            packageBean.setAppVersionName(packageInfo.versionName);
         } catch (Exception e) {
-            Log.i("TAG", e.toString());
+            Log.e(TAG, e.toString());
         }
+        return packageBean.toJSONObject();
     }
+
 
     @SuppressLint("PackageManagerGetSignatures")
     private static Signature[] getRawSignature(Context paramContext, String paramString) {
@@ -48,7 +42,7 @@ public class MobPackageUtils {
             return null;
         }
         PackageManager localPackageManager = paramContext.getPackageManager();
-        PackageInfo localPackageInfo;
+        android.content.pm.PackageInfo localPackageInfo;
         try {
             localPackageInfo = localPackageManager.getPackageInfo(paramString, PackageManager.GET_SIGNATURES);
             if (localPackageInfo == null) {
@@ -63,8 +57,7 @@ public class MobPackageUtils {
     private static String getSign(Context context, String packageName) {
         Signature[] arrayOfSignature = getRawSignature(context, packageName);
         if ((arrayOfSignature == null) || (arrayOfSignature.length == 0)) {
-
-            return "$unknown";
+            return null;
         }
         return getMessageDigest(arrayOfSignature[0].toByteArray());
     }
@@ -91,8 +84,7 @@ public class MobPackageUtils {
                 j++;
             }
         } catch (Exception e) {
-            Log.i("TAG", e.toString());
         }
-        return "$unknown";
+        return null;
     }
 }

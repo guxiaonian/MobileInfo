@@ -1,15 +1,11 @@
-package com.mobile.mobilehardware.utils;
+package com.mobile.mobilehardware.emulator;
 
-import android.Manifest;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -23,14 +19,15 @@ import java.util.Locale;
 
 
 /**
- * Created by gunaonian on 2018/3/12.
+ * @author gunaonian
+ * @date 2018/3/12
  */
 
-public class MobEmulatorUtils {
+class EmulatorInfo {
     /**
      * log TAG
      */
-    private static final String TAG = "MobEmulatorUtils";
+    private static final String TAG = EmulatorInfo.class.getSimpleName();
 
     /**
      * 判断是否是模拟器
@@ -73,32 +70,26 @@ public class MobEmulatorUtils {
      * @return true为模拟器
      */
 
-    public static JSONObject mobCheckEmulator(Context context) {
-        JSONObject jsonObject = new JSONObject();
+    static JSONObject checkEmulator(Context context) {
+        EmulatorBean emulatorBean = new EmulatorBean();
         try {
-            Boolean checkBuild = isEmulatorAbsoluly();
-            Boolean checkPkg = isPkgInstalled(context, "com.example.android.apis") && isPkgInstalled(context, "com.android.development");
-            Boolean checkPipes = checkPipes();
-            Boolean checkQEmuDriverFile = checkQEmuDriverFile("/proc/tty/drivers") || checkQEmuDriverFile("/proc/cpuinfo");
-            Boolean checkHasBlueTooth = notHasBlueTooth(context);
-            Boolean checkHasLightSensorManager = notHasLightSensorManager(context);
-            Boolean checkCpuInfo = readCpuInfo();
-            Boolean checkEmulator = checkBuild || checkPkg ||  checkPipes || checkQEmuDriverFile || checkHasBlueTooth || checkHasLightSensorManager || checkCpuInfo;
-            JSONObject jsonObject1 = new JSONObject();
-            jsonObject1.put("checkBuild", checkBuild + "");
-            jsonObject1.put("checkPkg", checkPkg + "");
-            jsonObject1.put("checkPipes", checkPipes + "");
-            jsonObject1.put("checkQEmuDriverFile", checkQEmuDriverFile + "");
-            jsonObject1.put("checkHasBlueTooth", checkHasBlueTooth + "");
-            jsonObject1.put("checkHasLightSensorManager", checkHasLightSensorManager + "");
-            jsonObject1.put("checkCpuInfo", checkCpuInfo + "");
-            jsonObject.put("checkEmulator", checkEmulator + "");
-            jsonObject.put("emulatorData", jsonObject1);
-
+            boolean checkBuild = isEmulatorAbsoluly();
+            boolean checkPkg = isPkgInstalled(context, "com.example.android.apis") && isPkgInstalled(context, "com.android.development");
+            boolean checkPipes = checkPipes();
+            boolean checkQEmuDriverFile = checkQEmuDriverFile("/proc/tty/drivers") || checkQEmuDriverFile("/proc/cpuinfo");
+            boolean checkHasLightSensorManager = notHasLightSensorManager(context);
+            boolean checkCpuInfo = readCpuInfo();
+            ;
+            emulatorBean.setCheckBuild(checkBuild + "");
+            emulatorBean.setCheckPkg(checkPkg + "");
+            emulatorBean.setCheckPipes(checkPipes + "");
+            emulatorBean.setCheckQEmuDriverFile(checkQEmuDriverFile + "");
+            emulatorBean.setCheckHasLightSensorManager(checkHasLightSensorManager + "");
+            emulatorBean.setCheckCpuInfo(checkCpuInfo + "");
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }
-        return jsonObject;
+        return emulatorBean.toJSONObject();
 
     }
 
@@ -143,50 +134,11 @@ public class MobEmulatorUtils {
         return null == sensor;
     }
 
-    /**
-     * 判断蓝牙是否有效来判断是否为模拟器
-     *
-     * @return true 为模拟器
-     */
-    private static boolean notHasBlueTooth(Context context) {
-        BluetoothAdapter ba = BluetoothAdapter.getDefaultAdapter();
-        if (ba == null) {
-            return true;
-        } else {
-            if (ContextCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED) {
-                return false;
-            } else {
-                // 如果有蓝牙不一定是有效的。获取蓝牙名称，若为null 则默认为模拟器
-                String name = ba.getName();
-                return TextUtils.isEmpty(name);
-            }
-        }
-
-    }
-//
-//    /**
-//     * /system/build.prop属性文件
-//     * ro.product.name ro.build
-//     *
-//     * @param name 属性值
-//     * @return systemProperty 的值
-//     */
-//    private static String getSystemProperty(String name) {
-//
-//        try {
-//            @SuppressLint("PrivateApi") Class systemClass = Class.forName("android.os.SystemProperties");
-//            Method method = systemClass.getMethod("get", new Class[]{String.class});
-//            return (String) method.invoke(systemClass, new Object[]{name});
-//        } catch (Exception e) {
-//            Log.i(TAG,e.toString());
-//        }
-//        return "NULL";
-//    }
 
     /**
      * qemu特有的驱动列表
      */
-    private static final String[] known_qemu_drivers = {
+    private static final String[] KNOWN_QEMU_DRIVERS = {
             "goldfish"
     };
 
@@ -196,19 +148,19 @@ public class MobEmulatorUtils {
      * @return true为模拟器
      */
     private static boolean checkQEmuDriverFile(String name) {
-        File driver_file = new File(name);
-        if (driver_file.exists() && driver_file.canRead()) {
+        File driverFile = new File(name);
+        if (driverFile.exists() && driverFile.canRead()) {
             byte[] data = new byte[1024];
             try {
-                InputStream inStream = new FileInputStream(driver_file);
+                InputStream inStream = new FileInputStream(driverFile);
                 inStream.read(data);
                 inStream.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            String driver_data = new String(data);
-            for (String known_qemu_driver : known_qemu_drivers) {
-                if (driver_data.contains(known_qemu_driver)) {
+            String driverData = new String(data);
+            for (String knownQemuDriver : KNOWN_QEMU_DRIVERS) {
+                if (driverData.contains(knownQemuDriver)) {
                     return true;
                 }
             }
@@ -219,7 +171,7 @@ public class MobEmulatorUtils {
     /**
      * 设备通道文件，只兼容了qemu模拟器
      */
-    private static final String[] known_pipes = {
+    private static final String[] KNOWN_PIPES = {
             "/dev/socket/qemud",
             "/dev/qemu_pipe"
     };
@@ -231,9 +183,9 @@ public class MobEmulatorUtils {
      * @return true为模拟器
      */
     private static boolean checkPipes() {
-        for (String pipes : known_pipes) {
-            File qemu_socket = new File(pipes);
-            if (qemu_socket.exists()) {
+        for (String pipes : KNOWN_PIPES) {
+            File qemuSocket = new File(pipes);
+            if (qemuSocket.exists()) {
                 return true;
             }
         }

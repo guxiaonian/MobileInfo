@@ -109,14 +109,91 @@ public class BaseData {
         public static final String IS_SCREEN_AUTO_CHANGE = "isScreenAutoChange";
     }
 
-    public static class Cpu{
-        public static final String CPU_NAME="cpuName";
-        public static final String CPU_FREQ="cpuFreq";
-        public static final String CPU_MAX_FREQ="cpuMaxFreq";
-        public static final String CPU_MIN_FREQ="cpuMinFreq";
-        public static final String CPU_HARDWARE="cpuHardware";
-        public static final String CPU_CORES="cpuCores";
-        public static final String CPU_TEMP="cpuTemp";
-        public static final String CPU_ABI="cpuAbi";
+    public static class Cpu {
+        public static final String CPU_NAME = "cpuName";
+        public static final String CPU_FREQ = "cpuFreq";
+        public static final String CPU_MAX_FREQ = "cpuMaxFreq";
+        public static final String CPU_MIN_FREQ = "cpuMinFreq";
+        public static final String CPU_HARDWARE = "cpuHardware";
+        public static final String CPU_CORES = "cpuCores";
+        public static final String CPU_TEMP = "cpuTemp";
+        public static final String CPU_ABI = "cpuAbi";
+    }
+
+    public static class Build {
+        public static final String BOARD = "board";
+        public static final String BOOTLOADER = "bootloader";
+        public static final String BRAND = "brand";
+        public static final String DEVICE = "device";
+        public static final String DISPLAY = "display";
+        public static final String FINGERPRINT = "fingerprint";
+        public static final String HARDWARE = "hardware";
+        public static final String HOST = "host";
+        public static final String ID = "id";
+        public static final String MANUFACTURER = "manufacturer";
+        public static final String MODEL = "model";
+        public static final String PRODUCT = "product";
+        public static final String RADIO = "radio";
+        public static final String SERIAL = "serial";
+        public static final String TAGS = "tags";
+        public static final String TIME = "time";
+        public static final String TYPE = "type";
+        public static final String USER = "user";
+        public static final String OS_VERSION = "osVersion";
+        public static final String RELEASE_VERSION = "releaseVersion";
+        public static final String CODE_NAME = "codeName";
+        public static final String INCREMENTAL = "incremental";
+        public static final String SDK_INT = "sdkInt";
+        public static final String PREVIEW_SDK_INT = "previewSdkInt";
+        public static final String SECURITY_PATCH = "securityPatch";
+    }
+
+    public static class App {
+        public static final String APP_NAME = "appName";
+        public static final String PACKAGE_NAME = "packageName";
+        public static final String PACKAGE_SIGN = "packageSign";
+        public static final String APP_VERSION_CODE = "appVersionCode";
+        public static final String APP_VERSION_NAME = "appVersionName";
+    }
+
+    public static class Camera {
+        public static final String CAMERA_INFO = "cameraInfo";
+
+        public static class CameraInfo {
+            public static final String CAMERA_FACING = "cameraFacing";
+            public static final String CAMERA_LEVEL = "cameraLevel";
+            public static final String CAMERA_FLASH_INFO = "cameraFlashInfo";
+            public static final String OUTPUT_FORMATS = "outputFormats";
+        }
+    }
+
+    public static class Memory {
+        public static final String RAM_MEMORY = "ramMemoryTotal";
+        public static final String RAM_AVAIL_MEMORY = "ramMemoryAvailable";
+        public static final String ROM_MEMORY_AVAILABLE = "romMemoryAvailable";
+        public static final String ROM_MEMORY_TOTAL = "romMemoryTotal";
+        public static final String SDCARD_MEMORY_AVAILABLE = "sdCardMemoryAvailable";
+        public static final String SDCARD_MEMORY_TOTAL = "sdCardMemoryTotal";
+    }
+
+    public static class Emulator {
+        public static final String CHECK_BUILD = "checkBuild";
+        public static final String CHECK_PKG = "checkPkg";
+        public static final String CHECK_PIPES = "checkPipes";
+        public static final String CHECK_QEMU_DRIVER_FILE = "checkQEmuDriverFile";
+        public static final String CHECK_HAS_LIGHT_SENSOR_MANAGER = "checkHasLightSensorManager";
+        public static final String CHECK_CPU_INFO = "checkCpuInfo";
+    }
+
+    public static class NetWork {
+        public static final String TYPE = "type";
+        public static final String NETWORK_AVAILABLE = "networkAvailable";
+        public static final String HAVE_INTENT = "haveIntent";
+        public static final String IS_FLIGHT_MODE = "isFlightMode";
+        public static final String IS_NFC_ENABLED = "isNFCEnabled";
+        public static final String IS_HOTSPOT_ENABLED = "isHotspotEnabled";
+        public static final String HOTSPOT_SSID = "hotspotSSID";
+        public static final String HOTSPOT_PWD = "hotspotPwd";
+        public static final String ENCRYPTION_TYPE = "encryptionType";
     }
 }
