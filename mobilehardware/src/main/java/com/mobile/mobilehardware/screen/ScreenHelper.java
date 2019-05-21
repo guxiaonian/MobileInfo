@@ -11,6 +11,11 @@ import org.json.JSONObject;
 
 public class ScreenHelper extends ScreenInfo{
 
+    /**
+     * 获取屏幕信息
+     * @param context
+     * @return
+     */
     public static JSONObject mobGetMobScreen(Context context) {
         return getMobScreen(context);
     }
