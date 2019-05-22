@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "1.2.0"
+version = "2.1.0"
 apply plugin: 'com.android.library'
 
 android {
@@ -12,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 120
-        versionName "1.2.0"
+        versionCode 210
+        versionName "2.1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -42,7 +42,7 @@ dependencies {
 def SDK_NAME = "mobile_hardware_android_v"
 def DATE = new SimpleDateFormat('yyyyMMdd_HHmm').format(new Date())
 def LIB_DIR = '../libs'
-def version="1.2.0"
+def version="2.1.0"
 
 task clearJar(type: Delete) {
     //删除旧包

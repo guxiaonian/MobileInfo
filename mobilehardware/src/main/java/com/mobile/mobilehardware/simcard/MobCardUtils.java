@@ -1,4 +1,4 @@
-package com.mobile.mobilehardware.utils;
+package com.mobile.mobilehardware.simcard;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -8,23 +8,24 @@ import android.support.v4.content.ContextCompat;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 
 import com.mobile.mobilehardware.exceptions.MobException;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Created by 谷闹年 on 2018/1/4.
+ * @author 谷闹年
+ * @date 2018/1/4
  */
 public class MobCardUtils {
 
-    private static final String TAG = "MobCardUtils";
+    private static final String TAG = MobCardUtils.class.getSimpleName();
 
 
     /**
@@ -34,12 +35,10 @@ public class MobCardUtils {
      * @return
      */
     @SuppressLint("HardwareIds")
-    public static JSONObject mobGetCardInfo(Context context) {
-
-        JSONObject jsonObject = new JSONObject();
+    public static void mobGetCardInfo(Context context, SimCardBean simCardBean) {
         TelephonyManager telephonyManager = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE));
         if (telephonyManager == null) {
-            return null;
+            return;
         }
         boolean sim1Ready = telephonyManager.getSimState() == TelephonyManager.SIM_STATE_READY;
         boolean sim2Ready = false;
@@ -55,53 +54,32 @@ public class MobCardUtils {
             }
 
         }
-        String sim1Imei = "$unknown";
-        String sim2Imei = "$unknown";
-        String sim1Imsi = "$unknown";
-        String sim2Imsi = "$unknown";
+        simCardBean.setSim1Ready(sim1Ready + "");
+        simCardBean.setSim2Ready(sim2Ready + "");
+        simCardBean.setIsTwoCard((sim1Ready && sim2Ready) + "");
+
+        String sim1Imei = null;
+        String sim2Imei = null;
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
-            sim1Imei = telephonyManager.getDeviceId();
-            sim1Imsi = telephonyManager.getSubscriberId();
             try {
                 sim1Imei = getSIMOperator(telephonyManager, "getDeviceIdGemini", 0);
                 sim2Imei = getSIMOperator(telephonyManager, "getDeviceIdGemini", 1);
-                sim1Imsi = getSIMOperator(telephonyManager, "getSubscriberIdGemini", 0);
-                sim2Imsi = getSIMOperator(telephonyManager, "getSubscriberIdGemini", 1);
             } catch (MobException e) {
                 try {
                     sim1Imei = getSIMOperator(telephonyManager, "getDeviceId", 0);
                     sim2Imei = getSIMOperator(telephonyManager, "getDeviceId", 1);
-                    sim1Imsi = getSIMOperator(telephonyManager, "getSubscriberId", 0);
-                    sim2Imsi = getSIMOperator(telephonyManager, "getSubscriberId", 1);
                 } catch (MobException e1) {
                     Log.i(TAG, e1.toString());
                 }
             }
 
         }
-
-        try {
-            jsonObject.put("sim1Ready", sim1Ready + "");
-            jsonObject.put("sim2Ready", sim2Ready + "");
-            jsonObject.put("isTwoCard", (sim1Ready && sim2Ready) + "");
-            jsonObject.put("isHaveCard", (sim1Ready || sim2Ready) + "");
-            jsonObject.put("sim1Imei", sim1Imei);
-            jsonObject.put("sim2Imei", sim2Imei);
-            jsonObject.put("sim1Imsi", sim1Imsi);
-            jsonObject.put("sim1ImsiOperator", getOperators(sim1Imsi));
-            jsonObject.put("sim2Imsi", sim2Imsi);
-            jsonObject.put("sim2ImsiOperator", getOperators(sim2Imsi));
-            int simSub = getDefaultDataSub(context);
-            jsonObject.put("simHaveFlowCard", simSub + "");
-            if (simSub == 1) {
-                jsonObject.put("simHaveFlowCardOperator", getOperators(sim2Imsi));
-            } else {
-                jsonObject.put("simHaveFlowCardOperator", getOperators(sim1Imsi));
-            }
-        } catch (JSONException e) {
-            Log.i(TAG, e.toString());
+        if(!TextUtils.isEmpty(sim1Imei)){
+            simCardBean.setSim1Imei(MidInfo.isNumeric(sim1Imei)?sim1Imei:null);
         }
-        return jsonObject;
+        if(!TextUtils.isEmpty(sim2Imei)){
+            simCardBean.setSim2Imei(MidInfo.isNumeric(sim2Imei)?sim2Imei:null);
+        }
     }
 
 
@@ -224,39 +202,6 @@ public class MobCardUtils {
         return imei;
     }
 
-    private static final String CM_MOBILE1 = "46000";
-    private static final String CM_MOBILE2 = "46002";
-    private static final String CM_MOBILE3 = "46004";
-    private static final String CM_MOBILE4 = "46007";
-    private static final String CU_MOBILE1 = "46001";
-    private static final String CU_MOBILE2 = "46006";
-    private static final String CU_MOBILE3 = "46009";
-    private static final String CT_MOBILE1 = "46003";
-    private static final String CT_MOBILE2 = "46005";
-    private static final String CT_MOBILE3 = "46011";
-
-    /**
-     * 获取网络运营商，CM是移动，CU是联通，CT是电信
-     *
-     * @param data str
-     * @return str
-     */
-    private static String getOperators(String data) {
-        if (data != null) {
-            if (data.startsWith(CM_MOBILE1) || data.startsWith(CM_MOBILE2) || data.startsWith(CM_MOBILE3) || data.startsWith(CM_MOBILE4)) {
-                return "CM";
-            } else if (data.startsWith(CU_MOBILE1) || data.startsWith(CU_MOBILE2) || data.startsWith(CU_MOBILE3)) {
-                return "CU";
-            } else if (data.startsWith(CT_MOBILE1) || data.startsWith(CT_MOBILE2) || data.startsWith(CT_MOBILE3)) {
-                return "CT";
-            } else {
-                return "$unknown";
-            }
-        } else {
-            return "$unknown";
-        }
-
-    }
 
 
 }

@@ -1,4 +1,4 @@
-package com.mobile.mobilehardware.utils;
+package com.mobile.mobilehardware.simcard;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,6 +19,7 @@ import java.util.List;
  * Created by 谷闹年 on 2018/8/6.
  * 手机卡工具类
  */
+@SuppressLint("MissingPermission")
 public class SimCardUtils {
     private static final String TAG = "SimCardUtils";
     private static volatile SimCardUtils mGopSimCardUtils;
@@ -100,6 +101,7 @@ public class SimCardUtils {
             this.deviceInfoTwo(list, telephonyManager);
         }
     }
+
 
     private void collectionSimInfoOldVersion(Context context) {
         TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);

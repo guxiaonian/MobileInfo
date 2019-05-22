@@ -196,4 +196,37 @@ public class BaseData {
         public static final String HOTSPOT_PWD = "hotspotPwd";
         public static final String ENCRYPTION_TYPE = "encryptionType";
     }
+
+    public static class Signal {
+        public static final String TYPE = "type";
+        public static final String BSSID = "bssid";
+        public static final String SSID = "ssid";
+        public static final String N_IP_ADDRESS = "ipAddress";
+        public static final String N_IP_ADDRESS_IPV6 = "ipAddressIpv6";
+        public static final String MAC_ADDRESS = "macAddress";
+        public static final String NETWORK_ID = "networkId";
+        public static final String LINK_SPEED = "linkSpeed";
+        public static final String RSSI = "rssi";
+        public static final String LEVEL = "level";
+        public static final String SUPPLICANT_STATE = "supplicantState";
+        public static final String PROXY = "proxy";
+        public static final String PROXY_ADDRESS = "proxyAddress";
+        public static final String PROXY_PORT = "proxyPort";
+    }
+
+    public static class SimCard {
+        public static final String SIM1_IMEI = "sim1Imei";
+        public static final String SIM2_IMEI = "sim2Imei";
+        public static final String SIM1_IMSI = "sim1Imsi";
+        public static final String SIM2_IMSI = "sim2Imsi";
+        public static final String SIM_SLOT_INDEX = "simSlotIndex";
+        public static final String MEID = "meid";
+        public static final String SIM1_IMSI_OPERATOR = "sim1ImsiOperator";
+        public static final String SIM2_IMSI_OPERATOR = "sim2ImsiOperator";
+        public static final String SIM1_READY = "sim1Ready";
+        public static final String SIM2_READY = "sim2Ready";
+        public static final String IS_TWO_CARD = "isTwoCard";
+        public static final String IS_HAVE_CARD = "isHaveCard";
+        public static final String OPERATOR = "operator";
+    }
 }

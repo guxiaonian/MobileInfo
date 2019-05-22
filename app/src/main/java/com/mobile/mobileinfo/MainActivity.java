@@ -14,6 +14,8 @@ import com.mobile.mobilehardware.camera.CameraHelper;
 import com.mobile.mobilehardware.emulator.EmulatorHelper;
 import com.mobile.mobilehardware.memory.MemoryHelper;
 import com.mobile.mobilehardware.network.NetWorkHelper;
+import com.mobile.mobilehardware.signal.SignalHelper;
+import com.mobile.mobilehardware.simcard.SimCardHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                Log.i("MOB", MobileHardWareHelper.mobileInfo(getApplicationContext()).toString());
-                Log.i("SSSSSSSSSSSSSSSSSSSSSS", NetWorkHelper.mobGetMobNetWork(getApplicationContext()).toString());
+                Log.i("SSSSSSSSSSSSSSSSSSSSSS", SimCardHelper.mobileSimInfo(getApplicationContext()).toString());
 //                Log.i("MOB_CPU", CpuInternals.getInstance().getCpuSampler().getCpuList().toString());
 //                CpuInternals.getInstance().getCpuSampler().stop();
 //                Log.i("MOB_AUDIO",MobileHardWareHelper.audioInfo(getApplicationContext()).toString());

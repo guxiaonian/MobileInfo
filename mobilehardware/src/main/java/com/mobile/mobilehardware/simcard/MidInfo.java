@@ -1,14 +1,10 @@
-package com.mobile.mobilehardware.utils;
+package com.mobile.mobilehardware.simcard;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
@@ -19,7 +15,7 @@ import java.util.regex.Pattern;
  * @author gunaonian
  * @date 2019-03-21
  */
-public class GtMobCardUtils {
+public class MidInfo {
 
     /**
      * mobile info
@@ -27,46 +23,19 @@ public class GtMobCardUtils {
      * @param context
      * @return
      */
-    public static JSONObject getImei(Context context) {
+    public static String getMeid(Context context) {
 
         TelephonyManager telephonyManager = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE));
-        String imei = null;
         String meid = null;
         try {
             if (telephonyManager != null) {
                 @SuppressLint("MissingPermission") String deviceId = telephonyManager.getDeviceId();
-//            LogUtils.e("6.0以下获取开始" + deviceId);
                 if (!TextUtils.isEmpty(deviceId)) {
-                    if (isNumeric(deviceId)) {
-                        imei = deviceId;
-                    } else {
+                    if (!isNumeric(deviceId)) {
                         meid = deviceId;
                     }
                 }
-
-                // IMEI 获取
                 try {
-                    //8.0之上
-                    Method getImei = telephonyManager.getClass().getDeclaredMethod("getImei");
-                    getImei.setAccessible(true);
-                    String imei8 = (String) getImei.invoke(telephonyManager);
-                    if (!TextUtils.isEmpty(imei8)) {
-                        if (isNumeric(imei8)) {
-                            imei = imei8;
-                        }
-                    }
-//                LogUtils.e("8.0以上获取的IMEI" + imei);
-                } catch (Exception e) {
-                    //6.0-8.0
-                    String result = chooseImeiOrMeid(telephonyManager, true);
-                    if (!TextUtils.isEmpty(result)) {
-                        imei = result;
-                    }
-                }
-
-                //MEID 获取
-                try {
-                    //8.0之上
                     Method getMeid = telephonyManager.getClass().getDeclaredMethod("getMeid");
                     getMeid.setAccessible(true);
                     String meid8 = (String) getMeid.invoke(telephonyManager);
@@ -75,9 +44,7 @@ public class GtMobCardUtils {
                             meid = meid8;
                         }
                     }
-//                LogUtils.e("8.0以上获取的MEID" + meid);
                 } catch (Exception e) {
-                    //6.0-8.0
                     String result = chooseImeiOrMeid(telephonyManager, false);
                     if (!TextUtils.isEmpty(result)) {
                         meid = result;
@@ -87,19 +54,7 @@ public class GtMobCardUtils {
         } catch (Exception e) {
 
         }
-
-        JSONObject jsonObject = new JSONObject();
-        try {
-            String endImei = TextUtils.isEmpty(imei) ? "$unknown" : imei;
-            String endMeid = TextUtils.isEmpty(meid) ? "$unknown" : meid;
-//            LogUtils.e("最终获取的IMEI" + endImei);
-//            LogUtils.e("最终获取的MEID" + endMeid);
-            jsonObject.put("a", endImei);
-            jsonObject.put("b", endMeid);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jsonObject;
+        return meid;
 
     }
 
@@ -123,8 +78,6 @@ public class GtMobCardUtils {
             } catch (Exception e2) {
             }
         }
-//        LogUtils.e("6.0-8.0获取的IMEI0" + imei0);
-//        LogUtils.e("6.0-8.0获取的IMEI1" + imei1);
         return verifyImeiOrMeid(imei0, imei1, isImei);
     }
 
@@ -144,7 +97,7 @@ public class GtMobCardUtils {
 
     private static Pattern pattern = Pattern.compile("[0-9]*");
 
-    private static boolean isNumeric(String str) {
+    public static boolean isNumeric(String str) {
 
         return pattern.matcher(str).matches();
     }

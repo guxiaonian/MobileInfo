@@ -1,29 +1,21 @@
 package com.mobile.mobilehardware.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Log;
 
 import com.mobile.mobilehardware.base.BaseData;
 
-import java.lang.reflect.Method;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.Enumeration;
 
 /**
- *
  * @author 谷闹年
  * @date 2018/1/3
  */
-public class MobDataUtils {
-    private static final String TAG = "MobDataUtils";
+public class DataUtils {
+    private static final String TAG = "DataUtils";
 
     /**
      * 拿到具体的网络类型
@@ -106,84 +98,6 @@ public class MobDataUtils {
             return true;
         }
         return false;
-    }
-
-    /**
-     * 是否有数据网络接入
-     *
-     * @param context
-     * @return
-     */
-    public static boolean haveIntent(Context context) {
-        boolean mobileDataEnabled = false;
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (cm == null) {
-            return false;
-        }
-        try {
-            Class cmClass = Class.forName(cm.getClass().getName());
-            Method method = cmClass.getDeclaredMethod("getMobileDataEnabled");
-            method.setAccessible(true);
-            // get the setting for "mobile data"
-            mobileDataEnabled = (Boolean) method.invoke(cm);
-        } catch (Exception e) {
-            // Some problem accessible private API
-            // TODO do whatever error handling you want here
-        }
-        return mobileDataEnabled;
-    }
-
-    /**
-     * >=22的sdk则进行如下算法 mac
-     *
-     * @return
-     */
-    private static String getMacForBuild() {
-        try {
-            for (
-                    Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-                    networkInterfaces.hasMoreElements(); ) {
-                NetworkInterface networkInterface = networkInterfaces.nextElement();
-                if ("wlan0".equals(networkInterface.getName())) {
-                    byte[] hardwareAddress = networkInterface.getHardwareAddress();
-                    if (hardwareAddress == null || hardwareAddress.length == 0) {
-                        continue;
-                    }
-                    StringBuilder buf = new StringBuilder();
-                    for (byte b : hardwareAddress) {
-                        buf.append(String.format("%02X:", b));
-                    }
-                    if (buf.length() > 0) {
-                        buf.deleteCharAt(buf.length() - 1);
-                    }
-                    return buf.toString();
-                }
-            }
-        } catch (SocketException e) {
-            Log.i(TAG, e.toString());
-        }
-        return BaseData.UNKNOWN_PARAM;
-    }
-
-
-    /**
-     * get macAddress
-     *
-     * @param mContext
-     * @return
-     */
-    @SuppressLint("HardwareIds")
-    public static String getMac(Context mContext) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            return getMacForBuild();
-        } else {
-            try {
-                return MobRssiUtils.getWifiInfo(mContext).getMacAddress();
-            } catch (Exception e) {
-                return BaseData.UNKNOWN_PARAM;
-            }
-
-        }
     }
 
 }

@@ -2,6 +2,7 @@ package com.mobile.mobilehardware.network;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.nfc.NfcAdapter;
@@ -10,7 +11,7 @@ import android.provider.Settings;
 import android.util.Log;
 
 
-import com.mobile.mobilehardware.utils.MobDataUtils;
+import com.mobile.mobilehardware.utils.DataUtils;
 
 import org.json.JSONObject;
 
@@ -29,9 +30,9 @@ class NetWorkInfo {
     static JSONObject getMobNetWork(Context context) {
         NetWorkBean netWorkBean = new NetWorkBean();
         try {
-            netWorkBean.setType(MobDataUtils.networkTypeALL(context));
-            netWorkBean.setNetworkAvailable(MobDataUtils.isNetworkAvailable(context) + "");
-            netWorkBean.setHaveIntent(MobDataUtils.haveIntent(context) + "");
+            netWorkBean.setType(DataUtils.networkTypeALL(context));
+            netWorkBean.setNetworkAvailable(DataUtils.isNetworkAvailable(context) + "");
+            netWorkBean.setHaveIntent(haveIntent(context) + "");
             netWorkBean.setIsFlightMode(getAirplaneMode(context) + "");
             netWorkBean.setIsNFCEnabled(hasNfc(context) + "");
             netWorkBean.setIsHotspotEnabled(isWifiApEnabled(context) + "");
@@ -91,34 +92,6 @@ class NetWorkInfo {
         return false;
     }
 
-    /**
-     * 获取当前热点的配置参数
-     *
-     * @return
-     */
-    private static void getHotPotParams(Context context, JSONObject jsonObject) {
-
-        try {
-            WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-            if (mWifiManager == null) {
-                return;
-            }
-            WifiConfiguration config = getHotPotConfig(mWifiManager);
-            if (config == null) {
-                return;
-            }
-            if (config.SSID != null && !"".equals(config.SSID)) {
-                jsonObject.put("hotspotSSID", config.SSID);
-            }
-            if (config.preSharedKey != null && !"".equals(config.preSharedKey)) {
-                jsonObject.put("hotspotPwd", config.preSharedKey);
-            }
-            jsonObject.put("encryptionType", config.allowedKeyManagement.get(4) ? "WPA2_PSK" : "NONE");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
     /**
      * 获取当前热点配置
@@ -134,6 +107,31 @@ class NetWorkInfo {
             return null;
         }
 
+    }
+
+    /**
+     * 是否有数据网络接入
+     *
+     * @param context
+     * @return
+     */
+    public static boolean haveIntent(Context context) {
+        boolean mobileDataEnabled = false;
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) {
+            return false;
+        }
+        try {
+            Class cmClass = Class.forName(cm.getClass().getName());
+            Method method = cmClass.getDeclaredMethod("getMobileDataEnabled");
+            method.setAccessible(true);
+            // get the setting for "mobile data"
+            mobileDataEnabled = (Boolean) method.invoke(cm);
+        } catch (Exception e) {
+            // Some problem accessible private API
+            // TODO do whatever error handling you want here
+        }
+        return mobileDataEnabled;
     }
 
 }

@@ -1,13 +1,13 @@
-package com.mobile.mobilehardware.utils;
+package com.mobile.mobilehardware.signal;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.telephony.CellInfo;
 import android.telephony.CellInfoCdma;
 import android.telephony.CellInfoGsm;
@@ -21,7 +21,9 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import org.json.JSONException;
+import com.mobile.mobilehardware.base.BaseData;
+import com.mobile.mobilehardware.utils.DataUtils;
+
 import org.json.JSONObject;
 
 import java.net.Inet4Address;
@@ -33,14 +35,13 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- *
  * @author 谷闹年
  * @date 2018/1/3
  */
-public class MobRssiUtils {
+class SignalInfo {
 
     private static final String WIFI = "WIFI";
-    private static final String TAG = MobRssiUtils.class.getSimpleName();
+    private static final String TAG = SignalInfo.class.getSimpleName();
 
 
     /**
@@ -49,21 +50,21 @@ public class MobRssiUtils {
      * @param context
      * @return
      */
-    public static JSONObject mobGetNetRssi(Context context) {
-        if (MobDataUtils.isNetworkAvailable(context)) {
-            String netWorkType = MobDataUtils.networkTypeALL(context);
+    static JSONObject getNetRssi(Context context) {
+        SignalBean signalBean = new SignalBean();
+        try {
+            String netWorkType = DataUtils.networkTypeALL(context);
+            signalBean.setType(netWorkType);
             if (WIFI.equals(netWorkType)) {
-                return getDetailsWifiInfo(context);
+                getDetailsWifiInfo(context, signalBean);
             } else {
-                if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    return null;
-                } else {
-                    return getMobileDbm(context, netWorkType);
-                }
+                getMobileDbm(context, signalBean);
             }
-        } else {
-            return null;
+        } catch (Exception e) {
+            Log.e(TAG, e.toString());
         }
+        return signalBean.toJSONObject();
+
 
     }
 
@@ -71,22 +72,23 @@ public class MobRssiUtils {
      * mobile
      *
      * @param context
-     * @param type
      * @return
      */
-    private static JSONObject getMobileDbm(Context context, String type) {
+    private static void getMobileDbm(Context context, SignalBean signalBean) {
         int dbm = -1;
         int level = 0;
-        JSONObject jsonObject = new JSONObject();
         try {
+            signalBean.setnIpAddress(getNetIPV4());
+            signalBean.setnIpAddressIpv6(getNetIP());
+            signalBean.setMacAddress(getMac(context));
             TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             List<CellInfo> cellInfoList;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    return null;
+                    return;
                 }
                 if (tm == null) {
-                    return null;
+                    return;
                 }
                 cellInfoList = tm.getAllCellInfo();
                 if (null != cellInfoList) {
@@ -116,22 +118,11 @@ public class MobRssiUtils {
                     }
                 }
             }
-            jsonObject.put("type", type);
-            jsonObject.put("BSSID", "$unknown");
-            jsonObject.put("SSID", "$unknown");
-            jsonObject.put("nIpAddress", getNetIPV4());
-            jsonObject.put("nIpAddressIpv6", getNetIP());
-            jsonObject.put("MacAddress", MobDataUtils.getMac(context));
-            jsonObject.put("NetworkId", "$unknown");
-            jsonObject.put("LinkSpeed", "$unknown");
-            jsonObject.put("Rssi", dbm + "");
-            jsonObject.put("level", level + "");
-            isWifiProxy(context, jsonObject);
-            jsonObject.put("SupplicantState", "$unknown");
+            signalBean.setRssi(dbm + "");
+            signalBean.setLevel(level + "");
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }
-        return jsonObject;
     }
 
     private static String getNetIPV4() {
@@ -140,7 +131,7 @@ public class MobRssiUtils {
                 NetworkInterface intf = en.nextElement();
                 for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
-                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address && !inetAddress.isLinkLocalAddress()) {
                         return inetAddress.getHostAddress();
                     }
                 }
@@ -157,7 +148,7 @@ public class MobRssiUtils {
                 NetworkInterface intf = en.nextElement();
                 for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
-                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet6Address) {
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet6Address && !inetAddress.isLinkLocalAddress()) {
                         return inetAddress.getHostAddress();
                     }
                 }
@@ -197,7 +188,7 @@ public class MobRssiUtils {
      * @param mContext
      * @return
      */
-    static WifiInfo getWifiInfo(Context mContext) {
+    private static WifiInfo getWifiInfo(Context mContext) {
         WifiManager mWifiManager = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (mWifiManager != null) {
             return mWifiManager.getConnectionInfo();
@@ -211,13 +202,12 @@ public class MobRssiUtils {
      * @param context
      * @return
      */
-    private static void isWifiProxy(Context context, JSONObject jsonObject) {
+    private static void isWifiProxy(Context context, SignalBean signalBean) {
 // 是否大于等于4.0
-        JSONObject jsonObject1 = new JSONObject();
-        final boolean IS_ICS_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
+        final boolean isIcsOrLater = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
         String proxyAddress;
         int proxyPort;
-        if (IS_ICS_OR_LATER) {
+        if (isIcsOrLater) {
             proxyAddress = System.getProperty("http.proxyHost");
             String portStr = System.getProperty("http.proxyPort");
             proxyPort = Integer.parseInt((portStr != null ? portStr : "-1"));
@@ -225,18 +215,14 @@ public class MobRssiUtils {
             proxyAddress = android.net.Proxy.getHost(context);
             proxyPort = android.net.Proxy.getPort(context);
         }
-        try {
-            if ((!TextUtils.isEmpty(proxyAddress)) && (proxyPort != -1)) {
-                jsonObject.put("proxy", "true");
-                jsonObject1.put("proxyAddress", proxyAddress);
-                jsonObject1.put("proxyPort", proxyPort + "");
-                jsonObject.put("proxyData", jsonObject1);
-            } else {
-                jsonObject.put("proxy", "false");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if ((!TextUtils.isEmpty(proxyAddress)) && (proxyPort != -1)) {
+            signalBean.setProxy("true");
+            signalBean.setProxyAddress(proxyAddress);
+            signalBean.setProxyPort(proxyPort + "");
+        } else {
+            signalBean.setProxy("false");
         }
+
 
     }
 
@@ -246,30 +232,79 @@ public class MobRssiUtils {
      * @param mContext
      * @return
      */
-    private static JSONObject getDetailsWifiInfo(Context mContext) {
-        JSONObject jsonObject = new JSONObject();
+    private static void getDetailsWifiInfo(Context mContext, SignalBean signalBean) {
         try {
             WifiInfo mWifiInfo = getWifiInfo(mContext);
             int ip = mWifiInfo.getIpAddress();
             String strIp = "" + (ip & 0xFF) + "." + ((ip >> 8) & 0xFF) + "." + ((ip >> 16) & 0xFF) + "." + ((ip >> 24) & 0xFF);
-            jsonObject.put("type", "WIFI");
-            jsonObject.put("BSSID", mWifiInfo.getBSSID());
-            jsonObject.put("SSID", mWifiInfo.getSSID().replace("\"", ""));
-            jsonObject.put("nIpAddress", strIp);
-            jsonObject.put("MacAddress", MobDataUtils.getMac(mContext));
-            jsonObject.put("NetworkId", mWifiInfo.getNetworkId() + "");
-            jsonObject.put("LinkSpeed", mWifiInfo.getLinkSpeed() + "Mbps");
+            signalBean.setBssid(mWifiInfo.getBSSID());
+            signalBean.setSsid(mWifiInfo.getSSID().replace("\"", ""));
+            signalBean.setnIpAddress(strIp);
+            signalBean.setMacAddress(getMac(mContext));
+            signalBean.setNetworkId(mWifiInfo.getNetworkId() + "");
+            signalBean.setLinkSpeed(mWifiInfo.getLinkSpeed() + "Mbps");
             int rssi = mWifiInfo.getRssi();
-            jsonObject.put("Rssi", rssi + "");
-            jsonObject.put("level", calculateSignalLevel(rssi) + "");
-            isWifiProxy(mContext, jsonObject);
-            jsonObject.put("SupplicantState", mWifiInfo.getSupplicantState());
+            signalBean.setRssi(rssi + "");
+            signalBean.setLevel(calculateSignalLevel(rssi) + "");
+            isWifiProxy(mContext, signalBean);
+            signalBean.setSupplicantState(mWifiInfo.getSupplicantState() + "");
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }
-        return jsonObject;
 
     }
 
 
+    /**
+     * >=22的sdk则进行如下算法 mac
+     *
+     * @return
+     */
+    private static String getMacForBuild() {
+        try {
+            for (
+                    Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                    networkInterfaces.hasMoreElements(); ) {
+                NetworkInterface networkInterface = networkInterfaces.nextElement();
+                if ("wlan0".equals(networkInterface.getName())) {
+                    byte[] hardwareAddress = networkInterface.getHardwareAddress();
+                    if (hardwareAddress == null || hardwareAddress.length == 0) {
+                        continue;
+                    }
+                    StringBuilder buf = new StringBuilder();
+                    for (byte b : hardwareAddress) {
+                        buf.append(String.format("%02X:", b));
+                    }
+                    if (buf.length() > 0) {
+                        buf.deleteCharAt(buf.length() - 1);
+                    }
+                    return buf.toString();
+                }
+            }
+        } catch (SocketException e) {
+            Log.i(TAG, e.toString());
+        }
+        return BaseData.UNKNOWN_PARAM;
+    }
+
+
+    /**
+     * get macAddress
+     *
+     * @param mContext
+     * @return
+     */
+    @SuppressLint("HardwareIds")
+    public static String getMac(Context mContext) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return getMacForBuild();
+        } else {
+            try {
+                return getWifiInfo(mContext).getMacAddress();
+            } catch (Exception e) {
+                return BaseData.UNKNOWN_PARAM;
+            }
+
+        }
+    }
 }
