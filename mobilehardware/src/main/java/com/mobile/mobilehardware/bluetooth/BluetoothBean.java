@@ -2,7 +2,6 @@ package com.mobile.mobilehardware.bluetooth;
 
 import android.util.Log;
 
-import com.mobile.mobilehardware.band.BandBean;
 import com.mobile.mobilehardware.base.BaseBean;
 import com.mobile.mobilehardware.base.BaseData;
 
@@ -83,7 +82,7 @@ public class BluetoothBean extends BaseBean {
         return super.toJSONObject();
     }
 
-    public static class DeviceBean extends BandBean {
+    public static class DeviceBean extends BaseBean {
 
         /**
          * 连接手机的蓝牙地址

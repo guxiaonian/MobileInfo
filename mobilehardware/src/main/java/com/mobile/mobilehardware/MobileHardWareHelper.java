@@ -41,7 +41,7 @@ import java.util.List;
 
 public class MobileHardWareHelper {
 
-    private static final String VERSION = "2.1.0";
+    private static final String VERSION = "2.1.1";
     private static final String TAG = "MobileHardWareHelper";
 
     public static String getMobVersion() {
