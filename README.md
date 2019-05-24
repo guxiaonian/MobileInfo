@@ -17,7 +17,7 @@
 # 依赖
 
 ```gradle
-implementation 'fairy.easy:mobilehardware:2.1.1'
+implementation 'fairy.easy:mobilehardware:2.1.0'
 
 ```
 
