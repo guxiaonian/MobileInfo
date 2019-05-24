@@ -11,14 +11,16 @@ sudo: false
 android:
   components:
   - tools
-  - build-tools-27.0.0
+  - build-tools-27.0.3
   - android-27
   - extra-android-m2repository
   - extra-android-support
 
-
 before_install:
 - chmod +x gradlew
+- mkdir "$ANDROID_HOME/licenses" || true
+- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+- echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -30,4 +32,12 @@ cache:
   - $HOME/.android/build-cache
 
 script:
-- ./gradlew build
+- ./gradlew assembleRelease
+
+#deploy:
+#  provider: releases
+#  api_key: 94975673abc28e08ee2d49667aa5fc4d5b68cc14
+#  file: app/build/outputs/apk/app-release.apk
+#  skip_cleanup: true
+#  on:
+#    tags: true
