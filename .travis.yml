@@ -15,22 +15,19 @@ android:
   - android-27
   - extra-android-m2repository
   - extra-android-support
-  licenses:
-  - 'android-sdk-preview-license-52d11cd2'
-  - 'android-sdk-license-.+'
-  - 'google-gdk-license-.+'
+
 
 before_install:
 - chmod +x gradlew
 
-script:
-- ./gradlew assembleRelease
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.android/build-cache
 
-deploy:
-  provider: releases
-  api_key:
-    secure: 94975673abc28e08ee2d49667aa5fc4d5b68cc14
-  file: app/build/outputs/apk/app-release.apk
-  skip_cleanup: true
-  on:
-    tags: true
+script:
+- ./gradlew build
