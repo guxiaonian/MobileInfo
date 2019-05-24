@@ -1,6 +1,17 @@
+<div align="center">
 # MobileInfo
 
-获取`Android`手机硬件的全部信息
+**获取`Android`手机硬件的全部信息**
+
+
+[![GitHub issues](https://img.shields.io/github/issues/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/issues)
+[![GitHub forks](https://img.shields.io/github/forks/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/network)
+[![GitHub stars](https://img.shields.io/github/stars/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/stargazers)
+[![GitHub license](https://img.shields.io/github/license/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo)
+[![Travis CI](https://travis-ci.org/guxiaonian/MobileInfo.svg?branch=master)](https://travis-ci.org/guxiaonian/MobileInfo)
+
+</div>
+<br>
 
 # 依赖
 
