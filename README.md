@@ -14,16 +14,95 @@
 </div>
 <br>
 
+Table of Contents
+=================
+
+   * [依赖](#依赖)
+   * [数据信息](#数据信息)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/app">App信息获取</a>](#app信息获取)
+                  * [代码示例](#代码示例)
+                  * [数据格式](#数据格式)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/applist">App安装列表获取</a>](#app安装列表获取)
+                  * [代码示例](#代码示例-1)
+                  * [数据格式](#数据格式-1)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/audio">音量数据获取</a>](#音量数据获取)
+                  * [代码示例](#代码示例-2)
+                  * [数据格式](#数据格式-2)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/band">版本数据获取</a>](#版本数据获取)
+                  * [代码示例](#代码示例-3)
+                  * [数据格式](#数据格式-3)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/battery">电池数据获取</a>](#电池数据获取)
+                  * [代码示例](#代码示例-4)
+                  * [数据格式](#数据格式-4)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/block">Cpu实时数据获取</a>](#cpu实时数据获取)
+                  * [代码示例](#代码示例-5)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/bluetooth">蓝牙数据获取</a>](#蓝牙数据获取)
+                  * [代码示例](#代码示例-6)
+                  * [数据格式](#数据格式-5)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/build">系统Build数据获取</a>](#系统build数据获取)
+                  * [代码示例](#代码示例-7)
+                  * [数据格式](#数据格式-6)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/camera">摄像头数据获取</a>](#摄像头数据获取)
+                  * [代码示例](#代码示例-8)
+                  * [数据格式](#数据格式-7)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/cpu">Cpu数据获取</a>](#cpu数据获取)
+                  * [代码示例](#代码示例-9)
+                  * [数据格式](#数据格式-8)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/debug">调试数据获取</a>](#调试数据获取)
+                  * [代码示例](#代码示例-10)
+                  * [数据格式](#数据格式-9)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/dns">host数据获取</a>](#host数据获取)
+                  * [代码示例](#代码示例-11)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/emulator">模拟器数据获取</a>](#模拟器数据获取)
+                  * [代码示例](#代码示例-12)
+                  * [数据格式](#数据格式-10)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/hook">hook数据获取</a>](#hook数据获取)
+                  * [代码示例](#代码示例-13)
+                  * [数据格式](#数据格式-11)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/local">本地数据获取</a>](#本地数据获取)
+                  * [代码示例](#代码示例-14)
+                  * [数据格式](#数据格式-12)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/memory">内存数据获取</a>](#内存数据获取)
+                  * [代码示例](#代码示例-15)
+                  * [数据格式](#数据格式-13)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/moreopen">多开数据获取</a>](#多开数据获取)
+                  * [代码示例](#代码示例-16)
+                  * [数据格式](#数据格式-14)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/network">网络数据获取</a>](#网络数据获取)
+                  * [代码示例](#代码示例-17)
+                  * [数据格式](#数据格式-15)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/root">root数据获取</a>](#root数据获取)
+                  * [代码示例](#代码示例-18)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/screen">屏幕数据获取</a>](#屏幕数据获取)
+                  * [代码示例](#代码示例-19)
+                  * [数据格式](#数据格式-16)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/setting">设置数据获取</a>](#设置数据获取)
+                  * [代码示例](#代码示例-20)
+                  * [数据格式](#数据格式-17)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/signal">信号数据获取</a>](#信号数据获取)
+                  * [代码示例](#代码示例-21)
+                  * [数据格式](#数据格式-18)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/simcard">手机卡数据获取</a>](#手机卡数据获取)
+                  * [代码示例](#代码示例-22)
+                  * [数据格式](#数据格式-19)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/stack">堆栈数据获取</a>](#堆栈数据获取)
+                  * [代码示例](#代码示例-23)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/uniqueid">唯一ID数据获取</a>](#唯一id数据获取)
+                  * [代码示例](#代码示例-24)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/useragent">UA数据获取</a>](#ua数据获取)
+                  * [代码示例](#代码示例-25)
+         * [<a href="https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/xposed">Xposed数据获取</a>](#xposed数据获取)
+                  * [代码示例](#代码示例-26)
+                  * [数据格式](#数据格式-20)
+
 # 依赖
 
 ```gradle
-implementation 'fairy.easy:mobilehardware:2.1.0'
+implementation 'fairy.easy:mobilehardware:2.2.0'
 
 ```
 
 # 数据信息
-
-[TOC]
 
 ### [App信息获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/app)
 
