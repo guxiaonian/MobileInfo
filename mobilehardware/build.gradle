@@ -1,7 +1,8 @@
 import java.text.SimpleDateFormat
+
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "2.1.1"
+version = "2.2.0"
 apply plugin: 'com.android.library'
 
 android {
@@ -12,8 +13,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 211
-        versionName "2.1.1"
+        versionCode 220
+        versionName "2.2.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -42,7 +43,7 @@ dependencies {
 def SDK_NAME = "mobile_hardware_android_v"
 def DATE = new SimpleDateFormat('yyyyMMdd_HHmm').format(new Date())
 def LIB_DIR = '../libs'
-def version="2.1.1"
+def version = "2.2.0"
 
 task clearJar(type: Delete) {
     //删除旧包
@@ -53,7 +54,7 @@ task clearJar(type: Delete) {
 
 task makeJar(type: org.gradle.api.tasks.bundling.Jar) {
     //jar 包名称
-    archiveName = SDK_NAME + version+'_' + DATE + '.jar'
+    archiveName = SDK_NAME + version + '_' + DATE + '.jar'
     //指定jar 存放目录
     destinationDir = file(LIB_DIR)
     //从哪里打包class文件
@@ -78,7 +79,7 @@ install {
             project {
                 packaging 'jar'
                 // Add your description here
-                name 'Android' 	//项目描述
+                name 'Android'    //项目描述
                 url siteUrl
                 // Set your license
                 licenses {
@@ -89,7 +90,7 @@ install {
                 }
                 developers {
                     developer {
-                        id 'mobile'		//填写的一些基本信息
+                        id 'mobile'        //填写的一些基本信息
                         name 'mobile'
                         email 'gunaonian@geetest.com'
                     }
@@ -121,7 +122,7 @@ artifacts {
 }
 Properties properties = new Properties()
 boolean isHasFile = false
-if (project.rootProject.findProject('local.properties') != null){
+if (project.rootProject.file('local.properties') != null) {
     isHasFile = true
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
 }
@@ -131,7 +132,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "mobile"	//发布到JCenter上的项目名字
+        name = "mobile"    //发布到JCenter上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

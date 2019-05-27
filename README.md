@@ -23,6 +23,8 @@ implementation 'fairy.easy:mobilehardware:2.1.1'
 
 # 数据信息
 
+[TOC]
+
 ### [App信息获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/app)
 
 ###### 代码示例
