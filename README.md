@@ -4,7 +4,7 @@
 
 **获取`Android`手机硬件的全部信息**
 
-[(https://img.shields.io/bintray/v/maven/guxiaonian/maven/mobile.svg)]
+[![bintray](https://img.shields.io/bintray/v/maven/guxiaonian/maven/mobile.svg)]()
 [![GitHub issues](https://img.shields.io/github/issues/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/issues)
 [![GitHub forks](https://img.shields.io/github/forks/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/network)
 [![GitHub stars](https://img.shields.io/github/stars/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/stargazers)
