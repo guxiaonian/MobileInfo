@@ -15,7 +15,7 @@ class BuildInfo {
 
     private static final String TAG = BuildInfo.class.getSimpleName();
 
-    @SuppressLint("HardwareIds")
+    @SuppressLint({"HardwareIds", "MissingPermission"})
     static JSONObject getBuildInfo() {
         BuildBean buildBean = new BuildBean();
         try {
@@ -32,7 +32,15 @@ class BuildInfo {
             buildBean.setModel(Build.MODEL);
             buildBean.setProduct(Build.PRODUCT);
             buildBean.setRadio(Build.getRadioVersion());
-            buildBean.setSerial(Build.SERIAL);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                try {
+                    buildBean.setSerial(Build.getSerial());
+                } catch (Exception ignore) {
+                    Log.e(TAG, ignore.toString());
+                }
+            } else {
+                buildBean.setSerial(Build.SERIAL);
+            }
             buildBean.setTags(Build.TAGS);
             buildBean.setTime(Build.TIME + "");
             buildBean.setType(Build.TYPE);

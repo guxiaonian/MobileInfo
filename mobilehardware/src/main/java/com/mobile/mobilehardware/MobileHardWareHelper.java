@@ -8,6 +8,7 @@ import com.mobile.mobilehardware.audio.AudioHelper;
 import com.mobile.mobilehardware.band.BandHelper;
 import com.mobile.mobilehardware.bluetooth.BluetoothHelper;
 import com.mobile.mobilehardware.build.BuildHelper;
+import com.mobile.mobilehardware.sdcard.SDCardHelper;
 import com.mobile.mobilehardware.simcard.SimCardHelper;
 import com.mobile.mobilehardware.xposed.XposedHookHelper;
 import com.mobile.mobilehardware.root.RootHelper;
@@ -41,7 +42,7 @@ import java.util.List;
 
 public class MobileHardWareHelper {
 
-    private static final String VERSION = "2.2.0";
+    private static final String VERSION = "2.2.1";
     private static final String TAG = "MobileHardWareHelper";
 
     public static String getMobVersion() {
@@ -301,5 +302,12 @@ public class MobileHardWareHelper {
         return AudioHelper.mobGetMobAudio(context);
     }
 
-
+    /**
+     * 获取SDCard信息
+     *
+     * @return
+     */
+    public static JSONObject getSDCardInfo() {
+        return SDCardHelper.mobGetSdCard();
+    }
 }

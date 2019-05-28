@@ -3,7 +3,6 @@ package com.mobile.mobilehardware.cpu;
 import android.os.Build;
 import android.util.Log;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -16,31 +15,30 @@ import java.io.InputStream;
 import java.util.regex.Pattern;
 
 /**
- *
  * @author 谷闹年
  * @date 2018/1/5
  */
- class CpuInfo {
+class CpuInfo {
     private static final String TAG = CpuInfo.class.getSimpleName();
 
-     static JSONObject getCpuInfo() {
-        JSONObject jsonObject = new JSONObject();
+    static JSONObject getCpuInfo() {
+        CpuBean cpuBean = new CpuBean();
         try {
-            jsonObject.put("cpuName", getCpuName());
-            jsonObject.put("cpuFreq", getCurCpuFreq() + "KHZ");
-            jsonObject.put("cpuMaxFreq", getMaxCpuFreq() + "KHZ");
-            jsonObject.put("cpuMinFreq", getMinCpuFreq() + "KHZ");
-            jsonObject.put("cpuHardware", Build.HARDWARE);
-            jsonObject.put("cpuCores", getHeart() + "");
-            jsonObject.put("cpuTemp", getCpuTemp() + "℃");
-            putCpuAbi(jsonObject);
-        } catch (JSONException e) {
+            cpuBean.setCpuName(getCpuName());
+            cpuBean.setCpuFreq(getCurCpuFreq() + "KHZ");
+            cpuBean.setCpuMaxFreq(getMaxCpuFreq() + "KHZ");
+            cpuBean.setCpuMinFreq(getMinCpuFreq() + "KHZ");
+            cpuBean.setCpuHardware(Build.HARDWARE);
+            cpuBean.setCpuCores(getHeart() + "");
+            cpuBean.setCpuTemp(getCpuTemp() + "℃");
+            cpuBean.setCpuAbi(putCpuAbi());
+        } catch (Exception e) {
             Log.i(TAG, e.toString());
         }
-        return jsonObject;
+        return cpuBean.toJSONObject();
     }
 
-    private static void putCpuAbi(JSONObject jsonObject) {
+    private static String putCpuAbi() {
         String[] abis;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             abis = Build.SUPPORTED_ABIS;
@@ -52,11 +50,13 @@ import java.util.regex.Pattern;
             stringBuilder.append(abi);
             stringBuilder.append(",");
         }
+
         try {
-            jsonObject.put("cpuAbi", stringBuilder.toString().substring(0, stringBuilder.toString().length() - 1));
-        } catch (JSONException e) {
+            return stringBuilder.toString().substring(0, stringBuilder.toString().length() - 1);
+        } catch (Exception e) {
             Log.i(TAG, e.toString());
         }
+        return null;
 
     }
 

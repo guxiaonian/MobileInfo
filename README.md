@@ -38,6 +38,7 @@ Table of Contents
       * [网络数据获取](#网络数据获取)
       * [root数据获取](#root数据获取)
       * [屏幕数据获取](#屏幕数据获取)
+      * [SDCard数据获取](#SDCard数据获取)
       * [设置数据获取](#设置数据获取)
       * [信号数据获取](#信号数据获取)
       * [手机卡数据获取](#手机卡数据获取)
@@ -49,7 +50,7 @@ Table of Contents
 # 依赖
 
 ```gradle
-implementation 'fairy.easy:mobilehardware:2.2.0'
+implementation 'fairy.easy:mobilehardware:2.2.1'
 
 ```
 
@@ -633,6 +634,29 @@ height |String|屏幕高度
 isScreenAuto |String|亮度是否为自动调节
 isScreenAutoChange |String|屏幕亮度
 screenBrightness |String|屏幕是否开启自动旋转
+
+### [SDCard数据获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/sdcard)
+
+###### 代码示例
+
+```java
+SDCardHelper.mobGetSdCard()
+```
+
+###### 数据格式
+
+```json
+{
+    "isSDCardEnable":"true",
+    "sDCardPath":"/storage/emulated/0"
+}
+```
+
+数据键|数据类型|数据解释
+---|-----|---
+isSDCardEnable |String|SDCard是否可用
+getSDCardPath |String|SDCard的路径
+
 
 ### [设置数据获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/setting)
 

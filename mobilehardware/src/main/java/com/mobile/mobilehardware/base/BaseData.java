@@ -229,4 +229,9 @@ public class BaseData {
         public static final String IS_HAVE_CARD = "isHaveCard";
         public static final String OPERATOR = "operator";
     }
+
+    public static class SDCard {
+        public static final String IS_SDCARD_ENABLE = "isSDCardEnable";
+        public static final String SDCARD_PATH = "getSDCardPath";
+    }
 }
