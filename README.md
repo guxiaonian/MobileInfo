@@ -648,7 +648,7 @@ SDCardHelper.mobGetSdCard()
 ```json
 {
     "isSDCardEnable":"true",
-    "sDCardPath":"/storage/emulated/0"
+    "getSDCardPath":"/storage/emulated/0"
 }
 ```
 
