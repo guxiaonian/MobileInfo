@@ -26,11 +26,11 @@ class DebugInfo {
     static JSONObject getDebugData(Context context) {
         DebugBean debugBean = new DebugBean();
         try {
-            debugBean.setIsOpenDebug(isOpenDebug(context) + "");
-            debugBean.setIsDebugVersion(checkIsDebugVersion(context) + "");
-            debugBean.setIsDebugging(checkIsDebuggerConnected() + "");
-            debugBean.setIsReadProcStatus(readProcStatus() + "");
-            debugBean.setIsAllowMockLocation(isAllowMockLocation(context) + "");
+            debugBean.setOpenDebug(isOpenDebug(context));
+            debugBean.setDebugVersion(checkIsDebugVersion(context));
+            debugBean.setDebugging(checkIsDebuggerConnected());
+            debugBean.setReadProcStatus(readProcStatus());
+            debugBean.setAllowMockLocation(isAllowMockLocation(context));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

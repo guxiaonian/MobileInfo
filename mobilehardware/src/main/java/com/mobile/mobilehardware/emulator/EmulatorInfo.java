@@ -79,13 +79,12 @@ class EmulatorInfo {
             boolean checkQEmuDriverFile = checkQEmuDriverFile("/proc/tty/drivers") || checkQEmuDriverFile("/proc/cpuinfo");
             boolean checkHasLightSensorManager = notHasLightSensorManager(context);
             boolean checkCpuInfo = readCpuInfo();
-            ;
-            emulatorBean.setCheckBuild(checkBuild + "");
-            emulatorBean.setCheckPkg(checkPkg + "");
-            emulatorBean.setCheckPipes(checkPipes + "");
-            emulatorBean.setCheckQEmuDriverFile(checkQEmuDriverFile + "");
-            emulatorBean.setCheckHasLightSensorManager(checkHasLightSensorManager + "");
-            emulatorBean.setCheckCpuInfo(checkCpuInfo + "");
+            emulatorBean.setCheckBuild(checkBuild);
+            emulatorBean.setCheckPkg(checkPkg);
+            emulatorBean.setCheckPipes(checkPipes);
+            emulatorBean.setCheckQEmuDriverFile(checkQEmuDriverFile);
+            emulatorBean.setCheckHasLightSensorManager(checkHasLightSensorManager);
+            emulatorBean.setCheckCpuInfo(checkCpuInfo);
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }

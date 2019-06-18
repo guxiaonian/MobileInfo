@@ -25,9 +25,9 @@ class MoreOpenInfo {
     static JSONObject checkVirtualInfo(Context context) {
         MoreOpenBean moreOpenBean = new MoreOpenBean();
         try {
-            moreOpenBean.setCheckByPrivateFilePath(checkByPrivateFilePath(context) + "");
-            moreOpenBean.setCheckByMultiApkPackageName(checkByMultiApkPackageName() + "");
-            moreOpenBean.setCheckByHasSameUid(checkByHasSameUid() + "");
+            moreOpenBean.setCheckByPrivateFilePath(checkByPrivateFilePath(context) );
+            moreOpenBean.setCheckByMultiApkPackageName(checkByMultiApkPackageName() );
+            moreOpenBean.setCheckByHasSameUid(checkByHasSameUid());
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

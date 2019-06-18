@@ -14,16 +14,16 @@ import org.json.JSONObject;
 public class XposedHookBean extends BaseBean {
     private static final String TAG = XposedHookBean.class.getSimpleName();
 
-    private boolean xposedApp = false;
-    private boolean xposedImei = false;
-    private boolean xposedSerial = false;
-    private boolean xposedSsid = false;
-    private boolean xposedMac = false;
-    private boolean xposedAddress = false;
-    private boolean xposedAndroidId = false;
-    private boolean xposedImsi = false;
-    private boolean xposedLatitude = false;
-    private boolean xposedLongitude = false;
+    private boolean xposedApp ;
+    private boolean xposedImei ;
+    private boolean xposedSerial ;
+    private boolean xposedSsid ;
+    private boolean xposedMac ;
+    private boolean xposedAddress ;
+    private boolean xposedAndroidId ;
+    private boolean xposedImsi ;
+    private boolean xposedLatitude ;
+    private boolean xposedLongitude ;
 
     public XposedHookBean() {
     }

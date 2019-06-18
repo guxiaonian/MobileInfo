@@ -28,4 +28,8 @@ public class BaseBean implements Serializable {
         }
         return value;
     }
+
+    protected String isEmpty(boolean value) {
+        return value+"";
+    }
 }

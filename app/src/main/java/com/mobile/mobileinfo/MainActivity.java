@@ -5,9 +5,12 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 
+import com.mobile.mobilehardware.MobileHardWareHelper;
+import com.mobile.mobilehardware.hook.HookHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i(MobileHardWareHelper.class.getSimpleName(), HookHelper.isXposedHook(getApplicationContext()).toString());
+
+
             }
         });
     }
@@ -57,4 +63,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
+
+
 }

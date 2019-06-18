@@ -16,39 +16,39 @@ public class MoreOpenBean extends BaseBean {
     /**
      * 检测私有路径判断是否有多开
      */
-    private String checkByPrivateFilePath;
+    private boolean checkByPrivateFilePath;
 
     /**
      * maps检测
      */
-    private String checkByMultiApkPackageName;
+    private boolean checkByMultiApkPackageName;
 
     /**
      * ps检测
      */
-    private String checkByHasSameUid;
+    private boolean checkByHasSameUid;
 
-    public String getCheckByPrivateFilePath() {
+    public boolean isCheckByPrivateFilePath() {
         return checkByPrivateFilePath;
     }
 
-    public void setCheckByPrivateFilePath(String checkByPrivateFilePath) {
+    public void setCheckByPrivateFilePath(boolean checkByPrivateFilePath) {
         this.checkByPrivateFilePath = checkByPrivateFilePath;
     }
 
-    public String getCheckByMultiApkPackageName() {
+    public boolean isCheckByMultiApkPackageName() {
         return checkByMultiApkPackageName;
     }
 
-    public void setCheckByMultiApkPackageName(String checkByMultiApkPackageName) {
+    public void setCheckByMultiApkPackageName(boolean checkByMultiApkPackageName) {
         this.checkByMultiApkPackageName = checkByMultiApkPackageName;
     }
 
-    public String getCheckByHasSameUid() {
+    public boolean isCheckByHasSameUid() {
         return checkByHasSameUid;
     }
 
-    public void setCheckByHasSameUid(String checkByHasSameUid) {
+    public void setCheckByHasSameUid(boolean checkByHasSameUid) {
         this.checkByHasSameUid = checkByHasSameUid;
     }
 

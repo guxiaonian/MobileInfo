@@ -54,9 +54,36 @@ public class BaseData {
     }
 
     public static class Hook {
-        public static final String IS_HAVE_XPOSED = "isHaveXposed";
-        public static final String IS_HAVE_SUBSTRATE = "isHaveSubstrate";
-        public static final String IS_HAVE_FRIDA = "isHaveFrida";
+        public static final String IS_HAVE_XPOSED = "xposedInfo";
+        public static final String IS_HAVE_SUBSTRATE = "substrateInfo";
+        public static final String IS_HAVE_FRIDA = "fridaInfo";
+
+        public static class Xposed{
+            public static final String CHECK_XPOSED_PACKAGE="checkXposedPackage";
+            public static final String CHECK_XPOSED_HOOK_METHOD="checkXposedHookMethod";
+            public static final String CHECK_XPOSED_JARS="checkXposedJars";
+            public static final String CHECK_CLASSLOADER="checkClassLoader";
+            public static final String CHECK_NATIVE_METHOD="checkNativeMethod";
+            public static final String CHECK_SYSTEM="checkSystem";
+            public static final String CHECK_EXEC_LIB="checkExecLib";
+            public static final String CHECK_CHECKMAN="checkCheckman";
+            public static final String CHECK_XPOSED_BRIDGE="checkXposedBridge";
+
+        }
+
+        public static class Substrate{
+            public static final String CHECK_SUBSTRATE_PACKAGE="checkSubstratePackage";
+            public static final String CHECK_SUBSTRATE_HOOK_METHOD="checkSubstrateHookMethod";
+            public static final String CHECK_SUBSTRATE_JARS="checkSubstrateJars";
+        }
+
+        public static class Frida{
+            public static final  String CHECK_RUNNING_PROCESSES="checkRunningProcesses";
+            public static final  String CHECK_FRIDA_JARS="checkFridaJars";
+
+        }
+
+
     }
 
     public static class Xposed {

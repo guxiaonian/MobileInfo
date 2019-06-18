@@ -1,6 +1,8 @@
 package com.mobile.mobilehardware.band;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.mobile.mobilehardware.base.BaseData;
@@ -32,7 +34,8 @@ class BandInfo {
         try {
             bandBean.setBaseBand(getBaseband());
             bandBean.setInnerBand(getInner());
-            bandBean.setLinuxBand(getLinuxKernalInfo());
+            String linuxBand = getLinuxKernalInfo();
+            bandBean.setLinuxBand(TextUtils.isEmpty(linuxBand) ? System.getProperty("os.version") : linuxBand);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
@@ -47,7 +50,7 @@ class BandInfo {
 
     @SuppressWarnings("unchecked")
     private static String getBaseband() {
-        String version = BaseData.UNKNOWN_PARAM;
+        String version = null;
         try {
             @SuppressLint("PrivateApi") Class cl = Class.forName("android.os.SystemProperties");
             Object invoker = cl.newInstance();
@@ -58,7 +61,7 @@ class BandInfo {
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }
-        return version;
+        return TextUtils.isEmpty(version) ? Build.getRadioVersion() : version;
     }
 
     /**
@@ -116,7 +119,7 @@ class BandInfo {
                 return mLinuxKernal;
             }
         }
-        return BaseData.UNKNOWN_PARAM;
+        return null;
     }
 
 }

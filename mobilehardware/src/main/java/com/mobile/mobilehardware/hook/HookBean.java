@@ -14,53 +14,291 @@ public class HookBean extends BaseBean {
     private static final String TAG = HookBean.class.getSimpleName();
 
     /**
-     * 是否有Xposed
+     * Xposed详细信息
      */
-    private String isHaveXposed;
+    private JSONObject isHaveXposed;
 
     /**
-     * 是否有Substrate
+     * Substrate详细信息
      */
-    private String isHaveSubstrate;
+    private JSONObject isHaveSubstrate;
 
     /**
-     * 是否有Frida
+     * Frida详细信息
      */
-    private String isHaveFrida;
+    private JSONObject isHaveFrida;
 
-    public String getIsHaveXposed() {
+    public JSONObject getIsHaveXposed() {
         return isHaveXposed;
     }
 
-    public void setIsHaveXposed(String isHaveXposed) {
+    public void setIsHaveXposed(JSONObject isHaveXposed) {
         this.isHaveXposed = isHaveXposed;
     }
 
-    public String getIsHaveSubstrate() {
+    public JSONObject getIsHaveSubstrate() {
         return isHaveSubstrate;
     }
 
-    public void setIsHaveSubstrate(String isHaveSubstrate) {
+    public void setIsHaveSubstrate(JSONObject isHaveSubstrate) {
         this.isHaveSubstrate = isHaveSubstrate;
     }
 
-    public String getIsHaveFrida() {
+    public JSONObject getIsHaveFrida() {
         return isHaveFrida;
     }
 
-    public void setIsHaveFrida(String isHaveFrida) {
+    public void setIsHaveFrida(JSONObject isHaveFrida) {
         this.isHaveFrida = isHaveFrida;
     }
 
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.Hook.IS_HAVE_XPOSED, isEmpty(isHaveXposed));
-            jsonObject.put(BaseData.Hook.IS_HAVE_SUBSTRATE, isEmpty(isHaveSubstrate));
-            jsonObject.put(BaseData.Hook.IS_HAVE_FRIDA, isEmpty(isHaveFrida));
+            jsonObject.put(BaseData.Hook.IS_HAVE_XPOSED, isHaveXposed);
+            jsonObject.put(BaseData.Hook.IS_HAVE_SUBSTRATE, isHaveSubstrate);
+            jsonObject.put(BaseData.Hook.IS_HAVE_FRIDA, isHaveFrida);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
         return super.toJSONObject();
+    }
+
+    public static class XposedBean extends BaseBean {
+
+        /**
+         * 包名检测
+         */
+        private boolean checkXposedPackage;
+
+        /**
+         * 检测调用栈中的可疑方法
+         */
+        private boolean checkXposedHookMethod;
+
+        /**
+         * 检测内存中可疑的jars
+         */
+        private boolean checkXposedJars;
+
+        /**
+         * 检测载入Xposed工具类
+         */
+        private boolean checkClassLoader;
+
+        /**
+         * 新增判断系统方法调用钩子
+         */
+        private boolean checkNativeMethod;
+
+        /**
+         * 虚拟检测Xposed环境
+         */
+        private boolean checkSystem;
+
+        /**
+         * 寻找Xposed运行库文件
+         */
+        private boolean checkExecLib;
+
+        /**
+         * 内核查找Xposed链接库
+         */
+        private boolean checkCheckman;
+
+        /**
+         * 环境变量特征字判断
+         */
+        private boolean checkXposedBridge;
+
+        public boolean isCheckXposedPackage() {
+            return checkXposedPackage;
+        }
+
+        public void setCheckXposedPackage(boolean checkXposedPackage) {
+            this.checkXposedPackage = checkXposedPackage;
+        }
+
+        public boolean isCheckXposedHookMethod() {
+            return checkXposedHookMethod;
+        }
+
+        public void setCheckXposedHookMethod(boolean checkXposedHookMethod) {
+            this.checkXposedHookMethod = checkXposedHookMethod;
+        }
+
+        public boolean isCheckXposedJars() {
+            return checkXposedJars;
+        }
+
+        public void setCheckXposedJars(boolean checkXposedJars) {
+            this.checkXposedJars = checkXposedJars;
+        }
+
+        public boolean isCheckClassLoader() {
+            return checkClassLoader;
+        }
+
+        public void setCheckClassLoader(boolean checkClassLoader) {
+            this.checkClassLoader = checkClassLoader;
+        }
+
+        public boolean isCheckNativeMethod() {
+            return checkNativeMethod;
+        }
+
+        public void setCheckNativeMethod(boolean checkNativeMethod) {
+            this.checkNativeMethod = checkNativeMethod;
+        }
+
+        public boolean isCheckSystem() {
+            return checkSystem;
+        }
+
+        public void setCheckSystem(boolean checkSystem) {
+            this.checkSystem = checkSystem;
+        }
+
+        public boolean isCheckExecLib() {
+            return checkExecLib;
+        }
+
+        public void setCheckExecLib(boolean checkExecLib) {
+            this.checkExecLib = checkExecLib;
+        }
+
+        public boolean isCheckCheckman() {
+            return checkCheckman;
+        }
+
+        public void setCheckCheckman(boolean checkCheckman) {
+            this.checkCheckman = checkCheckman;
+        }
+
+        public boolean isCheckXposedBridge() {
+            return checkXposedBridge;
+        }
+
+        public void setCheckXposedBridge(boolean checkXposedBridge) {
+            this.checkXposedBridge = checkXposedBridge;
+        }
+
+        @Override
+        protected JSONObject toJSONObject() {
+            try {
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_PACKAGE, isEmpty(checkXposedPackage));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_HOOK_METHOD, isEmpty(checkXposedHookMethod));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_JARS, isEmpty(checkXposedJars));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_CLASSLOADER, isEmpty(checkClassLoader));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_NATIVE_METHOD, isEmpty(checkNativeMethod));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_SYSTEM, isEmpty(checkSystem));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_EXEC_LIB, isEmpty(checkExecLib));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_CHECKMAN, isEmpty(checkCheckman));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_BRIDGE, isEmpty(checkXposedBridge));
+
+            } catch (Exception e) {
+                Log.e(TAG, e.toString());
+            }
+            return super.toJSONObject();
+        }
+    }
+
+
+    public static class SubstrateBean extends BaseBean {
+
+        /**
+         * 包名检测
+         */
+        private boolean checkSubstratePackage;
+
+        /**
+         * 检测调用栈中的可疑方法
+         */
+        private boolean checkSubstrateHookMethod;
+
+        /**
+         * 检测内存中可疑的jars
+         */
+        private boolean checkSubstrateJars;
+
+        public boolean isCheckSubstratePackage() {
+            return checkSubstratePackage;
+        }
+
+        public void setCheckSubstratePackage(boolean checkSubstratePackage) {
+            this.checkSubstratePackage = checkSubstratePackage;
+        }
+
+        public boolean isCheckSubstrateHookMethod() {
+            return checkSubstrateHookMethod;
+        }
+
+        public void setCheckSubstrateHookMethod(boolean checkSubstrateHookMethod) {
+            this.checkSubstrateHookMethod = checkSubstrateHookMethod;
+        }
+
+        public boolean isCheckSubstrateJars() {
+            return checkSubstrateJars;
+        }
+
+        public void setCheckSubstrateJars(boolean checkSubstrateJars) {
+            this.checkSubstrateJars = checkSubstrateJars;
+        }
+
+        @Override
+        protected JSONObject toJSONObject() {
+            try {
+                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_PACKAGE, isEmpty(checkSubstratePackage));
+                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_HOOK_METHOD, isEmpty(checkSubstrateHookMethod));
+                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_JARS, isEmpty(checkSubstrateJars));
+
+
+            } catch (Exception e) {
+                Log.e(TAG, e.toString());
+            }
+            return super.toJSONObject();
+        }
+    }
+
+    public static class FridaBean extends BaseBean {
+
+        /**
+         * 检测进程信息
+         */
+        private boolean checkRunningProcesses;
+
+        /**
+         * 检测内存中可疑的jars
+         */
+        private boolean checkFridaJars;
+
+        public boolean isCheckRunningProcesses() {
+            return checkRunningProcesses;
+        }
+
+        public void setCheckRunningProcesses(boolean checkRunningProcesses) {
+            this.checkRunningProcesses = checkRunningProcesses;
+        }
+
+        public boolean isCheckFridaJars() {
+            return checkFridaJars;
+        }
+
+        public void setCheckFridaJars(boolean checkFridaJars) {
+            this.checkFridaJars = checkFridaJars;
+        }
+
+        @Override
+        protected JSONObject toJSONObject() {
+            try {
+                jsonObject.put(BaseData.Hook.Frida.CHECK_RUNNING_PROCESSES, isEmpty(checkRunningProcesses));
+                jsonObject.put(BaseData.Hook.Frida.CHECK_FRIDA_JARS, isEmpty(checkFridaJars));
+
+
+            } catch (Exception e) {
+                Log.e(TAG, e.toString());
+            }
+            return super.toJSONObject();
+        }
     }
 }

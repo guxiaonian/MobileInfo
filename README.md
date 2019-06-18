@@ -471,17 +471,48 @@ HookHelper.isXposedHook(getApplicationContext())
 
 ```json
 {
-    "isHaveXposed":"false",
-    "isHaveSubstrate":"false",
-    "isHaveFrida":"false"
+    "xposedInfo":{
+        "checkXposedPackage":"false",
+        "checkXposedHookMethod":"false",
+        "checkXposedJars":"false",
+        "checkClassLoader":"false",
+        "checkNativeMethod":"false",
+        "checkSystem":"false",
+        "checkExecLib":"false",
+        "checkCheckman":"false",
+        "checkXposedBridge":"false"
+    },
+    "substrateInfo":{
+        "checkSubstratePackage":"false",
+        "checkSubstrateHookMethod":"false",
+        "checkSubstrateJars":"false"
+    },
+    "fridaInfo":{
+        "checkRunningProcesses":"false",
+        "checkFridaJars":"false"
+    }
 }
 ```
 
 数据键|数据类型|数据解释
 ---|-----|---
-isHaveXposed |String|是否有Xposed
-isHaveSubstrate |String|是否有Substrate
-isHaveFrida |String|是否有Frida
+xposedInfo |JSONObject|Xposed信息
+checkXposedPackage |String|包名检测
+checkXposedHookMethod |String|检测调用栈中的可疑方法
+checkXposedJars |String|检测内存中可疑的jars
+checkClassLoader |String|检测载入Xposed工具类
+checkNativeMethod |String|判断系统方法调用钩子
+checkSystem |String|虚拟检测Xposed环境
+checkExecLib |String|寻找Xposed运行库文件
+checkCheckman |String|内核查找Xposed链接库
+checkXposedBridge |String|环境变量特征字判断
+substrateInfo |JSONObject|Substrate信息
+checkSubstratePackage |String|包名检测
+checkSubstrateHookMethod |String|检测调用栈中的可疑方法
+checkSubstrateJars |String|检测内存中可疑的jars
+fridaInfo |JSONObject|Frida信息
+checkRunningProcesses |String|检测进程信息
+checkFridaJars |String|检测内存中可疑的jars
 
 ### [本地数据获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/local)
 
@@ -648,7 +679,7 @@ SDCardHelper.mobGetSdCard()
 ```json
 {
     "isSDCardEnable":"true",
-    "sDCardPath":"/storage/emulated/0"
+    "getSDCardPath":"/storage/emulated/0"
 }
 ```
 

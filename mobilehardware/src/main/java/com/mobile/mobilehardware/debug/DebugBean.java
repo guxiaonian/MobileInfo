@@ -16,66 +16,66 @@ public class DebugBean extends BaseBean {
     /**
      * 是否开启了调试模式
      */
-    private String isOpenDebug;
+    private boolean isOpenDebug;
 
     /**
      * 是否是Debug版本
      */
-    private String isDebugVersion;
+    private boolean isDebugVersion;
 
     /**
      * 是否正在调试
      */
-    private String isDebugging;
+    private boolean isDebugging;
 
     /**
      * 读取id判断是否在调试
      */
-    private String isReadProcStatus;
+    private boolean isReadProcStatus;
 
     /**
      * 是否可以打开位置模拟
      */
-    private String isAllowMockLocation;
+    private boolean isAllowMockLocation;
 
-    public String getIsOpenDebug() {
+    public boolean isOpenDebug() {
         return isOpenDebug;
     }
 
-    public void setIsOpenDebug(String isOpenDebug) {
-        this.isOpenDebug = isOpenDebug;
+    public void setOpenDebug(boolean openDebug) {
+        isOpenDebug = openDebug;
     }
 
-    public String getIsDebugVersion() {
+    public boolean isDebugVersion() {
         return isDebugVersion;
     }
 
-    public void setIsDebugVersion(String isDebugVersion) {
-        this.isDebugVersion = isDebugVersion;
+    public void setDebugVersion(boolean debugVersion) {
+        isDebugVersion = debugVersion;
     }
 
-    public String getIsDebugging() {
+    public boolean isDebugging() {
         return isDebugging;
     }
 
-    public void setIsDebugging(String isDebugging) {
-        this.isDebugging = isDebugging;
+    public void setDebugging(boolean debugging) {
+        isDebugging = debugging;
     }
 
-    public String getIsReadProcStatus() {
+    public boolean isReadProcStatus() {
         return isReadProcStatus;
     }
 
-    public void setIsReadProcStatus(String isReadProcStatus) {
-        this.isReadProcStatus = isReadProcStatus;
+    public void setReadProcStatus(boolean readProcStatus) {
+        isReadProcStatus = readProcStatus;
     }
 
-    public String getIsAllowMockLocation() {
+    public boolean isAllowMockLocation() {
         return isAllowMockLocation;
     }
 
-    public void setIsAllowMockLocation(String isAllowMockLocation) {
-        this.isAllowMockLocation = isAllowMockLocation;
+    public void setAllowMockLocation(boolean allowMockLocation) {
+        isAllowMockLocation = allowMockLocation;
     }
 
     @Override

@@ -16,78 +16,78 @@ public class EmulatorBean extends BaseBean {
     /**
      * build
      */
-    private String checkBuild;
+    private boolean checkBuild;
 
     /**
      * 包名修改
      */
-    private String checkPkg;
+    private boolean checkPkg;
 
     /**
      * 管道检测
      */
-    private String checkPipes;
+    private boolean checkPipes;
 
     /**
      * 驱动程序检测
      */
-    private String checkQEmuDriverFile;
+    private boolean checkQEmuDriverFile;
 
     /**
      * 光传感器检测
      */
-    private String checkHasLightSensorManager;
+    private boolean checkHasLightSensorManager;
 
     /**
      * cpu架构检测
      */
-    private String checkCpuInfo;
+    private boolean checkCpuInfo;
 
-    public String getCheckBuild() {
+    public boolean isCheckBuild() {
         return checkBuild;
     }
 
-    public void setCheckBuild(String checkBuild) {
+    public void setCheckBuild(boolean checkBuild) {
         this.checkBuild = checkBuild;
     }
 
-    public String getCheckPkg() {
+    public boolean isCheckPkg() {
         return checkPkg;
     }
 
-    public void setCheckPkg(String checkPkg) {
+    public void setCheckPkg(boolean checkPkg) {
         this.checkPkg = checkPkg;
     }
 
-    public String getCheckPipes() {
+    public boolean isCheckPipes() {
         return checkPipes;
     }
 
-    public void setCheckPipes(String checkPipes) {
+    public void setCheckPipes(boolean checkPipes) {
         this.checkPipes = checkPipes;
     }
 
-    public String getCheckQEmuDriverFile() {
+    public boolean isCheckQEmuDriverFile() {
         return checkQEmuDriverFile;
     }
 
-    public void setCheckQEmuDriverFile(String checkQEmuDriverFile) {
+    public void setCheckQEmuDriverFile(boolean checkQEmuDriverFile) {
         this.checkQEmuDriverFile = checkQEmuDriverFile;
     }
 
-    public String getCheckHasLightSensorManager() {
+    public boolean isCheckHasLightSensorManager() {
         return checkHasLightSensorManager;
     }
 
-    public void setCheckHasLightSensorManager(String checkHasLightSensorManager) {
+    public void setCheckHasLightSensorManager(boolean checkHasLightSensorManager) {
         this.checkHasLightSensorManager = checkHasLightSensorManager;
     }
 
-    public String getCheckCpuInfo() {
+    public boolean isCheckCpuInfo() {
         return checkCpuInfo;
     }
 
-    public void setCheckCpuInfo(String checkCpuInfo) {
+    public void setCheckCpuInfo(boolean checkCpuInfo) {
         this.checkCpuInfo = checkCpuInfo;
     }
 
