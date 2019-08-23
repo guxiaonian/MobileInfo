@@ -2,8 +2,10 @@ package com.mobile.mobilehardware.app;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.os.Build;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -22,13 +24,18 @@ class PackageInfo {
         PackageBean packageBean = new PackageBean();
         try {
             PackageManager packageManager = context.getPackageManager();
-            packageBean.setAppName(packageManager.getApplicationLabel(context.getApplicationInfo()).toString());
+            ApplicationInfo applicationInfo=context.getApplicationInfo();
+            packageBean.setAppName(packageManager.getApplicationLabel(applicationInfo).toString());
             android.content.pm.PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
             String packageName = packageInfo.packageName;
             packageBean.setPackageName(packageName);
             packageBean.setPackageSign(getSign(context, packageName));
             packageBean.setAppVersionCode(packageInfo.versionCode + "");
             packageBean.setAppVersionName(packageInfo.versionName);
+            packageBean.setTargetSdkVersion(applicationInfo.targetSdkVersion+"");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                packageBean.setMinSdkVersion(applicationInfo.minSdkVersion+"");
+            }
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

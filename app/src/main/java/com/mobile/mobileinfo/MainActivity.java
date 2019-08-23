@@ -10,23 +10,25 @@ import android.view.View;
 
 
 import com.mobile.mobilehardware.MobileHardWareHelper;
-import com.mobile.mobilehardware.hook.HookHelper;
+import com.mobile.mobilehardware.screen.ScreenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String TAG=MobileHardWareHelper.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         checkPermission();
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(MobileHardWareHelper.class.getSimpleName(), HookHelper.isXposedHook(getApplicationContext()).toString());
-
+                Log.i(TAG, ScreenHelper.mobGetMobScreen(MainActivity.this).toString());
 
             }
         });
@@ -63,9 +65,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
 
 
 }

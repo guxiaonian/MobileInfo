@@ -134,6 +134,10 @@ public class BaseData {
         public static final String IS_SCREEN_AUTO = "isScreenAuto";
         public static final String SCREEN_BRIGHTNESS = "screenBrightness";
         public static final String IS_SCREEN_AUTO_CHANGE = "isScreenAutoChange";
+        public static final String CHECK_HIDE_STATUSBAR="checkHideStatusBar";
+        public static final String CHECK_HAS_NAVIGATIONBAR="checkHasNavigationBar";
+        public static final String GET_STATUSBAR_HEIGHT="getStatusBarHeight";
+        public static final String GET_NAVIGATIONBAR_HEIGHT="getNavigationBarHeight";
     }
 
     public static class Cpu {
@@ -181,6 +185,8 @@ public class BaseData {
         public static final String PACKAGE_SIGN = "packageSign";
         public static final String APP_VERSION_CODE = "appVersionCode";
         public static final String APP_VERSION_NAME = "appVersionName";
+        public static final String APP_TARGET_SDK_VERSION = "targetSdkVersion";
+        public static final String APP_MIN_SDK_VERSION = "minSdkVersion";
     }
 
     public static class Camera {

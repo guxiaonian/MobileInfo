@@ -38,6 +38,32 @@ public class PackageBean extends BaseBean {
      */
     private String appVersionName;
 
+    /**
+     * 目标系统版本号
+     */
+    private String targetSdkVersion;
+
+    /**
+     * 最低系统版本号
+     **/
+    private String minSdkVersion;
+
+    public String getTargetSdkVersion() {
+        return targetSdkVersion;
+    }
+
+    public void setTargetSdkVersion(String targetSdkVersion) {
+        this.targetSdkVersion = targetSdkVersion;
+    }
+
+    public String getMinSdkVersion() {
+        return minSdkVersion;
+    }
+
+    public void setMinSdkVersion(String minSdkVersion) {
+        this.minSdkVersion = minSdkVersion;
+    }
+
     public String getAppName() {
         return appName;
     }
@@ -86,6 +112,8 @@ public class PackageBean extends BaseBean {
             jsonObject.put(BaseData.App.PACKAGE_SIGN, isEmpty(packageSign));
             jsonObject.put(BaseData.App.APP_VERSION_CODE, isEmpty(appVersionCode));
             jsonObject.put(BaseData.App.APP_VERSION_NAME, isEmpty(appVersionName));
+            jsonObject.put(BaseData.App.APP_TARGET_SDK_VERSION, isEmpty(targetSdkVersion));
+            jsonObject.put(BaseData.App.APP_MIN_SDK_VERSION, isEmpty(minSdkVersion));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

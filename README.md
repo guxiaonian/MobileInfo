@@ -72,7 +72,10 @@ implementation 'fairy.easy:mobilehardware:{latest-version}'
     "packageName":"com.mobile.mobileinfo",
     "packageSign":"521cec5eb6984bc70f5b2a27e437b979",
     "appVersionCode":"1",
-    "appVersionName":"1.0"
+    "appVersionName":"1.0",
+    "targetSdkVersion":"27",
+    "minSdkVersion":"14"
+
 }
 ```
 
@@ -83,6 +86,8 @@ packageName |String|app包名
 packageSign |String|app包签名
 appVersionCode |String|app版本号
 appVersionName |String|app版本名
+targetSdkVersion |String|目标系统版本号
+minSdkVersion |String|最低系统版本号
 
 ### [App安装列表获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/applist)
 
@@ -652,7 +657,11 @@ ScreenHelper.mobGetMobScreen(getApplicationContext())
     "height":"1920",
     "isScreenAuto":"false",
     "isScreenAutoChange":"false",
-    "screenBrightness":"114"
+    "screenBrightness":"114",
+    "checkHideStatusBar":"false",
+    "checkHasNavigationBar":"false",
+    "getStatusBarHeight":"72",
+    "getNavigationBarHeight":"126"
 }
 ```
 
@@ -665,6 +674,10 @@ height |String|屏幕高度
 isScreenAuto |String|亮度是否为自动调节
 isScreenAutoChange |String|屏幕亮度
 screenBrightness |String|屏幕是否开启自动旋转
+checkHideStatusBar |String|是否隐藏状态栏
+checkHasNavigationBar |String|是否显示底部导航栏
+getStatusBarHeight |String|获取状态栏高度
+getNavigationBarHeight |String|获取底部导航栏的高度
 
 ### [SDCard数据获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/sdcard)
 

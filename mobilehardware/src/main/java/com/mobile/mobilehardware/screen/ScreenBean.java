@@ -47,6 +47,62 @@ public class ScreenBean extends BaseBean {
      */
     private String isScreenAutoChange;
 
+    /**
+     * 是否隐藏状态栏
+     */
+    private String checkHideStatusBar;
+
+    /**
+     * 是否显示底部导航栏
+     */
+    private String checkHasNavigationBar;
+
+    /**
+     * 获取状态栏高度
+     */
+    private String getStatusBarHeight;
+
+    /**
+     * 获取底部导航栏的高度
+     */
+    private String getNavigationBarHeight;
+
+    public static String getTAG() {
+        return TAG;
+    }
+
+    public String getCheckHideStatusBar() {
+        return checkHideStatusBar;
+    }
+
+    public void setCheckHideStatusBar(String checkHideStatusBar) {
+        this.checkHideStatusBar = checkHideStatusBar;
+    }
+
+    public String getCheckHasNavigationBar() {
+        return checkHasNavigationBar;
+    }
+
+    public void setCheckHasNavigationBar(String checkHasNavigationBar) {
+        this.checkHasNavigationBar = checkHasNavigationBar;
+    }
+
+    public String getGetStatusBarHeight() {
+        return getStatusBarHeight;
+    }
+
+    public void setGetStatusBarHeight(String getStatusBarHeight) {
+        this.getStatusBarHeight = getStatusBarHeight;
+    }
+
+    public String getGetNavigationBarHeight() {
+        return getNavigationBarHeight;
+    }
+
+    public void setGetNavigationBarHeight(String getNavigationBarHeight) {
+        this.getNavigationBarHeight = getNavigationBarHeight;
+    }
+
     public String getDensityScale() {
         return densityScale;
     }
@@ -71,7 +127,7 @@ public class ScreenBean extends BaseBean {
         this.width = width;
     }
 
-    public String getHeigxht() {
+    public String getHeight() {
         return height;
     }
 
@@ -113,6 +169,10 @@ public class ScreenBean extends BaseBean {
             jsonObject.put(BaseData.Screen.IS_SCREEN_AUTO, isEmpty(isScreenAuto));
             jsonObject.put(BaseData.Screen.IS_SCREEN_AUTO_CHANGE, isEmpty(isScreenAutoChange));
             jsonObject.put(BaseData.Screen.SCREEN_BRIGHTNESS, isEmpty(screenBrightness));
+            jsonObject.put(BaseData.Screen.CHECK_HIDE_STATUSBAR, isEmpty(checkHideStatusBar));
+            jsonObject.put(BaseData.Screen.CHECK_HAS_NAVIGATIONBAR, isEmpty(checkHasNavigationBar));
+            jsonObject.put(BaseData.Screen.GET_STATUSBAR_HEIGHT, isEmpty(getStatusBarHeight));
+            jsonObject.put(BaseData.Screen.GET_NAVIGATIONBAR_HEIGHT, isEmpty(getNavigationBarHeight));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
