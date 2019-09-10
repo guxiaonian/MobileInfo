@@ -114,9 +114,9 @@ class CpuInfo {
             BufferedReader br = new BufferedReader(fr);
             String text = br.readLine();
             String[] array = text.split(":\\s+", 2);
-            //noinspection StatementWithEmptyBody
-            for (String anArray : array) {
-            }
+//            //noinspection StatementWithEmptyBody
+//            for (String anArray : array) {
+//            }
             return array[1];
         } catch (IOException e) {
             Log.i(TAG, e.toString());

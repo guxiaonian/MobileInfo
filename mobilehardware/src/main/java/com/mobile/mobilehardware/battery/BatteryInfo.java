@@ -64,7 +64,7 @@ class BatteryInfo {
                 String technology = batteryStatus.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY);
                 int temperature = batteryStatus.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1);
                 int voltage = batteryStatus.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1);
-                batteryBean.setBr(batteryLevel * 100f + "%");
+                batteryBean.setBr(DoubleUtils.mul(batteryLevel,100d)+ "%");
                 batteryBean.setStatus(batteryStatus(status));
                 batteryBean.setPlugState(batteryPlugged(plugState));
                 batteryBean.setHealth(batteryHealth(health));

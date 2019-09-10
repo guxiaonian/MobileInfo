@@ -11,10 +11,11 @@
 [![GitHub forks](https://img.shields.io/github/forks/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/network)
 [![GitHub stars](https://img.shields.io/github/stars/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/stargazers)
 [![GitHub license](https://img.shields.io/github/license/guxiaonian/MobileInfo.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Travis CI](https://travis-ci.org/guxiaonian/MobileInfo.svg?branch=master)](https://travis-ci.org/guxiaonian/MobileInfo)
 
 </div>
 <br>
+
+[APP体验](./download.png)
 
 Table of Contents
 =================

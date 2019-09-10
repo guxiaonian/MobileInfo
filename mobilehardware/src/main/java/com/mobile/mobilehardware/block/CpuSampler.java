@@ -82,6 +82,11 @@ public class CpuSampler extends AbstractSampler {
         return mCpuInfoEntries;
     }
 
+    public void clearCpuList() {
+        mCpuInfoEntries.clear();
+    }
+
+
     public boolean isCpuBusy(long start, long end) {
         if (end - start > mSampleInterval) {
             long s = start - mSampleInterval;
