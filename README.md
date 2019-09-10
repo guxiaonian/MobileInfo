@@ -564,7 +564,8 @@ MemoryHelper.getMemoryInfo(getApplicationContext())
     "romMemoryAvailable":"40.22 GB",
     "romMemoryTotal":"56.30 GB",
     "sdCardMemoryAvailable":"40.20 GB",
-    "sdCardMemoryTotal":"56.28 GB"
+    "sdCardMemoryTotal":"56.28 GB",
+    "sdCardRealMemoryTotal":"64 GB"
 }
 ```
 
@@ -576,6 +577,7 @@ romMemoryAvailable |String|ROM可用内存
 romMemoryTotal |String|ROM全部内存
 sdCardMemoryAvailable |String|内存卡可用内存
 sdCardMemoryTotal |String|内存卡全部内存
+sdCardRealMemoryTotal |String|内存卡真实全部内存
 
 ### [多开数据获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/moreopen)
 

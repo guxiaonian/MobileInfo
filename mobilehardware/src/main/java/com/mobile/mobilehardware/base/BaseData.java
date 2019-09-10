@@ -207,6 +207,7 @@ public class BaseData {
         public static final String ROM_MEMORY_TOTAL = "romMemoryTotal";
         public static final String SDCARD_MEMORY_AVAILABLE = "sdCardMemoryAvailable";
         public static final String SDCARD_MEMORY_TOTAL = "sdCardMemoryTotal";
+        public static final String SDCARD_REAL_MEMORY_TOTAL = "sdCardRealMemoryTotal";
     }
 
     public static class Emulator {

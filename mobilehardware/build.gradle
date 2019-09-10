@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "2.2.5"
+version = "2.2.6"
 apply plugin: 'com.android.library'
 
 android {
@@ -13,8 +13,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 225
-        versionName "2.2.5"
+        versionCode 226
+        versionName "2.2.6"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -44,7 +44,7 @@ dependencies {
 def SDK_NAME = "mobile_hardware_android_v"
 def DATE = new SimpleDateFormat('yyyyMMdd_HHmm').format(new Date())
 def LIB_DIR = '../libs'
-def version = "2.2.5"
+def version = "2.2.6"
 
 task clearJar(type: Delete) {
     //删除旧包
@@ -122,25 +122,9 @@ artifacts {
     archives sourcesJar
 }
 //github cli使用
-bintray {
-    user = System.getenv("bintray.user")
-    key = System.getenv("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = "mobile"    //发布到JCenter上的项目名字
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
-// bintrayUpload使用
-//Properties properties = new Properties()
-//properties.load(project.rootProject.file('local.properties').newDataInputStream())
 //bintray {
-//    user =  properties.getProperty("bintray.user")
-//    key =  properties.getProperty("bintray.apikey")
+//    user = System.getenv("bintray.user")
+//    key = System.getenv("bintray.apikey")
 //    configurations = ['archives']
 //    pkg {
 //        repo = "maven"
@@ -151,3 +135,19 @@ bintray {
 //        publish = true
 //    }
 //}
+// bintrayUpload使用
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user =  properties.getProperty("bintray.user")
+    key =  properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "mobile"    //发布到JCenter上的项目名字
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}

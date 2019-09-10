@@ -43,6 +43,16 @@ public class MemoryBean extends BaseBean {
      */
     private String sdCardMemoryTotal;
 
+    private String sdCardRealMemoryTotal;
+
+    public String getSdCardRealMemoryTotal() {
+        return sdCardRealMemoryTotal;
+    }
+
+    public void setSdCardRealMemoryTotal(String sdCardRealMemoryTotal) {
+        this.sdCardRealMemoryTotal = sdCardRealMemoryTotal;
+    }
+
     public String getRamMemory() {
         return ramMemory;
     }
@@ -100,6 +110,7 @@ public class MemoryBean extends BaseBean {
             jsonObject.put(BaseData.Memory.ROM_MEMORY_TOTAL, isEmpty(romMemoryTotal));
             jsonObject.put(BaseData.Memory.SDCARD_MEMORY_AVAILABLE, isEmpty(sdCardMemoryAvailable));
             jsonObject.put(BaseData.Memory.SDCARD_MEMORY_TOTAL, isEmpty(sdCardMemoryTotal));
+            jsonObject.put(BaseData.Memory.SDCARD_REAL_MEMORY_TOTAL, isEmpty(sdCardRealMemoryTotal));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
