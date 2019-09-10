@@ -12,10 +12,13 @@
 [![GitHub stars](https://img.shields.io/github/stars/guxiaonian/MobileInfo.svg)](https://github.com/guxiaonian/MobileInfo/stargazers)
 [![GitHub license](https://img.shields.io/github/license/guxiaonian/MobileInfo.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
+## APP体验
+
+![](./download.png)
+
 </div>
 <br>
 
-[APP体验](./download.png)
 
 Table of Contents
 =================
