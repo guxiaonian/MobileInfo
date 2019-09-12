@@ -226,7 +226,7 @@ class MemoryInfo {
             size = size / base;
             index++;
         }
-        return String.format(Locale.getDefault(), " %.2f %s ", size, units[index]);
+        return String.format(Locale.getDefault(), "%.2f %s ", size, units[index]);
     }
 
     /**

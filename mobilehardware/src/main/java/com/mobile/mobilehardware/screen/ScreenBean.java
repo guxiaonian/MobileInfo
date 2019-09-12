@@ -12,6 +12,17 @@ import org.json.JSONObject;
  */
 public class ScreenBean extends BaseBean {
     private static final String TAG = ScreenBean.class.getSimpleName();
+
+    /**
+     * 是否是刘海屏
+     */
+    private boolean isWindowNotch;
+
+    /**
+     * 刘海屏高度
+     */
+    private int windowNotchHeight;
+
     /**
      * 当前屏幕密度与标准屏幕密度的比值
      */
@@ -67,8 +78,20 @@ public class ScreenBean extends BaseBean {
      */
     private String getNavigationBarHeight;
 
-    public static String getTAG() {
-        return TAG;
+    public boolean isWindowNotch() {
+        return isWindowNotch;
+    }
+
+    public void setWindowNotch(boolean windowNotch) {
+        isWindowNotch = windowNotch;
+    }
+
+    public int getWindowNotchHeight() {
+        return windowNotchHeight;
+    }
+
+    public void setWindowNotchHeight(int windowNotchHeight) {
+        this.windowNotchHeight = windowNotchHeight;
     }
 
     public String getCheckHideStatusBar() {
@@ -173,6 +196,8 @@ public class ScreenBean extends BaseBean {
             jsonObject.put(BaseData.Screen.CHECK_HAS_NAVIGATIONBAR, isEmpty(checkHasNavigationBar));
             jsonObject.put(BaseData.Screen.GET_STATUSBAR_HEIGHT, isEmpty(getStatusBarHeight));
             jsonObject.put(BaseData.Screen.GET_NAVIGATIONBAR_HEIGHT, isEmpty(getNavigationBarHeight));
+            jsonObject.put(BaseData.Screen.IS_WINDOW_NOTCH, isEmpty(isWindowNotch));
+            jsonObject.put(BaseData.Screen.WINDOW_NOTCH_HEIGHT, isEmpty(windowNotchHeight + ""));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

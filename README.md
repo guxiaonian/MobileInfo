@@ -670,7 +670,9 @@ ScreenHelper.mobGetMobScreen(getApplicationContext())
     "checkHideStatusBar":"false",
     "checkHasNavigationBar":"false",
     "getStatusBarHeight":"72",
-    "getNavigationBarHeight":"126"
+    "getNavigationBarHeight":"126",
+    "isWindowNotch":"false",
+    "windowNotchHeight":0
 }
 ```
 
@@ -687,6 +689,8 @@ checkHideStatusBar |String|是否隐藏状态栏
 checkHasNavigationBar |String|是否显示底部导航栏
 getStatusBarHeight |String|获取状态栏高度
 getNavigationBarHeight |String|获取底部导航栏的高度
+isWindowNotch |String|判断是否是刘海屏
+windowNotchHeight |String|刘海屏的高度
 
 ### [SDCard数据获取](https://github.com/guxiaonian/MobileInfo/tree/master/mobilehardware/src/main/java/com/mobile/mobilehardware/sdcard)
 

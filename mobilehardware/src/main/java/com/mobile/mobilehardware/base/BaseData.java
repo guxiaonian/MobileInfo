@@ -58,28 +58,28 @@ public class BaseData {
         public static final String IS_HAVE_SUBSTRATE = "substrateInfo";
         public static final String IS_HAVE_FRIDA = "fridaInfo";
 
-        public static class Xposed{
-            public static final String CHECK_XPOSED_PACKAGE="checkXposedPackage";
-            public static final String CHECK_XPOSED_HOOK_METHOD="checkXposedHookMethod";
-            public static final String CHECK_XPOSED_JARS="checkXposedJars";
-            public static final String CHECK_CLASSLOADER="checkClassLoader";
-            public static final String CHECK_NATIVE_METHOD="checkNativeMethod";
-            public static final String CHECK_SYSTEM="checkSystem";
-            public static final String CHECK_EXEC_LIB="checkExecLib";
-            public static final String CHECK_CHECKMAN="checkCheckman";
-            public static final String CHECK_XPOSED_BRIDGE="checkXposedBridge";
+        public static class Xposed {
+            public static final String CHECK_XPOSED_PACKAGE = "checkXposedPackage";
+            public static final String CHECK_XPOSED_HOOK_METHOD = "checkXposedHookMethod";
+            public static final String CHECK_XPOSED_JARS = "checkXposedJars";
+            public static final String CHECK_CLASSLOADER = "checkClassLoader";
+            public static final String CHECK_NATIVE_METHOD = "checkNativeMethod";
+            public static final String CHECK_SYSTEM = "checkSystem";
+            public static final String CHECK_EXEC_LIB = "checkExecLib";
+            public static final String CHECK_CHECKMAN = "checkCheckman";
+            public static final String CHECK_XPOSED_BRIDGE = "checkXposedBridge";
 
         }
 
-        public static class Substrate{
-            public static final String CHECK_SUBSTRATE_PACKAGE="checkSubstratePackage";
-            public static final String CHECK_SUBSTRATE_HOOK_METHOD="checkSubstrateHookMethod";
-            public static final String CHECK_SUBSTRATE_JARS="checkSubstrateJars";
+        public static class Substrate {
+            public static final String CHECK_SUBSTRATE_PACKAGE = "checkSubstratePackage";
+            public static final String CHECK_SUBSTRATE_HOOK_METHOD = "checkSubstrateHookMethod";
+            public static final String CHECK_SUBSTRATE_JARS = "checkSubstrateJars";
         }
 
-        public static class Frida{
-            public static final  String CHECK_RUNNING_PROCESSES="checkRunningProcesses";
-            public static final  String CHECK_FRIDA_JARS="checkFridaJars";
+        public static class Frida {
+            public static final String CHECK_RUNNING_PROCESSES = "checkRunningProcesses";
+            public static final String CHECK_FRIDA_JARS = "checkFridaJars";
 
         }
 
@@ -134,10 +134,12 @@ public class BaseData {
         public static final String IS_SCREEN_AUTO = "isScreenAuto";
         public static final String SCREEN_BRIGHTNESS = "screenBrightness";
         public static final String IS_SCREEN_AUTO_CHANGE = "isScreenAutoChange";
-        public static final String CHECK_HIDE_STATUSBAR="checkHideStatusBar";
-        public static final String CHECK_HAS_NAVIGATIONBAR="checkHasNavigationBar";
-        public static final String GET_STATUSBAR_HEIGHT="getStatusBarHeight";
-        public static final String GET_NAVIGATIONBAR_HEIGHT="getNavigationBarHeight";
+        public static final String CHECK_HIDE_STATUSBAR = "checkHideStatusBar";
+        public static final String CHECK_HAS_NAVIGATIONBAR = "checkHasNavigationBar";
+        public static final String GET_STATUSBAR_HEIGHT = "getStatusBarHeight";
+        public static final String GET_NAVIGATIONBAR_HEIGHT = "getNavigationBarHeight";
+        public static final String IS_WINDOW_NOTCH = "isWindowNotch";
+        public static final String WINDOW_NOTCH_HEIGHT = "windowNotchHeight";
     }
 
     public static class Cpu {

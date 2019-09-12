@@ -2,6 +2,8 @@ package com.mobile.mobilehardware;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.Window;
 
 import com.mobile.mobilehardware.applist.ListAppHelper;
 import com.mobile.mobilehardware.audio.AudioHelper;
@@ -42,7 +44,7 @@ import java.util.List;
 
 public class MobileHardWareHelper {
 
-    private static final String VERSION = "2.2.5";
+    private static final String VERSION = "2.3.0";
     private static final String TAG = "MobileHardWareHelper";
 
     public static String getMobVersion() {
@@ -178,8 +180,8 @@ public class MobileHardWareHelper {
      *
      * @return
      */
-    public static JSONObject mobileScreen(@NonNull Context context) {
-        return ScreenHelper.mobGetMobScreen(context);
+    public static JSONObject mobileScreen(@NonNull Context context, @Nullable Window window) {
+        return ScreenHelper.mobGetMobScreen(context,window);
     }
 
     /**

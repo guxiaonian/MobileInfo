@@ -13,6 +13,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.mobile.mobilehardware.screen.notch.ResultListener;
+import com.mobile.mobilehardware.screen.notch.WindowInsetsUtils;
+
 import org.json.JSONObject;
 
 /**
@@ -23,8 +26,8 @@ import org.json.JSONObject;
 class ScreenInfo {
     private static final String TAG = ScreenInfo.class.getSimpleName();
 
-    static JSONObject getMobScreen(Context context) {
-        ScreenBean screenBean = new ScreenBean();
+    static JSONObject getMobScreen(Context context, Window window) {
+        final ScreenBean screenBean = new ScreenBean();
         try {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             screenBean.setDensityScale(displayMetrics.density + "");
@@ -37,10 +40,19 @@ class ScreenInfo {
             screenBean.setIsScreenAuto((screenMode == 1) + "");
             screenBean.setScreenBrightness(screenBrightness + "");
             screenBean.setIsScreenAutoChange((screenChange == 1) + "");
-            screenBean.setCheckHasNavigationBar(checkHasNavigationBar(context)+"");
-            screenBean.setCheckHideStatusBar(checkHideStatusBar(context)+"");
-            screenBean.setGetStatusBarHeight(getStatusBarHeight(context)+"");
-            screenBean.setGetNavigationBarHeight(getNavigationBarHeight(context)+"");
+            screenBean.setCheckHasNavigationBar(checkHasNavigationBar(context) + "");
+            screenBean.setCheckHideStatusBar(checkHideStatusBar(context) + "");
+            screenBean.setGetStatusBarHeight(getStatusBarHeight(context) + "");
+            screenBean.setGetNavigationBarHeight(getNavigationBarHeight(context) + "");
+            if (window != null) {
+                WindowInsetsUtils.getNotchParams(window, new ResultListener() {
+                    @Override
+                    public void onResult(boolean isWindowNotch, int windowNotchHeight) {
+                        screenBean.setWindowNotch(isWindowNotch);
+                        screenBean.setWindowNotchHeight(windowNotchHeight);
+                    }
+                });
+            }
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }

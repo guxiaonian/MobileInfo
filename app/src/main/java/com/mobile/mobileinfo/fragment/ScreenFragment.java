@@ -22,7 +22,7 @@ public class ScreenFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(ScreenHelper.mobGetMobScreen(getContext()));
+        return getListParam(ScreenHelper.mobGetMobScreen(getContext(),getActivity().getWindow()));
     }
 
 

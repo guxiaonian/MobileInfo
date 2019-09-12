@@ -1,6 +1,8 @@
 package com.mobile.mobilehardware.screen;
 
 import android.content.Context;
+import android.view.Window;
+
 import org.json.JSONObject;
 
 /**
@@ -16,8 +18,8 @@ public class ScreenHelper extends ScreenInfo{
      * @param context
      * @return
      */
-    public static JSONObject mobGetMobScreen(Context context) {
-        return getMobScreen(context);
+    public static JSONObject mobGetMobScreen(Context context, Window window) {
+        return getMobScreen(context,window);
     }
 
 

@@ -2,19 +2,19 @@ import java.text.SimpleDateFormat
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "2.2.6"
+version = "2.3.0"
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     resourcePrefix "bounceprogressbar"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 27
-        versionCode 226
-        versionName "2.2.6"
+        targetSdkVersion 28
+        versionCode 230
+        versionName "2.3.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -36,7 +36,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compileOnly 'com.android.support:appcompat-v7:27.1.1'
+    compileOnly 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -44,7 +44,7 @@ dependencies {
 def SDK_NAME = "mobile_hardware_android_v"
 def DATE = new SimpleDateFormat('yyyyMMdd_HHmm').format(new Date())
 def LIB_DIR = '../libs'
-def version = "2.2.6"
+def version = "2.3.0"
 
 task clearJar(type: Delete) {
     //删除旧包
