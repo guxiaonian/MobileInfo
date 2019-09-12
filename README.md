@@ -672,7 +672,7 @@ ScreenHelper.mobGetMobScreen(getApplicationContext())
     "getStatusBarHeight":"72",
     "getNavigationBarHeight":"126",
     "isWindowNotch":"false",
-    "windowNotchHeight":0
+    "windowNotchHeight":"0"
 }
 ```
 
