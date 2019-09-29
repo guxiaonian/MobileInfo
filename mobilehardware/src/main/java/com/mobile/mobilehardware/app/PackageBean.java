@@ -46,7 +46,7 @@ public class PackageBean extends BaseBean {
     /**
      * 最低系统版本号
      **/
-    private String minSdkVersion;
+    private String minSdkVersion="0";
 
     public String getTargetSdkVersion() {
         return targetSdkVersion;

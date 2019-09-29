@@ -18,6 +18,10 @@ package com.mobile.mobilehardware.block;
 import android.util.Log;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -76,6 +80,29 @@ public class CpuSampler extends AbstractSampler {
             }
         }
         return sb.toString();
+    }
+
+    public JSONArray getCpuRateInfoOfJSON() {
+        JSONArray jsonArray = new JSONArray();
+        synchronized (mCpuInfoEntries) {
+            for (Map.Entry<Long, CpuBean> entry : mCpuInfoEntries.entrySet()) {
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("time", entry.getKey() + "");
+                    CpuBean cpuBean = entry.getValue();
+                    jsonObject.put("cpu",cpuBean.getCpu());
+                    jsonObject.put("app",cpuBean.getApp());
+                    jsonObject.put("user",cpuBean.getUser());
+                    jsonObject.put("system",cpuBean.getSystem());
+                    jsonObject.put("ioWait",cpuBean.getIoWait());
+                    jsonArray.put(jsonObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+        return jsonArray;
     }
 
     public LinkedHashMap<Long, CpuBean> getCpuList() {

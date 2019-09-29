@@ -23,7 +23,7 @@ public class IDFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam("uniqueID", PhoneIdHelper.getPsuedoUniqueID());
+        return getListParam("uniqueID", PhoneIdHelper.getUniqueID());
     }
 
 

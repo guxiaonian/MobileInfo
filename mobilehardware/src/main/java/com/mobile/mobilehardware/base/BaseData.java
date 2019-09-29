@@ -9,15 +9,29 @@ public class BaseData {
 
     public static class Aduio {
         public static final String MAX_VOICE_CALL = "maxVoiceCall";
+        public static final String MIN_VOICE_CALL = "minVoiceCall";
         public static final String CURRENT_VOICE_CALL = "currentVoiceCall";
         public static final String MAX_SYSTEM = "maxSystem";
+        public static final String MIN_SYSTEM = "minSystem";
         public static final String CURRENT_SYSTEM = "currentSystem";
         public static final String MAX_RING = "maxRing";
+        public static final String MIN_RING = "minRing";
         public static final String CURRENT_RING = "currentRing";
         public static final String MAX_MUSIC = "maxMusic";
+        public static final String MIN_MUSIC = "minMusic";
         public static final String CURRENT_MUSIC = "currentMusic";
         public static final String MAX_ALARM = "maxAlarm";
+        public static final String MIN_ALARM = "minAlarm";
         public static final String CURRENT_ALARM = "currentAlarm";
+        public static final String MAX_NOTIFICATIONS="maxNotifications";
+        public static final String MIN_NOTIFICATIONS="minNotifications";
+        public static final String CURRENT_NOTIFICATIONS="currentNotifications";
+        public static final String MAX_ACCESSIBILITY="maxAccessibility";
+        public static final String MIN_ACCESSIBILITY="minAccessibility";
+        public static final String CURRENT_ACCESSIBILITY="currentAccessibility";
+        public static final String MAX_DTMF="maxDTMF";
+        public static final String MIN_DTMF="minDTMF";
+        public static final String CURRENT_DTMF="currentDTMF";
     }
 
     public static class Battery {

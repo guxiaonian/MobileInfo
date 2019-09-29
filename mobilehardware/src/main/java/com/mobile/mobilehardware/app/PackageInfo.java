@@ -30,7 +30,11 @@ class PackageInfo {
             String packageName = packageInfo.packageName;
             packageBean.setPackageName(packageName);
             packageBean.setPackageSign(getSign(context, packageName));
-            packageBean.setAppVersionCode(packageInfo.versionCode + "");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                packageBean.setAppVersionCode(packageInfo.getLongVersionCode() + "");
+            }else {
+                packageBean.setAppVersionCode(packageInfo.versionCode + "");
+            }
             packageBean.setAppVersionName(packageInfo.versionName);
             packageBean.setTargetSdkVersion(applicationInfo.targetSdkVersion+"");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

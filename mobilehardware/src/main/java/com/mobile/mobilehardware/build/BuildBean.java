@@ -131,7 +131,7 @@ public class BuildBean extends BaseBean {
     /**
      * SDK的预览版本
      */
-    private String previewSdkInt;
+    private String previewSdkInt="0";
 
     /**
      * 用户可见的安全补丁程序级别

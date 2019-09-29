@@ -27,6 +27,12 @@ public class PermissionUtil {
                 }
                 permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
             }
+            if (context.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                if (permissions == null) {
+                    permissions = new ArrayList<>();
+                }
+                permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            }
 
             if (context.checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 if (permissions == null) {

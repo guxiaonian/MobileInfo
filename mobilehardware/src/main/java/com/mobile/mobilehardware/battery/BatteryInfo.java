@@ -39,7 +39,7 @@ class BatteryInfo {
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
-        return String.valueOf(batteryCapacity + "mAh");
+        return batteryCapacity + "mAh";
     }
 
     static JSONObject getBattery(Context context) {

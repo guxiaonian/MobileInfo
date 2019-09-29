@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -29,7 +30,11 @@ class ListAppInfo {
                 ListAppBean listAppBean = new ListAppBean();
                 listAppBean.setPackageName(packageInfo.packageName);
                 listAppBean.setVersionName(packageInfo.versionName);
-                listAppBean.setVersionCode(packageInfo.versionCode + "");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    listAppBean.setVersionCode(packageInfo.getLongVersionCode() + "");
+                } else {
+                    listAppBean.setVersionCode(packageInfo.versionCode + "");
+                }
                 if ((ApplicationInfo.FLAG_SYSTEM & packageInfo.applicationInfo.flags) == 0) {
                     listAppBean.setIsSystem("false");
                 } else {

@@ -12,9 +12,10 @@ public class StackSampler {
 
         for (StackTraceElement stackTraceElement : thread.getStackTrace()) {
             stringBuilder
-                    .append(stackTraceElement.toString());
+                    .append(stackTraceElement.toString()).append("\n");
         }
-        return stringBuilder.toString();
+        String result=stringBuilder.toString();
+        return result.substring(0,result.length()-1);
 
     }
 }

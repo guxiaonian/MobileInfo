@@ -41,7 +41,7 @@ public class CpuBean extends BaseBean {
     /**
      * CPU核数
      */
-    private String cpuCores;
+    private String cpuCores="0";
 
     /**
      * CPU温度

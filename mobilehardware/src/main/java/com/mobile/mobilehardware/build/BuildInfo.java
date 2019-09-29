@@ -35,8 +35,8 @@ class BuildInfo {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 try {
                     buildBean.setSerial(Build.getSerial());
-                } catch (Exception ignore) {
-                    Log.e(TAG, ignore.toString());
+                } catch (Exception e) {
+                    Log.e(TAG, e.toString());
                 }
             } else {
                 buildBean.setSerial(Build.SERIAL);

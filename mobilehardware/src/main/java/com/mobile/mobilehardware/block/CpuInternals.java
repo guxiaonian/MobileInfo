@@ -12,7 +12,6 @@ public final class CpuInternals {
     private int MAX_ENTRY_COUNT = 10;
 
     private CpuInternals() {
-        cpuSampler = new CpuSampler(time);
 
     }
 
@@ -28,11 +27,15 @@ public final class CpuInternals {
     }
 
     public CpuSampler getCpuSampler() {
+        if(cpuSampler==null){
+            cpuSampler = new CpuSampler(time);
+        }
         return cpuSampler;
     }
 
-    public void setCpuRateTime(long time) {
+    public CpuInternals setCpuRateTime(long time) {
         this.time = time;
+        return this;
     }
 
     long getSampleDelay() {
@@ -43,7 +46,8 @@ public final class CpuInternals {
         return MAX_ENTRY_COUNT;
     }
 
-    public void setMaxEntryCount(int MAX_ENTRY_COUNT) {
+    public CpuInternals setMaxEntryCount(int MAX_ENTRY_COUNT) {
         this.MAX_ENTRY_COUNT = MAX_ENTRY_COUNT;
+        return this;
     }
 }

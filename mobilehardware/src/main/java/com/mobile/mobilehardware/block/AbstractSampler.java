@@ -64,6 +64,7 @@ abstract class AbstractSampler {
             return;
         }
         mShouldSample.set(false);
+        CpuInternals.getInstance().getCpuSampler().clearCpuList();
         HandlerThreadFactory.getTimerThreadHandler().removeCallbacks(mRunnable);
     }
 

@@ -44,7 +44,7 @@ import java.util.List;
 
 public class MobileHardWareHelper {
 
-    private static final String VERSION = "2.3.0";
+    private static final String VERSION = "2.3.1";
     private static final String TAG = "MobileHardWareHelper";
 
     public static String getMobVersion() {
@@ -52,7 +52,7 @@ public class MobileHardWareHelper {
     }
 
     /**
-     * 获取指定ip的host，只能在子线程中进行。指定域名如：api.geetest.com
+     * 获取指定ip的host，只能在子线程中进行。
      *
      * @param host
      * @return
@@ -240,7 +240,7 @@ public class MobileHardWareHelper {
      * @return
      */
     public static String mobileId() {
-        return PhoneIdHelper.getPsuedoUniqueID();
+        return PhoneIdHelper.getUniqueID();
     }
 
     /**
