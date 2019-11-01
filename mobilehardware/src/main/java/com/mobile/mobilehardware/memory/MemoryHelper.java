@@ -1,7 +1,8 @@
 package com.mobile.mobilehardware.memory;
 
-import android.content.Context;
 
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -14,11 +15,10 @@ public class MemoryHelper extends MemoryInfo {
     /**
      * info
      *
-     * @param context
      * @return
      */
-    public static JSONObject getMemoryInfo(Context context) {
-        return memoryInfo(context);
+    public static JSONObject getMemoryInfo() {
+        return memoryInfo(MobileHardWareHelper.getContext());
     }
 
 }

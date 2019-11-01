@@ -22,7 +22,7 @@ public class AppFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(PackageHelper.getPackageInfo(getContext()));
+        return getListParam(PackageHelper.getPackageInfo());
     }
 
 

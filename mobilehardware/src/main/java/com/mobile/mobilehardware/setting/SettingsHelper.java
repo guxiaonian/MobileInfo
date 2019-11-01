@@ -1,6 +1,7 @@
 package com.mobile.mobilehardware.setting;
 
-import android.content.Context;
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -14,11 +15,10 @@ public class SettingsHelper extends SettingsInfo {
     /**
      * 获取设置信息
      *
-     * @param context
      * @return
      */
-    public static JSONObject mobGetMobSettings(Context context) {
-        return getMobSettings(context);
+    public static JSONObject mobGetMobSettings() {
+        return getMobSettings(MobileHardWareHelper.getContext());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.mobile.mobilehardware.applist;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.mobile.mobilehardware.base.BaseBean;
@@ -15,31 +16,61 @@ public class ListAppBean extends BaseBean {
     private static final String TAG = ListAppBean.class.getSimpleName();
 
     /**
+     * app名字
+     */
+    private String appName;
+
+    /**
      * 包名
      */
     private String packageName;
 
     /**
-     * 版本名
+     * 包签名
      */
-    private String versionName;
+    private String packageSign;
 
     /**
      * 版本号
      */
-    private String versionCode;
+    private long appVersionCode;
+
+    /**
+     * 版本名字
+     */
+    private String appVersionName;
+
+    /**
+     * 目标系统版本号
+     */
+    private int targetSdkVersion;
+
+    /**
+     * 最低系统版本号
+     **/
+    private int minSdkVersion;
+
+    /**
+     * 描述
+     */
+    private CharSequence description;
+
+    /**
+     * 图标
+     */
+    private Drawable icon;
 
     /**
      * 是否是系统APP
      */
-    private String isSystem;
+    private boolean isSystem;
 
-    public String getVersionCode() {
-        return versionCode;
+    public String getAppName() {
+        return appName;
     }
 
-    public void setVersionCode(String versionCode) {
-        this.versionCode = versionCode;
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 
     public String getPackageName() {
@@ -50,29 +81,83 @@ public class ListAppBean extends BaseBean {
         this.packageName = packageName;
     }
 
-    public String getVersionName() {
-        return versionName;
+    public String getPackageSign() {
+        return packageSign;
     }
 
-    public void setVersionName(String versionName) {
-        this.versionName = versionName;
+    public void setPackageSign(String packageSign) {
+        this.packageSign = packageSign;
     }
 
-    public String getIsSystem() {
+    public long getAppVersionCode() {
+        return appVersionCode;
+    }
+
+    public void setAppVersionCode(long appVersionCode) {
+        this.appVersionCode = appVersionCode;
+    }
+
+    public String getAppVersionName() {
+        return appVersionName;
+    }
+
+    public void setAppVersionName(String appVersionName) {
+        this.appVersionName = appVersionName;
+    }
+
+    public int getTargetSdkVersion() {
+        return targetSdkVersion;
+    }
+
+    public void setTargetSdkVersion(int targetSdkVersion) {
+        this.targetSdkVersion = targetSdkVersion;
+    }
+
+    public int getMinSdkVersion() {
+        return minSdkVersion;
+    }
+
+    public void setMinSdkVersion(int minSdkVersion) {
+        this.minSdkVersion = minSdkVersion;
+    }
+
+    public CharSequence getDescription() {
+        return description;
+    }
+
+    public void setDescription(CharSequence description) {
+        this.description = description;
+    }
+
+    public Drawable getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Drawable icon) {
+        this.icon = icon;
+    }
+
+    public boolean isSystem() {
         return isSystem;
     }
 
-    public void setIsSystem(String isSystem) {
-        this.isSystem = isSystem;
+    public void setSystem(boolean system) {
+        isSystem = system;
     }
 
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.AppList.PACKAGE_NAME, isEmpty(packageName));
-            jsonObject.put(BaseData.AppList.VERSION_NAME, isEmpty(versionName));
-            jsonObject.put(BaseData.AppList.VERSION_CODE, isEmpty(versionCode));
-            jsonObject.put(BaseData.AppList.IS_SYSTEM, isEmpty(isSystem));
+            jsonObject.put(BaseData.App.APP_NAME, isEmpty(appName));
+            jsonObject.put(BaseData.App.PACKAGE_NAME, isEmpty(packageName));
+            jsonObject.put(BaseData.App.PACKAGE_SIGN, isEmpty(packageSign));
+            jsonObject.put(BaseData.App.APP_VERSION_CODE, appVersionCode);
+            jsonObject.put(BaseData.App.APP_VERSION_NAME, isEmpty(appVersionName));
+            jsonObject.put(BaseData.App.APP_TARGET_SDK_VERSION, targetSdkVersion);
+            jsonObject.put(BaseData.App.APP_MIN_SDK_VERSION, minSdkVersion);
+            jsonObject.put(BaseData.App.APP_DESCRIPTION, isEmpty(description));
+            jsonObject.put(BaseData.App.APP_ICON, icon);
+            jsonObject.put(BaseData.AppList.IS_SYSTEM, isSystem);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

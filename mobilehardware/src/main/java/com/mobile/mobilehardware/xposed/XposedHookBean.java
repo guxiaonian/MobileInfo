@@ -14,16 +14,16 @@ import org.json.JSONObject;
 public class XposedHookBean extends BaseBean {
     private static final String TAG = XposedHookBean.class.getSimpleName();
 
-    private boolean xposedApp ;
-    private boolean xposedImei ;
-    private boolean xposedSerial ;
-    private boolean xposedSsid ;
-    private boolean xposedMac ;
-    private boolean xposedAddress ;
-    private boolean xposedAndroidId ;
-    private boolean xposedImsi ;
-    private boolean xposedLatitude ;
-    private boolean xposedLongitude ;
+    private boolean xposedApp;
+    private boolean xposedImei;
+    private boolean xposedSerial;
+    private boolean xposedSsid;
+    private boolean xposedMac;
+    private boolean xposedAddress;
+    private boolean xposedAndroidId;
+    private boolean xposedImsi;
+    private boolean xposedLatitude;
+    private boolean xposedLongitude;
 
     public XposedHookBean() {
     }
@@ -111,16 +111,16 @@ public class XposedHookBean extends BaseBean {
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.Xposed.XPOSED_APP, xposedApp + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_IMEI, xposedImei + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_IMSI, xposedImsi + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_SERIAL, xposedSerial + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_SSID, xposedSsid + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_MAC, xposedMac + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_ADDRESS, xposedAddress + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_ANDROIDID, xposedAndroidId + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_LATITUDE, xposedLatitude + "");
-            jsonObject.put(BaseData.Xposed.XPOSED_LONGITUDE, xposedLongitude + "");
+            jsonObject.put(BaseData.Xposed.XPOSED_APP, xposedApp);
+            jsonObject.put(BaseData.Xposed.XPOSED_IMEI, xposedImei);
+            jsonObject.put(BaseData.Xposed.XPOSED_IMSI, xposedImsi);
+            jsonObject.put(BaseData.Xposed.XPOSED_SERIAL, xposedSerial);
+            jsonObject.put(BaseData.Xposed.XPOSED_SSID, xposedSsid);
+            jsonObject.put(BaseData.Xposed.XPOSED_MAC, xposedMac);
+            jsonObject.put(BaseData.Xposed.XPOSED_ADDRESS, xposedAddress);
+            jsonObject.put(BaseData.Xposed.XPOSED_ANDROIDID, xposedAndroidId);
+            jsonObject.put(BaseData.Xposed.XPOSED_LATITUDE, xposedLatitude);
+            jsonObject.put(BaseData.Xposed.XPOSED_LONGITUDE, xposedLongitude);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
 

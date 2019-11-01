@@ -3,12 +3,12 @@ package com.mobile.mobileinfo.fragment;
 
 import android.os.Bundle;
 
-import com.mobile.mobileinfo.fragment.base.BaseNetgment;
+import com.mobile.mobileinfo.fragment.base.BaseNetFragment;
 
 import fairy.easy.httpmodel.resource.HttpType;
 
 
-public class HostFragment extends BaseNetgment {
+public class HostFragment extends BaseNetFragment {
 
     public static HostFragment newInstance() {
         Bundle args = new Bundle();

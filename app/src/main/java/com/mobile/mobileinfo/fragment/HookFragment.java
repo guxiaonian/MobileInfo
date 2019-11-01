@@ -22,7 +22,7 @@ public class HookFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(HookHelper.isXposedHook(getContext()));
+        return getListParam(HookHelper.isXposedHook());
     }
 
 

@@ -41,7 +41,7 @@ public class CpuBean extends BaseBean {
     /**
      * CPU核数
      */
-    private String cpuCores="0";
+    private int cpuCores;
 
     /**
      * CPU温度
@@ -93,11 +93,11 @@ public class CpuBean extends BaseBean {
         this.cpuHardware = cpuHardware;
     }
 
-    public String getCpuCores() {
+    public int getCpuCores() {
         return cpuCores;
     }
 
-    public void setCpuCores(String cpuCores) {
+    public void setCpuCores(int cpuCores) {
         this.cpuCores = cpuCores;
     }
 
@@ -125,7 +125,7 @@ public class CpuBean extends BaseBean {
             jsonObject.put(BaseData.Cpu.CPU_MAX_FREQ, isEmpty(cpuMaxFreq));
             jsonObject.put(BaseData.Cpu.CPU_MIN_FREQ, isEmpty(cpuMinFreq));
             jsonObject.put(BaseData.Cpu.CPU_HARDWARE, isEmpty(cpuHardware));
-            jsonObject.put(BaseData.Cpu.CPU_CORES, isEmpty(cpuCores));
+            jsonObject.put(BaseData.Cpu.CPU_CORES, cpuCores);
             jsonObject.put(BaseData.Cpu.CPU_TEMP, isEmpty(cpuTemp));
             jsonObject.put(BaseData.Cpu.CPU_ABI, isEmpty(cpuAbi));
         } catch (Exception e) {

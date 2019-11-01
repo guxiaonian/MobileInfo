@@ -1,5 +1,6 @@
 package com.mobile.mobilehardware.bluetooth;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -20,6 +21,7 @@ import java.util.Set;
 class BluetoothInfo {
     private static final String TAG = BluetoothInfo.class.getSimpleName();
 
+    @SuppressLint("MissingPermission")
     static JSONObject getMobBluetooth(Context context) {
         BluetoothBean bluetoothBean = new BluetoothBean();
         try {
@@ -28,7 +30,7 @@ class BluetoothInfo {
             if (bluetoothAdapter == null) {
                 return bluetoothBean.toJSONObject();
             }
-            bluetoothBean.setIsEnabled(bluetoothAdapter.isEnabled() + "");
+            bluetoothBean.setEnabled(bluetoothAdapter.isEnabled());
             bluetoothBean.setPhoneName(bluetoothAdapter.getName());
             Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
             List<JSONObject> list = new ArrayList<>();

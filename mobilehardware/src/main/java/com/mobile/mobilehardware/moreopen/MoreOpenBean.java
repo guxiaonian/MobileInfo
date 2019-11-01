@@ -55,9 +55,9 @@ public class MoreOpenBean extends BaseBean {
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.MoreOpen.CHECK_BY_PRIVATE_FILE_PATH, isEmpty(checkByPrivateFilePath));
-            jsonObject.put(BaseData.MoreOpen.CHECK_BY_MULTIAPK_PACKAGE_NAME, isEmpty(checkByMultiApkPackageName));
-            jsonObject.put(BaseData.MoreOpen.CHECK_BY_HAS_SAMEUID, isEmpty(checkByHasSameUid));
+            jsonObject.put(BaseData.MoreOpen.CHECK_BY_PRIVATE_FILE_PATH, checkByPrivateFilePath);
+            jsonObject.put(BaseData.MoreOpen.CHECK_BY_MULTIAPK_PACKAGE_NAME, checkByMultiApkPackageName);
+            jsonObject.put(BaseData.MoreOpen.CHECK_BY_HAS_SAMEUID, checkByHasSameUid);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

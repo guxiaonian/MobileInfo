@@ -2,6 +2,8 @@ package com.mobile.mobilehardware.debug;
 
 import android.content.Context;
 
+import com.mobile.mobilehardware.MobileHardWareHelper;
+
 import org.json.JSONObject;
 
 
@@ -16,8 +18,8 @@ public class DebugHelper extends DebugInfo {
      *
      * @return
      */
-    public static JSONObject getDebuggingData(Context context) {
-        return getDebugData(context);
+    public static JSONObject getDebuggingData() {
+        return getDebugData(MobileHardWareHelper.getContext());
     }
 
 }

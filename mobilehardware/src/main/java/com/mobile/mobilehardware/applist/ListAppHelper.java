@@ -1,6 +1,7 @@
 package com.mobile.mobilehardware.applist;
 
-import android.content.Context;
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -16,10 +17,9 @@ public class ListAppHelper extends ListAppInfo {
     /**
      * 获取安装软件列表
      *
-     * @param context
-     * @return
+     * @return 应用列表
      */
-    public static List<JSONObject> mobListApp(Context context) {
-        return getMobListApp(context);
+    public static List<JSONObject> mobListApp() {
+        return getMobListApp(MobileHardWareHelper.getContext());
     }
 }

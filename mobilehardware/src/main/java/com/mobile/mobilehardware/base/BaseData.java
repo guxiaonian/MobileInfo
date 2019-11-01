@@ -203,6 +203,8 @@ public class BaseData {
         public static final String APP_VERSION_NAME = "appVersionName";
         public static final String APP_TARGET_SDK_VERSION = "targetSdkVersion";
         public static final String APP_MIN_SDK_VERSION = "minSdkVersion";
+        public static final String APP_DESCRIPTION="description";
+        public static final String APP_ICON="icon";
     }
 
     public static class Camera {

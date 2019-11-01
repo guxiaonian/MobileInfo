@@ -16,19 +16,19 @@ public class SDCardBean extends BaseBean {
     /**
      * sd card 是否可用
      */
-    private String isSDCardEnable;
+    private boolean isSDCardEnable;
 
     /**
      * sd card路径
      */
     private String sDCardPath;
 
-    public String getIsSDCardEnable() {
+    public boolean isSDCardEnable() {
         return isSDCardEnable;
     }
 
-    public void setIsSDCardEnable(String isSDCardEnable) {
-        this.isSDCardEnable = isSDCardEnable;
+    public void setSDCardEnable(boolean SDCardEnable) {
+        isSDCardEnable = SDCardEnable;
     }
 
     public String getsDCardPath() {
@@ -42,7 +42,7 @@ public class SDCardBean extends BaseBean {
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.SDCard.IS_SDCARD_ENABLE, isEmpty(isSDCardEnable));
+            jsonObject.put(BaseData.SDCard.IS_SDCARD_ENABLE, isSDCardEnable);
             jsonObject.put(BaseData.SDCard.SDCARD_PATH, isEmpty(sDCardPath));
 
         } catch (Exception e) {

@@ -1,6 +1,7 @@
 package com.mobile.mobilehardware.network;
 
-import android.content.Context;
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -11,8 +12,8 @@ import org.json.JSONObject;
 
 public class NetWorkHelper extends NetWorkInfo {
 
-    public static JSONObject mobGetMobNetWork(Context context) {
-        return getMobNetWork(context);
+    public static JSONObject mobGetMobNetWork() {
+        return getMobNetWork(MobileHardWareHelper.getContext());
     }
 
 }

@@ -1,6 +1,7 @@
 package com.mobile.mobilehardware.signal;
 
-import android.content.Context;
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -15,11 +16,10 @@ public class SignalHelper extends SignalInfo {
     /**
      * 信号强度获取
      *
-     * @param context
      * @return
      */
-    public static JSONObject mobGetNetRssi(Context context) {
-        return getNetRssi(context);
+    public static JSONObject mobGetNetRssi() {
+        return getNetRssi(MobileHardWareHelper.getContext());
     }
 
 

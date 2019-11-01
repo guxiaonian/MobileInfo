@@ -22,7 +22,7 @@ public class EmulatorFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(EmulatorHelper.mobCheckEmulator(getContext()));
+        return getListParam(EmulatorHelper.mobCheckEmulator());
     }
 
 

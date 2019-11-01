@@ -2,6 +2,8 @@ package com.mobile.mobilehardware.simcard;
 
 import android.content.Context;
 
+import com.mobile.mobilehardware.MobileHardWareHelper;
+
 import org.json.JSONObject;
 
 
@@ -17,7 +19,7 @@ public class SimCardHelper extends SimCardInfo {
      *
      * @return 运营商返回
      */
-    public static JSONObject mobileSimInfo(Context context) {
-        return getMobSimInfo(context);
+    public static JSONObject mobileSimInfo() {
+        return getMobSimInfo(MobileHardWareHelper.getContext());
     }
 }

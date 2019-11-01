@@ -1,7 +1,6 @@
 package com.mobile.mobileinfo.fragment;
 
 
-
 import android.os.Bundle;
 
 import com.mobile.mobilehardware.bluetooth.BluetoothHelper;
@@ -22,7 +21,7 @@ public class BluetoothFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(BluetoothHelper.mobGetMobBluetooth(getContext()));
+        return getListParam(BluetoothHelper.mobGetMobBluetooth());
     }
 
 

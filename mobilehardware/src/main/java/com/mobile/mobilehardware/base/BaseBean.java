@@ -29,7 +29,11 @@ public class BaseBean implements Serializable {
         return value;
     }
 
-    protected String isEmpty(boolean value) {
-        return value+"";
+    protected String isEmpty(CharSequence value) {
+        if (value == null) {
+            return BaseData.UNKNOWN_PARAM;
+        }
+        return value.toString();
     }
+
 }

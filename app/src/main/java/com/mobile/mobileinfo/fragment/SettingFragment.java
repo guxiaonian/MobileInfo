@@ -22,7 +22,7 @@ public class SettingFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(SettingsHelper.mobGetMobSettings(getContext()));
+        return getListParam(SettingsHelper.mobGetMobSettings());
     }
 
 

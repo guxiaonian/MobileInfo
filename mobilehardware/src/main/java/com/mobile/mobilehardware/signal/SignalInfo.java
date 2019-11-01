@@ -22,7 +22,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.mobile.mobilehardware.base.BaseData;
-import com.mobile.mobilehardware.utils.DataUtils;
+import com.mobile.mobilehardware.utils.DataUtil;
 
 import org.json.JSONObject;
 
@@ -53,7 +53,7 @@ class SignalInfo {
     static JSONObject getNetRssi(Context context) {
         SignalBean signalBean = new SignalBean();
         try {
-            String netWorkType = DataUtils.networkTypeALL(context);
+            String netWorkType = DataUtil.networkTypeALL(context);
             signalBean.setType(netWorkType);
             if (WIFI.equals(netWorkType)) {
                 getDetailsWifiInfo(context, signalBean);
@@ -74,6 +74,7 @@ class SignalInfo {
      * @param context
      * @return
      */
+    @SuppressLint("MissingPermission")
     private static void getMobileDbm(Context context, SignalBean signalBean) {
         int dbm = -1;
         int level = 0;
@@ -118,8 +119,8 @@ class SignalInfo {
                     }
                 }
             }
-            signalBean.setRssi(dbm + "");
-            signalBean.setLevel(level + "");
+            signalBean.setRssi(dbm );
+            signalBean.setLevel(level);
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }
@@ -188,6 +189,7 @@ class SignalInfo {
      * @param mContext
      * @return
      */
+    @SuppressLint("MissingPermission")
     private static WifiInfo getWifiInfo(Context mContext) {
         WifiManager mWifiManager = (WifiManager) mContext.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (mWifiManager != null) {
@@ -216,11 +218,11 @@ class SignalInfo {
             proxyPort = android.net.Proxy.getPort(context);
         }
         if ((!TextUtils.isEmpty(proxyAddress)) && (proxyPort != -1)) {
-            signalBean.setProxy("true");
+            signalBean.setProxy(true);
             signalBean.setProxyAddress(proxyAddress);
             signalBean.setProxyPort(proxyPort + "");
         } else {
-            signalBean.setProxy("false");
+            signalBean.setProxy(false);
         }
 
 
@@ -241,13 +243,13 @@ class SignalInfo {
             signalBean.setSsid(mWifiInfo.getSSID().replace("\"", ""));
             signalBean.setnIpAddress(strIp);
             signalBean.setMacAddress(getMac(mContext));
-            signalBean.setNetworkId(mWifiInfo.getNetworkId() + "");
+            signalBean.setNetworkId(mWifiInfo.getNetworkId());
             signalBean.setLinkSpeed(mWifiInfo.getLinkSpeed() + "Mbps");
             int rssi = mWifiInfo.getRssi();
-            signalBean.setRssi(rssi + "");
-            signalBean.setLevel(calculateSignalLevel(rssi) + "");
+            signalBean.setRssi(rssi);
+            signalBean.setLevel(calculateSignalLevel(rssi));
             isWifiProxy(mContext, signalBean);
-            signalBean.setSupplicantState(mWifiInfo.getSupplicantState() + "");
+            signalBean.setSupplicantState(mWifiInfo.getSupplicantState().name());
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }

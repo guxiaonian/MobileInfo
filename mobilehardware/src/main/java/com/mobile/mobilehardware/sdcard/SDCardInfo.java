@@ -16,7 +16,7 @@ class SDCardInfo {
     static JSONObject getSdCard() {
         SDCardBean sdCardBean = new SDCardBean();
         try {
-            sdCardBean.setIsSDCardEnable(isSDCardEnableByEnvironment() + "");
+            sdCardBean.setSDCardEnable(isSDCardEnableByEnvironment());
             sdCardBean.setsDCardPath(getSDCardPathByEnvironment());
         } catch (Exception e) {
             Log.e(TAG, e.toString());

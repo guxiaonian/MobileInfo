@@ -8,15 +8,15 @@ import java.io.IOException;
 /**
  * @author gunaonian
  */
-public class CommandUtils {
-    private CommandUtils() {
+public class CommandUtil {
+    private CommandUtil() {
     }
 
     private static class SingletonHolder {
-        private static final CommandUtils INSTANCE = new CommandUtils();
+        private static final CommandUtil INSTANCE = new CommandUtil();
     }
 
-    public static final CommandUtils getSingleInstance() {
+    public static final CommandUtil getSingleInstance() {
         return SingletonHolder.INSTANCE;
     }
 

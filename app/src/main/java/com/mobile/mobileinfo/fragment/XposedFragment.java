@@ -22,7 +22,7 @@ public class XposedFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(XposedHookHelper.checkXposedInjet(getContext()));
+        return getListParam(XposedHookHelper.checkXposedInjet());
     }
 
 

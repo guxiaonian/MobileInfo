@@ -14,8 +14,8 @@ import com.mobile.mobilehardware.base.BaseData;
  * @author 谷闹年
  * @date 2018/1/3
  */
-public class DataUtils {
-    private static final String TAG = "DataUtils";
+public class DataUtil {
+    private static final String TAG = "DataUtil";
 
     /**
      * 拿到具体的网络类型

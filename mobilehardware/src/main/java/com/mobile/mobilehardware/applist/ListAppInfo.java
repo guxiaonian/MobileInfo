@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.Log;
 
+import com.mobile.mobilehardware.utils.PackageSignUtil;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -29,17 +31,21 @@ class ListAppInfo {
             for (PackageInfo packageInfo : packageInfoList) {
                 ListAppBean listAppBean = new ListAppBean();
                 listAppBean.setPackageName(packageInfo.packageName);
-                listAppBean.setVersionName(packageInfo.versionName);
+                listAppBean.setAppVersionName(packageInfo.versionName);
+                listAppBean.setAppName(packageInfo.applicationInfo.loadLabel(packageManager).toString());
+                listAppBean.setDescription(packageInfo.applicationInfo.loadDescription(packageManager));
+                listAppBean.setIcon(packageInfo.applicationInfo.loadIcon(packageManager));
+                listAppBean.setTargetSdkVersion(packageInfo.applicationInfo.targetSdkVersion);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    listAppBean.setMinSdkVersion(packageInfo.applicationInfo.minSdkVersion);
+                }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                    listAppBean.setVersionCode(packageInfo.getLongVersionCode() + "");
+                    listAppBean.setAppVersionCode(packageInfo.getLongVersionCode());
                 } else {
-                    listAppBean.setVersionCode(packageInfo.versionCode + "");
+                    listAppBean.setAppVersionCode(packageInfo.versionCode);
                 }
-                if ((ApplicationInfo.FLAG_SYSTEM & packageInfo.applicationInfo.flags) == 0) {
-                    listAppBean.setIsSystem("false");
-                } else {
-                    listAppBean.setIsSystem("true");
-                }
+                listAppBean.setPackageSign(PackageSignUtil.getSign(context, listAppBean.getPackageName()));
+                listAppBean.setSystem(!((ApplicationInfo.FLAG_SYSTEM & packageInfo.applicationInfo.flags) == 0));
                 appLists.add(listAppBean.toJSONObject());
             }
         } catch (Exception e) {

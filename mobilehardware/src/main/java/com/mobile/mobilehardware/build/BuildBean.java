@@ -91,7 +91,7 @@ public class BuildBean extends BaseBean {
     /**
      * time
      */
-    private String time;
+    private long time;
 
     /**
      * type
@@ -126,12 +126,12 @@ public class BuildBean extends BaseBean {
     /**
      * SDK的版本
      */
-    private String sdkInt;
+    private int sdkInt;
 
     /**
      * SDK的预览版本
      */
-    private String previewSdkInt="0";
+    private int previewSdkInt;
 
     /**
      * 用户可见的安全补丁程序级别
@@ -259,11 +259,11 @@ public class BuildBean extends BaseBean {
         this.tags = tags;
     }
 
-    public String getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
@@ -315,19 +315,19 @@ public class BuildBean extends BaseBean {
         this.incremental = incremental;
     }
 
-    public String getSdkInt() {
+    public int getSdkInt() {
         return sdkInt;
     }
 
-    public void setSdkInt(String sdkInt) {
+    public void setSdkInt(int sdkInt) {
         this.sdkInt = sdkInt;
     }
 
-    public String getPreviewSdkInt() {
+    public int getPreviewSdkInt() {
         return previewSdkInt;
     }
 
-    public void setPreviewSdkInt(String previewSdkInt) {
+    public void setPreviewSdkInt(int previewSdkInt) {
         this.previewSdkInt = previewSdkInt;
     }
 
@@ -357,15 +357,15 @@ public class BuildBean extends BaseBean {
             jsonObject.put(BaseData.Build.RADIO, isEmpty(radio));
             jsonObject.put(BaseData.Build.SERIAL, isEmpty(serial));
             jsonObject.put(BaseData.Build.TAGS, isEmpty(tags));
-            jsonObject.put(BaseData.Build.TIME, isEmpty(time));
+            jsonObject.put(BaseData.Build.TIME, time);
             jsonObject.put(BaseData.Build.TYPE, isEmpty(type));
             jsonObject.put(BaseData.Build.USER, isEmpty(user));
             jsonObject.put(BaseData.Build.OS_VERSION, isEmpty(osVersion));
             jsonObject.put(BaseData.Build.RELEASE_VERSION, isEmpty(releaseVersion));
             jsonObject.put(BaseData.Build.CODE_NAME, isEmpty(codeName));
             jsonObject.put(BaseData.Build.INCREMENTAL, isEmpty(incremental));
-            jsonObject.put(BaseData.Build.SDK_INT, isEmpty(sdkInt));
-            jsonObject.put(BaseData.Build.PREVIEW_SDK_INT, isEmpty(previewSdkInt));
+            jsonObject.put(BaseData.Build.SDK_INT, sdkInt);
+            jsonObject.put(BaseData.Build.PREVIEW_SDK_INT, previewSdkInt);
             jsonObject.put(BaseData.Build.SECURITY_PATCH, isEmpty(securityPatch));
         } catch (Exception e) {
             Log.e(TAG, e.toString());

@@ -1,10 +1,12 @@
 package com.mobile.mobileinfo.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mobile.mobileinfo.R;
@@ -30,9 +32,10 @@ public class MobListAdapter extends BaseAdapter {
         return params == null ? 0 : params.size();
     }
 
-    public Param getParam(int position){
+    public Param getParam(int position) {
         return params == null ? null : params.get(position);
     }
+
     @Override
     public Object getItem(int position) {
         return params == null ? null : params.get(position);
@@ -53,18 +56,28 @@ public class MobListAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.key = view.findViewById(R.id.mob_list_tv_key);
             viewHolder.value = view.findViewById(R.id.mob_list_tv_param);
+            viewHolder.iv = view.findViewById(R.id.mob_list_iv_logo);
             view.setTag(viewHolder);
         } else {
             view = convertView;
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.key.setText(param.getKey());
-        viewHolder.value.setText(param.getValue());
+        Object value = param.getValue();
+        if (value instanceof Drawable) {
+            viewHolder.iv.setVisibility(View.VISIBLE);
+            viewHolder.iv.setImageDrawable((Drawable) value);
+            viewHolder.value.setVisibility(View.GONE);
+        } else {
+            viewHolder.iv.setVisibility(View.GONE);
+            viewHolder.value.setText(param.getValue().toString());
+        }
         return view;
     }
 
     class ViewHolder {
         TextView key;
         TextView value;
+        ImageView iv;
     }
 }

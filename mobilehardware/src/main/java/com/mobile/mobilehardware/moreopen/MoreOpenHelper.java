@@ -1,8 +1,9 @@
 package com.mobile.mobilehardware.moreopen;
 
 
-import android.content.Context;
 
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -13,8 +14,8 @@ import org.json.JSONObject;
  */
 public class MoreOpenHelper extends MoreOpenInfo {
 
-    public static JSONObject checkVirtual(Context context) {
-        return checkVirtualInfo(context);
+    public static JSONObject checkVirtual() {
+        return checkVirtualInfo(MobileHardWareHelper.getContext());
     }
 
 }

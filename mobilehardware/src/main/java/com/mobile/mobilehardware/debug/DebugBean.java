@@ -81,11 +81,11 @@ public class DebugBean extends BaseBean {
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.Debug.IS_OPEN_DEBUG, isEmpty(isOpenDebug));
-            jsonObject.put(BaseData.Debug.IS_DEBUG_VERSION, isEmpty(isDebugVersion));
-            jsonObject.put(BaseData.Debug.IS_DEBUGGING, isEmpty(isDebugging));
-            jsonObject.put(BaseData.Debug.IS_READ_PROC_STATUS, isEmpty(isReadProcStatus));
-            jsonObject.put(BaseData.Debug.IS_ALLOW_MOCK_LOCATION, isEmpty(isAllowMockLocation));
+            jsonObject.put(BaseData.Debug.IS_OPEN_DEBUG, isOpenDebug);
+            jsonObject.put(BaseData.Debug.IS_DEBUG_VERSION, isDebugVersion);
+            jsonObject.put(BaseData.Debug.IS_DEBUGGING, isDebugging);
+            jsonObject.put(BaseData.Debug.IS_READ_PROC_STATUS, isReadProcStatus);
+            jsonObject.put(BaseData.Debug.IS_ALLOW_MOCK_LOCATION, isAllowMockLocation);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

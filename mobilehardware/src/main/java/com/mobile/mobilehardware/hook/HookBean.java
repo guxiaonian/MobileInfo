@@ -186,15 +186,15 @@ public class HookBean extends BaseBean {
         @Override
         protected JSONObject toJSONObject() {
             try {
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_PACKAGE, isEmpty(checkXposedPackage));
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_HOOK_METHOD, isEmpty(checkXposedHookMethod));
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_JARS, isEmpty(checkXposedJars));
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_CLASSLOADER, isEmpty(checkClassLoader));
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_NATIVE_METHOD, isEmpty(checkNativeMethod));
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_SYSTEM, isEmpty(checkSystem));
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_EXEC_LIB, isEmpty(checkExecLib));
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_CHECKMAN, isEmpty(checkCheckman));
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_BRIDGE, isEmpty(checkXposedBridge));
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_PACKAGE, checkXposedPackage);
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_HOOK_METHOD, checkXposedHookMethod);
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_JARS, checkXposedJars);
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_CLASSLOADER, checkClassLoader);
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_NATIVE_METHOD, checkNativeMethod);
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_SYSTEM, checkSystem);
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_EXEC_LIB, checkExecLib);
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_CHECKMAN, checkCheckman);
+                jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_BRIDGE, checkXposedBridge);
 
             } catch (Exception e) {
                 Log.e(TAG, e.toString());
@@ -248,9 +248,9 @@ public class HookBean extends BaseBean {
         @Override
         protected JSONObject toJSONObject() {
             try {
-                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_PACKAGE, isEmpty(checkSubstratePackage));
-                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_HOOK_METHOD, isEmpty(checkSubstrateHookMethod));
-                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_JARS, isEmpty(checkSubstrateJars));
+                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_PACKAGE, checkSubstratePackage);
+                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_HOOK_METHOD, checkSubstrateHookMethod);
+                jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_JARS, checkSubstrateJars);
 
 
             } catch (Exception e) {
@@ -291,8 +291,8 @@ public class HookBean extends BaseBean {
         @Override
         protected JSONObject toJSONObject() {
             try {
-                jsonObject.put(BaseData.Hook.Frida.CHECK_RUNNING_PROCESSES, isEmpty(checkRunningProcesses));
-                jsonObject.put(BaseData.Hook.Frida.CHECK_FRIDA_JARS, isEmpty(checkFridaJars));
+                jsonObject.put(BaseData.Hook.Frida.CHECK_RUNNING_PROCESSES, checkRunningProcesses);
+                jsonObject.put(BaseData.Hook.Frida.CHECK_FRIDA_JARS, checkFridaJars);
 
 
             } catch (Exception e) {

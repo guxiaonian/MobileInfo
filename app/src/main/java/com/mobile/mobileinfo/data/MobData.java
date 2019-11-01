@@ -36,4 +36,36 @@ public class MobData {
         mobLists.add("Xposed信息");
         mobLists.add("应用列表");
     }
+
+    public static List<String> mobUrl = new ArrayList<>();
+
+    static {
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Package");
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Audio");
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Band");
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Battery");
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Bluetooth");
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Build");
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Camera");
+        mobUrl.add("CPU信息");
+        mobUrl.add("调试信息");
+        mobUrl.add("模拟器信息");
+        mobUrl.add("Hook信息");
+        mobUrl.add("Local信息");
+        mobUrl.add("内存信息");
+        mobUrl.add("多开信息");
+        mobUrl.add("网络信息");
+        mobUrl.add("Root信息");
+        mobUrl.add("屏幕信息");
+        mobUrl.add("内存卡信息");
+        mobUrl.add("Setting信息");
+        mobUrl.add("信号信息");
+        mobUrl.add("Net信息");
+        mobUrl.add("SimCard信息");
+        mobUrl.add("ID信息");
+        mobUrl.add("UA信息");
+        mobUrl.add("Host信息");
+        mobUrl.add("Xposed信息");
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/AppList");
+    }
 }

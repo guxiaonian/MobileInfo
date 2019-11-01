@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.mobile.mobilehardware.utils.CommandUtils;
+import com.mobile.mobilehardware.utils.CommandUtil;
 
 
 import org.json.JSONObject;
@@ -141,7 +141,7 @@ class HookInfo {
      * @return 是否安装了Xposed
      */
     private static boolean checkExecLib() {
-        String result = CommandUtils.getSingleInstance().exec("ls /system/lib");
+        String result = CommandUtil.getSingleInstance().exec("ls /system/lib");
         if (TextUtils.isEmpty(result)) {
             return false;
         }
@@ -156,7 +156,7 @@ class HookInfo {
      * @return 是否安装了Xposed
      */
     private static boolean checkCheckman(Context context) {
-        String result = CommandUtils.getSingleInstance().exec(context.getFilesDir().getAbsolutePath() + "/checkman " + android.os.Process.myPid());
+        String result = CommandUtil.getSingleInstance().exec(context.getFilesDir().getAbsolutePath() + "/checkman " + android.os.Process.myPid());
         return !TextUtils.isEmpty(result);
 
     }

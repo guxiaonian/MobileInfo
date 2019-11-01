@@ -36,7 +36,7 @@ public class BatteryBean extends BaseBean {
     /**
      * 是否有电池
      */
-    private String present;
+    private boolean present;
 
     /**
      * 电池的技术制造
@@ -90,11 +90,11 @@ public class BatteryBean extends BaseBean {
         this.health = health;
     }
 
-    public String getPresent() {
+    public boolean isPresent() {
         return present;
     }
 
-    public void setPresent(String present) {
+    public void setPresent(boolean present) {
         this.present = present;
     }
 
@@ -137,7 +137,7 @@ public class BatteryBean extends BaseBean {
             jsonObject.put(BaseData.Battery.STATUS, isEmpty(status));
             jsonObject.put(BaseData.Battery.PLUG_STATE, isEmpty(plugState));
             jsonObject.put(BaseData.Battery.HEALTH, isEmpty(health));
-            jsonObject.put(BaseData.Battery.PRESENT, isEmpty(present));
+            jsonObject.put(BaseData.Battery.PRESENT, present);
             jsonObject.put(BaseData.Battery.TECHNOLOGY, isEmpty(technology));
             jsonObject.put(BaseData.Battery.TEMPERATURE, isEmpty(temperature));
             jsonObject.put(BaseData.Battery.VOLTAGE, isEmpty(voltage));

@@ -2,6 +2,7 @@ package com.mobile.mobileinfo.fragment.base;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -49,7 +50,7 @@ public abstract class BaseFragment extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    ClipData clipData = ClipData.newPlainText("Label", adapter.getParam(position).getValue());
+                    ClipData clipData = ClipData.newPlainText("Label", (String) adapter.getParam(position).getKey() + "\n" + ((adapter.getParam(position).getValue() instanceof String) ? (String) adapter.getParam(position).getValue() : ""));
                     ((ClipboardManager) getContext().getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(clipData);
                     Toast.makeText(getContext(), "copy success", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
@@ -103,10 +104,10 @@ public abstract class BaseFragment extends Fragment {
     }
 
 
-    public List<Param> getListParam(String key,Object value) {
+    public List<Param> getListParam(String key, Object value) {
         List<Param> list = new ArrayList<>();
         Param param = new Param();
-        param.setValue(value+"");
+        param.setValue(value + "");
         param.setKey(key);
         list.add(param);
         return list;
@@ -120,7 +121,11 @@ public abstract class BaseFragment extends Fragment {
                 Param param = new Param();
                 String key = (String) iterator.next();
                 param.setKey(key);
-                param.setValue(StringUtil.formatString(jsonObject.getString(key)));
+                if (jsonObject.get(key) instanceof Drawable) {
+                    param.setValue(jsonObject.get(key));
+                } else {
+                    param.setValue(StringUtil.formatString(jsonObject.get(key).toString()));
+                }
                 list.add(param);
             }
         } catch (Exception e) {
@@ -135,9 +140,38 @@ public abstract class BaseFragment extends Fragment {
             for (int i = 0; i < jsonArray.length(); i++) {
                 Param param = new Param();
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+                if (jsonObject.has("isSystem")) {
+                    if (!jsonObject.getBoolean("isSystem")) {
+                        param.setValue(jsonObject.get("icon"));
+                        jsonObject.remove("icon");
+                        String key = StringUtil.formatString(jsonObject.toString());
+                        param.setKey(key);
+                        list.add(param);
+                    }
+                } else {
+                    param.setKey(i + 1 + "");
+                    String value = StringUtil.formatString(jsonObject.toString());
+                    param.setValue(value);
+                    list.add(param);
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Param> getListCameraParam(JSONArray jsonArray) {
+        List<Param> list = new ArrayList<>();
+        try {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                Param param = new Param();
+                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                 param.setKey(i + 1 + "");
-                String value = StringUtil.formatString(jsonObject.toString());
+                String value = jsonObject.toString();
                 param.setValue(value);
+
                 list.add(param);
 
             }

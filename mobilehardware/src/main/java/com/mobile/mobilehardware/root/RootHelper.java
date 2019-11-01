@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
+import com.mobile.mobilehardware.MobileHardWareHelper;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,8 +24,8 @@ import java.util.Scanner;
 public class RootHelper {
     private static final String TAG =RootHelper.class.getSimpleName();
 
-    public static boolean mobileRoot(Context context) {
-        return existingRWPaths().size() > 0 || existingRootPackages(context).size() > 0 || existingDangerousProperties().size() > 0 || existingRootFiles().size() > 0;
+    public static boolean mobileRoot() {
+        return existingRWPaths().size() > 0 || existingRootPackages(MobileHardWareHelper.getContext()).size() > 0 || existingDangerousProperties().size() > 0 || existingRootFiles().size() > 0;
     }
 
     private static final String[] SU_PATHS = {

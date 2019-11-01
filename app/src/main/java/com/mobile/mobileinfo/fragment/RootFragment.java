@@ -22,7 +22,7 @@ public class RootFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam("isRoot",RootHelper.mobileRoot(getContext()));
+        return getListParam("isRoot",RootHelper.mobileRoot());
     }
 
 

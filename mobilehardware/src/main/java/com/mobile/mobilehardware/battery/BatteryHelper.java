@@ -1,6 +1,7 @@
 package com.mobile.mobilehardware.battery;
 
-import android.content.Context;
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -13,11 +14,10 @@ public class BatteryHelper extends BatteryInfo {
     /**
      * 获取电池信息
      *
-     * @param context 上下文
      * @return 电池JSON
      */
-    public static JSONObject mobGetBattery(Context context) {
-        return getBattery(context);
+    public static JSONObject mobGetBattery() {
+        return getBattery(MobileHardWareHelper.getContext());
     }
 
 }

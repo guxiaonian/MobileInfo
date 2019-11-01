@@ -1,7 +1,6 @@
 package com.mobile.mobileinfo.fragment;
 
 
-
 import android.os.Bundle;
 
 import com.mobile.mobilehardware.simcard.SimCardHelper;
@@ -22,7 +21,7 @@ public class SimCardFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(SimCardHelper.mobileSimInfo(getContext()));
+        return getListParam(SimCardHelper.mobileSimInfo());
     }
 
 

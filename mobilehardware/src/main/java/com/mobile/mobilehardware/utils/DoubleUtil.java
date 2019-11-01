@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 /**
  * Created by 谷闹年 on 2018/5/28.
  */
-public class DoubleUtils{
+public class DoubleUtil {
     // 默认除法运算精度
     private static final Integer DEF_DIV_SCALE = 2;
 

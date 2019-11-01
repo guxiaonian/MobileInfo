@@ -25,7 +25,7 @@ public class CameraFragment extends BaseFragment {
     @Override
     public List<Param> addListView() {
         try {
-            return getListParam(CameraHelper.getCameraInfo(getContext()).getJSONArray("cameraInfo"));
+            return getListParam(CameraHelper.getCameraInfo().getJSONArray("cameraInfo"));
         } catch (JSONException e) {
             e.printStackTrace();
         }

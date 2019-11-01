@@ -42,17 +42,17 @@ class BuildInfo {
                 buildBean.setSerial(Build.SERIAL);
             }
             buildBean.setTags(Build.TAGS);
-            buildBean.setTime(Build.TIME + "");
+            buildBean.setTime(Build.TIME);
             buildBean.setType(Build.TYPE);
             buildBean.setUser(Build.USER);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 buildBean.setOsVersion(Build.VERSION.BASE_OS);
-                buildBean.setPreviewSdkInt(Build.VERSION.PREVIEW_SDK_INT + "");
+                buildBean.setPreviewSdkInt(Build.VERSION.PREVIEW_SDK_INT);
                 buildBean.setSecurityPatch(Build.VERSION.SECURITY_PATCH);
             }
             buildBean.setReleaseVersion(Build.VERSION.RELEASE);
             buildBean.setIncremental(Build.VERSION.INCREMENTAL);
-            buildBean.setSdkInt(Build.VERSION.SDK_INT + "");
+            buildBean.setSdkInt(Build.VERSION.SDK_INT);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

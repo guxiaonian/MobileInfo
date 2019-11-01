@@ -23,7 +23,7 @@ public class UAFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam("userAgent", UserAgentHelper.getDefaultUserAgent(getContext()));
+        return getListParam("userAgent", UserAgentHelper.getDefaultUserAgent());
     }
 
 

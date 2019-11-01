@@ -22,7 +22,7 @@ public class SignalFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(SignalHelper.mobGetNetRssi(getContext()));
+        return getListParam(SignalHelper.mobGetNetRssi());
     }
 
 

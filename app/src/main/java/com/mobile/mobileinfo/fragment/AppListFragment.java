@@ -23,7 +23,7 @@ public class AppListFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(new JSONArray(ListAppHelper.mobListApp(getContext())));
+        return getListParam(new JSONArray(ListAppHelper.mobListApp()));
     }
 
 

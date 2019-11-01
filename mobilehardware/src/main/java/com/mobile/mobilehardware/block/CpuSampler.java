@@ -88,7 +88,7 @@ public class CpuSampler extends AbstractSampler {
             for (Map.Entry<Long, CpuBean> entry : mCpuInfoEntries.entrySet()) {
                 JSONObject jsonObject = new JSONObject();
                 try {
-                    jsonObject.put("time", entry.getKey() + "");
+                    jsonObject.put("time", entry.getKey());
                     CpuBean cpuBean = entry.getValue();
                     jsonObject.put("cpu",cpuBean.getCpu());
                     jsonObject.put("app",cpuBean.getApp());

@@ -46,7 +46,7 @@ public class SignalBean extends BaseBean {
     /**
      * 网络id
      */
-    private String networkId;
+    private int networkId;
 
     /**
      * 网络速度
@@ -56,12 +56,12 @@ public class SignalBean extends BaseBean {
     /**
      * 信号强度
      */
-    private String rssi;
+    private int rssi;
 
     /**
      * 信号等级
      */
-    private String level;
+    private int level;
 
     /**
      * 连接状态
@@ -71,7 +71,7 @@ public class SignalBean extends BaseBean {
     /**
      * 是否开启代理
      */
-    private String proxy;
+    private boolean proxy;
 
     /**
      * 代理地址
@@ -131,11 +131,11 @@ public class SignalBean extends BaseBean {
         this.macAddress = macAddress;
     }
 
-    public String getNetworkId() {
+    public int getNetworkId() {
         return networkId;
     }
 
-    public void setNetworkId(String networkId) {
+    public void setNetworkId(int networkId) {
         this.networkId = networkId;
     }
 
@@ -147,19 +147,19 @@ public class SignalBean extends BaseBean {
         this.linkSpeed = linkSpeed;
     }
 
-    public String getRssi() {
+    public int getRssi() {
         return rssi;
     }
 
-    public void setRssi(String rssi) {
+    public void setRssi(int rssi) {
         this.rssi = rssi;
     }
 
-    public String getLevel() {
+    public int getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(int level) {
         this.level = level;
     }
 
@@ -171,11 +171,11 @@ public class SignalBean extends BaseBean {
         this.supplicantState = supplicantState;
     }
 
-    public String getProxy() {
+    public boolean isProxy() {
         return proxy;
     }
 
-    public void setProxy(String proxy) {
+    public void setProxy(boolean proxy) {
         this.proxy = proxy;
     }
 
@@ -204,12 +204,12 @@ public class SignalBean extends BaseBean {
             jsonObject.put(BaseData.Signal.N_IP_ADDRESS, isEmpty(nIpAddress));
             jsonObject.put(BaseData.Signal.N_IP_ADDRESS_IPV6, isEmpty(nIpAddressIpv6));
             jsonObject.put(BaseData.Signal.MAC_ADDRESS, isEmpty(macAddress));
-            jsonObject.put(BaseData.Signal.NETWORK_ID, isEmpty(networkId));
+            jsonObject.put(BaseData.Signal.NETWORK_ID, networkId);
             jsonObject.put(BaseData.Signal.LINK_SPEED, isEmpty(linkSpeed));
-            jsonObject.put(BaseData.Signal.RSSI, isEmpty(rssi));
-            jsonObject.put(BaseData.Signal.LEVEL, isEmpty(level));
+            jsonObject.put(BaseData.Signal.RSSI, rssi);
+            jsonObject.put(BaseData.Signal.LEVEL, level);
             jsonObject.put(BaseData.Signal.SUPPLICANT_STATE, isEmpty(supplicantState));
-            jsonObject.put(BaseData.Signal.PROXY, isEmpty(proxy));
+            jsonObject.put(BaseData.Signal.PROXY, proxy);
             jsonObject.put(BaseData.Signal.PROXY_ADDRESS, isEmpty(proxyAddress));
             jsonObject.put(BaseData.Signal.PROXY_PORT, isEmpty(proxyPort));
         } catch (Exception e) {

@@ -1,6 +1,7 @@
 package com.mobile.mobilehardware.app;
 
-import android.content.Context;
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -14,11 +15,10 @@ public class PackageHelper extends PackageInfo {
     /**
      * 获取包类信息
      *
-     * @param context
-     * @return
+     * @return 包信息
      */
-    public static JSONObject getPackageInfo(Context context) {
-        return packageInfo(context);
+    public static JSONObject getPackageInfo() {
+        return packageInfo(MobileHardWareHelper.getContext());
     }
 
 

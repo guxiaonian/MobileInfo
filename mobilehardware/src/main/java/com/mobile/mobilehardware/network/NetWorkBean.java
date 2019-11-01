@@ -21,27 +21,27 @@ public class NetWorkBean extends BaseBean {
     /**
      * 网络是否可用
      */
-    private String networkAvailable;
+    private boolean networkAvailable;
 
     /**
      * 是否开启数据流量
      */
-    private String haveIntent;
+    private boolean haveIntent;
 
     /**
      * 是否是飞行模式
      */
-    private String isFlightMode;
+    private boolean isFlightMode;
 
     /**
      * NFC功能是否开启
      */
-    private String isNFCEnabled;
+    private boolean isNFCEnabled;
 
     /**
      * 是否开启热点
      */
-    private String isHotspotEnabled;
+    private boolean isHotspotEnabled;
 
     /**
      * 热点账号
@@ -58,6 +58,7 @@ public class NetWorkBean extends BaseBean {
      */
     private String encryptionType;
 
+
     public String getType() {
         return type;
     }
@@ -66,44 +67,44 @@ public class NetWorkBean extends BaseBean {
         this.type = type;
     }
 
-    public String getNetworkAvailable() {
+    public boolean isNetworkAvailable() {
         return networkAvailable;
     }
 
-    public void setNetworkAvailable(String networkAvailable) {
+    public void setNetworkAvailable(boolean networkAvailable) {
         this.networkAvailable = networkAvailable;
     }
 
-    public String getHaveIntent() {
+    public boolean isHaveIntent() {
         return haveIntent;
     }
 
-    public void setHaveIntent(String haveIntent) {
+    public void setHaveIntent(boolean haveIntent) {
         this.haveIntent = haveIntent;
     }
 
-    public String getIsFlightMode() {
+    public boolean isFlightMode() {
         return isFlightMode;
     }
 
-    public void setIsFlightMode(String isFlightMode) {
-        this.isFlightMode = isFlightMode;
+    public void setFlightMode(boolean flightMode) {
+        isFlightMode = flightMode;
     }
 
-    public String getIsNFCEnabled() {
+    public boolean isNFCEnabled() {
         return isNFCEnabled;
     }
 
-    public void setIsNFCEnabled(String isNFCEnabled) {
-        this.isNFCEnabled = isNFCEnabled;
+    public void setNFCEnabled(boolean NFCEnabled) {
+        isNFCEnabled = NFCEnabled;
     }
 
-    public String getIsHotspotEnabled() {
+    public boolean isHotspotEnabled() {
         return isHotspotEnabled;
     }
 
-    public void setIsHotspotEnabled(String isHotspotEnabled) {
-        this.isHotspotEnabled = isHotspotEnabled;
+    public void setHotspotEnabled(boolean hotspotEnabled) {
+        isHotspotEnabled = hotspotEnabled;
     }
 
     public String getHotspotSSID() {
@@ -134,11 +135,11 @@ public class NetWorkBean extends BaseBean {
     protected JSONObject toJSONObject() {
         try {
             jsonObject.put(BaseData.NetWork.TYPE, isEmpty(type));
-            jsonObject.put(BaseData.NetWork.NETWORK_AVAILABLE, isEmpty(networkAvailable));
-            jsonObject.put(BaseData.NetWork.HAVE_INTENT, isEmpty(haveIntent));
-            jsonObject.put(BaseData.NetWork.IS_FLIGHT_MODE, isEmpty(isFlightMode));
-            jsonObject.put(BaseData.NetWork.IS_NFC_ENABLED, isEmpty(isNFCEnabled));
-            jsonObject.put(BaseData.NetWork.IS_HOTSPOT_ENABLED, isEmpty(isHotspotEnabled));
+            jsonObject.put(BaseData.NetWork.NETWORK_AVAILABLE, networkAvailable);
+            jsonObject.put(BaseData.NetWork.HAVE_INTENT, haveIntent);
+            jsonObject.put(BaseData.NetWork.IS_FLIGHT_MODE, isFlightMode);
+            jsonObject.put(BaseData.NetWork.IS_NFC_ENABLED, isNFCEnabled);
+            jsonObject.put(BaseData.NetWork.IS_HOTSPOT_ENABLED, isHotspotEnabled);
             jsonObject.put(BaseData.NetWork.HOTSPOT_SSID, isEmpty(hotspotSSID));
             jsonObject.put(BaseData.NetWork.HOTSPOT_PWD, isEmpty(hotspotPwd));
             jsonObject.put(BaseData.NetWork.ENCRYPTION_TYPE, isEmpty(encryptionType));

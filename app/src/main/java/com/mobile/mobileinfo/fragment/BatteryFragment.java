@@ -22,7 +22,7 @@ public class BatteryFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(BatteryHelper.mobGetBattery(getContext()));
+        return getListParam(BatteryHelper.mobGetBattery());
     }
 
 

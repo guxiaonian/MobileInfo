@@ -1,12 +1,16 @@
 package com.mobile.mobileinfo;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.mobile.mobileinfo.adapter.MobPageAdapter;
+import com.mobile.mobileinfo.data.MobData;
 import com.mobile.mobileinfo.fragment.AppFragment;
 import com.mobile.mobileinfo.fragment.AppListFragment;
 import com.mobile.mobileinfo.fragment.AudioFragment;
@@ -36,6 +40,7 @@ import com.mobile.mobileinfo.fragment.UAFragment;
 import com.mobile.mobileinfo.fragment.XposedFragment;
 import com.mobile.mobileinfo.util.PermissionUtil;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,6 +104,29 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
         mVp.setAdapter(mobPageAdapter);
         mTab.setupWithViewPager(mVp);
+        for (int i = 0; i < mTab.getTabCount(); i++) {
+            TabLayout.Tab tab = mTab.getTabAt(i);
+            if (tab == null) return;
+            Class c = tab.getClass();
+            try {
+                Field field = c.getDeclaredField("mView");
+                field.setAccessible(true);
+                final View view = (View) field.get(tab);
+                if (view == null) return;
+                int index = i;
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        Uri uri = Uri.parse(MobData.mobUrl.get(index));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        return false;
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

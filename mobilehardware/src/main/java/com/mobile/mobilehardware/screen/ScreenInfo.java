@@ -30,20 +30,20 @@ class ScreenInfo {
         final ScreenBean screenBean = new ScreenBean();
         try {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            screenBean.setDensityScale(displayMetrics.density + "");
-            screenBean.setDensityDpi(displayMetrics.densityDpi + "");
-            screenBean.setWidth(displayMetrics.widthPixels + "");
-            screenBean.setHeight(displayMetrics.heightPixels + "");
+            screenBean.setDensityScale(displayMetrics.density);
+            screenBean.setDensityDpi(displayMetrics.densityDpi);
+            screenBean.setWidth(displayMetrics.widthPixels);
+            screenBean.setHeight(displayMetrics.heightPixels);
             int screenMode = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
             int screenBrightness = Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
             int screenChange = Settings.System.getInt(context.getContentResolver(), Settings.System.ACCELEROMETER_ROTATION);
-            screenBean.setIsScreenAuto((screenMode == 1) + "");
-            screenBean.setScreenBrightness(screenBrightness + "");
-            screenBean.setIsScreenAutoChange((screenChange == 1) + "");
-            screenBean.setCheckHasNavigationBar(checkHasNavigationBar(context) + "");
-            screenBean.setCheckHideStatusBar(checkHideStatusBar(context) + "");
-            screenBean.setGetStatusBarHeight(getStatusBarHeight(context) + "");
-            screenBean.setGetNavigationBarHeight(getNavigationBarHeight(context) + "");
+            screenBean.setScreenAuto((screenMode == 1));
+            screenBean.setScreenBrightness(screenBrightness);
+            screenBean.setScreenAutoChange((screenChange == 1));
+            screenBean.setCheckHasNavigationBar(checkHasNavigationBar(context));
+            screenBean.setCheckHideStatusBar(checkHideStatusBar(context));
+            screenBean.setGetStatusBarHeight(getStatusBarHeight(context));
+            screenBean.setGetNavigationBarHeight(getNavigationBarHeight(context));
             if (window != null) {
                 WindowInsetsUtils.getNotchParams(window, new ResultListener() {
                     @Override

@@ -1,5 +1,6 @@
 package com.mobile.mobilehardware.app;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.mobile.mobilehardware.base.BaseBean;
@@ -31,7 +32,7 @@ public class PackageBean extends BaseBean {
     /**
      * 版本号
      */
-    private String appVersionCode;
+    private long appVersionCode;
 
     /**
      * 版本名字
@@ -41,26 +42,52 @@ public class PackageBean extends BaseBean {
     /**
      * 目标系统版本号
      */
-    private String targetSdkVersion;
+    private int targetSdkVersion;
 
     /**
      * 最低系统版本号
      **/
-    private String minSdkVersion="0";
+    private int minSdkVersion;
 
-    public String getTargetSdkVersion() {
+    /**
+     * 描述
+     */
+    private CharSequence description;
+
+    /**
+     * 图标
+     */
+    private Drawable icon;
+
+    public CharSequence getDescription() {
+        return description;
+    }
+
+    public void setDescription(CharSequence description) {
+        this.description = description;
+    }
+
+    public Drawable getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Drawable icon) {
+        this.icon = icon;
+    }
+
+    public int getTargetSdkVersion() {
         return targetSdkVersion;
     }
 
-    public void setTargetSdkVersion(String targetSdkVersion) {
+    public void setTargetSdkVersion(int targetSdkVersion) {
         this.targetSdkVersion = targetSdkVersion;
     }
 
-    public String getMinSdkVersion() {
+    public int getMinSdkVersion() {
         return minSdkVersion;
     }
 
-    public void setMinSdkVersion(String minSdkVersion) {
+    public void setMinSdkVersion(int minSdkVersion) {
         this.minSdkVersion = minSdkVersion;
     }
 
@@ -88,11 +115,11 @@ public class PackageBean extends BaseBean {
         this.packageSign = packageSign;
     }
 
-    public String getAppVersionCode() {
+    public long getAppVersionCode() {
         return appVersionCode;
     }
 
-    public void setAppVersionCode(String appVersionCode) {
+    public void setAppVersionCode(long appVersionCode) {
         this.appVersionCode = appVersionCode;
     }
 
@@ -110,10 +137,12 @@ public class PackageBean extends BaseBean {
             jsonObject.put(BaseData.App.APP_NAME, isEmpty(appName));
             jsonObject.put(BaseData.App.PACKAGE_NAME, isEmpty(packageName));
             jsonObject.put(BaseData.App.PACKAGE_SIGN, isEmpty(packageSign));
-            jsonObject.put(BaseData.App.APP_VERSION_CODE, isEmpty(appVersionCode));
+            jsonObject.put(BaseData.App.APP_VERSION_CODE, appVersionCode);
             jsonObject.put(BaseData.App.APP_VERSION_NAME, isEmpty(appVersionName));
-            jsonObject.put(BaseData.App.APP_TARGET_SDK_VERSION, isEmpty(targetSdkVersion));
-            jsonObject.put(BaseData.App.APP_MIN_SDK_VERSION, isEmpty(minSdkVersion));
+            jsonObject.put(BaseData.App.APP_TARGET_SDK_VERSION, targetSdkVersion);
+            jsonObject.put(BaseData.App.APP_MIN_SDK_VERSION, minSdkVersion);
+            jsonObject.put(BaseData.App.APP_DESCRIPTION, isEmpty(description));
+            jsonObject.put(BaseData.App.APP_ICON, icon);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

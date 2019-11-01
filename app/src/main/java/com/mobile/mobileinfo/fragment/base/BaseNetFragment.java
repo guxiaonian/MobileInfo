@@ -34,7 +34,7 @@ import fairy.easy.httpmodel.resource.HttpType;
 
 import static android.content.Context.CLIPBOARD_SERVICE;
 
-public abstract class BaseNetgment extends Fragment {
+public abstract class BaseNetFragment extends Fragment {
 
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -54,7 +54,7 @@ public abstract class BaseNetgment extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    ClipData clipData = ClipData.newPlainText("Label", adapter.getParam(position).getValue());
+                    ClipData clipData = ClipData.newPlainText("Label", (String) adapter.getParam(position).getKey()+"\b"+((adapter.getParam(position).getValue() instanceof String)?(String) adapter.getParam(position).getValue():""));
                     ((ClipboardManager) getContext().getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(clipData);
                     Toast.makeText(getContext(), "copy success", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {

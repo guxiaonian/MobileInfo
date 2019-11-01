@@ -22,7 +22,7 @@ public class MemoryFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(MemoryHelper.getMemoryInfo(getContext()));
+        return getListParam(MemoryHelper.getMemoryInfo());
     }
 
 

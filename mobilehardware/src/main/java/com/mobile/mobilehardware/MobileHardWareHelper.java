@@ -44,272 +44,278 @@ import java.util.List;
 
 public class MobileHardWareHelper {
 
-    private static final String VERSION = "2.3.1";
-    private static final String TAG = "MobileHardWareHelper";
+    /**
+     * 全局上下文
+     */
+    private static Context mContext;
 
-    public static String getMobVersion() {
-        return VERSION;
+    /**
+     * 设置全局上下文 默认使用MobInitializer来进行初始化
+     * 可以自行修改
+     *
+     * @param context 上下文
+     */
+    public static void init(@NonNull Context context) {
+        mContext = context;
     }
 
     /**
-     * 获取指定ip的host，只能在子线程中进行。
+     * 获取全局上下文
      *
-     * @param host
-     * @return
+     * @return 上下文
      */
-    public static String mobNetDNS(@NonNull String host) {
-        return DnsHelper.mobDNS(host);
-    }
-
-    /**
-     * 获取收集所有app的信息，很耗时，需要在子线程中执行
-     *
-     * @param context
-     * @return
-     */
-    public static List<JSONObject> mobileAppList(@NonNull Context context) {
-        return ListAppHelper.mobListApp(context);
-    }
-
-
-    /**
-     * 手机是否root
-     *
-     * @param context
-     * @return
-     */
-    public static boolean mobileRoot(@NonNull Context context) {
-        return RootHelper.mobileRoot(context);
-    }
-
-    /**
-     * 手机设置信息
-     *
-     * @param context
-     * @return
-     */
-    public static JSONObject mobileSettings(@NonNull Context context) {
-        return SettingsHelper.mobGetMobSettings(context);
-    }
-
-    /**
-     * 手机电池信息
-     *
-     * @param context
-     * @return
-     */
-    public static JSONObject mobileBattery(@NonNull Context context) {
-        return BatteryHelper.mobGetBattery(context);
-    }
-
-    /**
-     * 手机CPU信息
-     *
-     * @return
-     */
-    public static JSONObject mobileCPU() {
-        return CpuHelper.mobGetCpuInfo();
-    }
-
-    /**
-     * 手机内存信息
-     *
-     * @return
-     */
-    public static JSONObject mobileMemory(@NonNull Context context) {
-        return MemoryHelper.getMemoryInfo(context);
-    }
-
-    /**
-     * 手机版本信息
-     *
-     * @return
-     */
-    public static JSONObject mobileBand() {
-        return BandHelper.mobGetBandInfo();
+    public static Context getContext() {
+        return mContext;
     }
 
     /**
      * app包信息
      *
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Package
      */
-    public static JSONObject mobilePackage(@NonNull Context context) {
-        return PackageHelper.getPackageInfo(context);
+    public static JSONObject getPackageInfo() {
+        return PackageHelper.getPackageInfo();
     }
 
     /**
-     * 手机摄像头信息
+     * 获取收集所有app的信息，很耗时，需要在子线程中执行
      *
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/AppList
      */
-    public static JSONObject mobileCamera(@NonNull Context context) {
-        return CameraHelper.getCameraInfo(context);
+    public static List<JSONObject> getListAppInfo() {
+        return ListAppHelper.mobListApp();
     }
 
     /**
-     * 手机信号信息
+     * 获取手机音量的信息
      *
-     * @param context
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Audio
      */
-    public static JSONObject mobileRssi(@NonNull Context context) {
-        return SignalHelper.mobGetNetRssi(context);
+    public static JSONObject getAudioInfo() {
+        return AudioHelper.mobGetMobAudio();
     }
 
     /**
-     * 手机基本信息 build
+     * 手机版本信息
      *
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Band
      */
-    public static JSONObject mobileBuild() {
-        return BuildHelper.mobGetBuildInfo();
+    public static JSONObject getBandInfo() {
+        return BandHelper.mobGetBandInfo();
     }
 
     /**
-     * 手机基本信息 local
+     * 手机电池信息
      *
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Battery
      */
-    public static JSONObject mobileLocal() {
-        return LocalHelper.mobGetMobLocal();
-    }
-
-    /**
-     * 手机基本信息 screen
-     *
-     * @return
-     */
-    public static JSONObject mobileScreen(@NonNull Context context, @Nullable Window window) {
-        return ScreenHelper.mobGetMobScreen(context,window);
-    }
-
-    /**
-     * 手机基本信息 netWork
-     *
-     * @return
-     */
-    public static JSONObject mobileNetWork(@NonNull Context context) {
-        return NetWorkHelper.mobGetMobNetWork(context);
-    }
-
-
-    /**
-     * 手机基本信息 emulator
-     *
-     * @return
-     */
-    public static JSONObject mobileEmulator(@NonNull Context context) {
-        return EmulatorHelper.mobCheckEmulator(context);
+    public static JSONObject getBatteryInfo() {
+        return BatteryHelper.mobGetBattery();
     }
 
 
     /**
      * 蓝牙信息 bluetooth
      *
-     * @param context
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Bluetooth
      */
-    public static JSONObject mobileBluetooth(@NonNull Context context) {
-        return BluetoothHelper.mobGetMobBluetooth(context);
+    public static JSONObject getBluetoothInfo() {
+        return BluetoothHelper.mobGetMobBluetooth();
     }
 
     /**
-     * 拿到手机卡的详细信息
+     * 手机基本信息 build
      *
-     * @param context
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Build
      */
-    public static JSONObject mobileSimInfo(@NonNull Context context) {
-        return SimCardHelper.mobileSimInfo(context);
+    public static JSONObject getBuildInfo() {
+        return BuildHelper.mobGetBuildInfo();
+    }
+
+
+    /**
+     * 手机摄像头信息
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Camera
+     */
+    public static JSONObject getCameraInfo() {
+        return CameraHelper.getCameraInfo();
     }
 
     /**
-     * 返回默认的UA
+     * 手机CPU信息
      *
-     * @param context
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Cpu
      */
-    public static String mobileUserAgent(@NonNull Context context) {
-        return UserAgentHelper.getDefaultUserAgent(context);
+    public static JSONObject getCpuInfo() {
+        return CpuHelper.mobGetCpuInfo();
     }
 
     /**
-     * 利用硬件标示来产生设备的唯一id
+     * 判断debug的信息
      *
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Debug
      */
-    public static String mobileId() {
-        return PhoneIdHelper.getUniqueID();
+    public static JSONObject getDebugInfo() {
+        return DebugHelper.getDebuggingData();
+    }
+
+    /**
+     * 获取指定ip的host，只能在子线程中进行。
+     *
+     * @param host ip地址
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Host
+     */
+    public static String getHostAddressInfo(@NonNull String host) {
+        return DnsHelper.mobDNS(host);
+    }
+
+    /**
+     * 手机基本信息 emulator
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Emulator
+     */
+    public static JSONObject getEmulatorInfo() {
+        return EmulatorHelper.mobCheckEmulator();
     }
 
     /**
      * 判断是否包含Hook工具
      *
-     * @param context 上下文
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Hook
      */
-    public static JSONObject isHaveXposed(@NonNull Context context) {
-        return HookHelper.isXposedHook(context);
+    public static JSONObject getHookInfo() {
+        return HookHelper.isXposedHook();
     }
 
     /**
-     * 判断Hook的信息
+     * 手机基本信息 local
      *
-     * @param context 上下文
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Local
      */
-    public static JSONObject xposedInfo(@NonNull Context context) {
-        return XposedHookHelper.checkXposedInjet(context);
+    public static JSONObject getLocalInfo() {
+        return LocalHelper.mobGetMobLocal();
     }
 
-
     /**
-     * 判断debug的信息
+     * 手机内存信息
      *
-     * @param context 上下文
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Memory
      */
-    public static JSONObject debugInfo(@NonNull Context context) {
-        return DebugHelper.getDebuggingData(context);
+    public static JSONObject getMemoryInfo() {
+        return MemoryHelper.getMemoryInfo();
     }
 
     /**
      * 判断多开软件的信息
      *
-     * @param context 上下文
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/MoreOpen
      */
-    public static JSONObject virtualInfo(@NonNull Context context) {
-        return MoreOpenHelper.checkVirtual(context);
+    public static JSONObject getMoreOpenInfo() {
+        return MoreOpenHelper.checkVirtual();
+    }
+
+    /**
+     * 手机基本信息 netWork
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/NetWork
+     */
+    public static JSONObject getNetWorkInfo() {
+        return NetWorkHelper.mobGetMobNetWork();
+    }
+
+
+    /**
+     * 手机是否root
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Root
+     */
+    public static boolean isRoot() {
+        return RootHelper.mobileRoot();
+    }
+
+    /**
+     * 手机基本信息 screen
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Screen
+     */
+    public static JSONObject getScreenInfo(@Nullable Window window) {
+        return ScreenHelper.mobGetMobScreen(window);
+    }
+
+
+    /**
+     * 获取SDCard信息
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/SDCard
+     */
+    public static JSONObject getSDCardInfo() {
+        return SDCardHelper.mobGetSdCard();
+    }
+
+    /**
+     * 手机设置信息
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Settings
+     */
+    public static JSONObject getSettingsInfo() {
+        return SettingsHelper.mobGetMobSettings();
+    }
+
+    /**
+     * 手机信号信息
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Signal
+     */
+    public static JSONObject getSignalInfo() {
+        return SignalHelper.mobGetNetRssi();
+    }
+
+    /**
+     * 判断Hook的信息
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Xposed
+     */
+    public static JSONObject getXposedInfo() {
+        return XposedHookHelper.checkXposedInjet();
+    }
+
+    /**
+     * 返回默认的UA
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/UserAgent
+     */
+    public static String getUserAgentInfo() {
+        return UserAgentHelper.getDefaultUserAgent();
+    }
+
+    /**
+     * 利用硬件标示来产生设备的唯一id
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/PhoneId
+     */
+    public static String getUniqueIDInfo() {
+        return PhoneIdHelper.getUniqueID();
     }
 
     /**
      * 判断当前线程的堆栈信息
      *
      * @param thread 所要获取的线程
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Stack
      */
-    public static String stackInfo(@NonNull Thread thread) {
+    public static String getThreadStackInfo(@NonNull Thread thread) {
         return StackSampler.getStackInfo(thread);
     }
 
     /**
-     * 获取手机音量的信息
+     * 拿到手机卡的详细信息
      *
-     * @param context 上下文
-     * @return
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/SimCard
      */
-    public static JSONObject audioInfo(@NonNull Context context) {
-        return AudioHelper.mobGetMobAudio(context);
+    public static JSONObject getSimInfo() {
+        return SimCardHelper.mobileSimInfo();
     }
 
-    /**
-     * 获取SDCard信息
-     *
-     * @return
-     */
-    public static JSONObject getSDCardInfo() {
-        return SDCardHelper.mobGetSdCard();
-    }
+
 }

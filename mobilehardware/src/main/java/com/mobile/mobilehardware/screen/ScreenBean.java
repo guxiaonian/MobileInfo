@@ -26,57 +26,57 @@ public class ScreenBean extends BaseBean {
     /**
      * 当前屏幕密度与标准屏幕密度的比值
      */
-    private String densityScale;
+    private float densityScale;
 
     /**
      * 屏幕密度
      */
-    private String densityDpi;
+    private int densityDpi;
 
     /**
      * 屏幕宽度
      */
-    private String width;
+    private int width;
 
     /**
      * 屏幕高度
      */
-    private String height;
+    private int height;
 
     /**
      * 亮度是否为自动调节
      */
-    private String isScreenAuto;
+    private boolean isScreenAuto;
 
     /**
      * 屏幕亮度
      */
-    private String screenBrightness;
+    private int screenBrightness;
 
     /**
      * 屏幕是否开启自动旋转
      */
-    private String isScreenAutoChange;
+    private boolean isScreenAutoChange;
 
     /**
      * 是否隐藏状态栏
      */
-    private String checkHideStatusBar;
+    private boolean checkHideStatusBar;
 
     /**
      * 是否显示底部导航栏
      */
-    private String checkHasNavigationBar;
+    private boolean checkHasNavigationBar;
 
     /**
      * 获取状态栏高度
      */
-    private String getStatusBarHeight;
+    private int getStatusBarHeight;
 
     /**
      * 获取底部导航栏的高度
      */
-    private String getNavigationBarHeight;
+    private int getNavigationBarHeight;
 
     public boolean isWindowNotch() {
         return isWindowNotch;
@@ -94,110 +94,110 @@ public class ScreenBean extends BaseBean {
         this.windowNotchHeight = windowNotchHeight;
     }
 
-    public String getCheckHideStatusBar() {
-        return checkHideStatusBar;
-    }
-
-    public void setCheckHideStatusBar(String checkHideStatusBar) {
-        this.checkHideStatusBar = checkHideStatusBar;
-    }
-
-    public String getCheckHasNavigationBar() {
-        return checkHasNavigationBar;
-    }
-
-    public void setCheckHasNavigationBar(String checkHasNavigationBar) {
-        this.checkHasNavigationBar = checkHasNavigationBar;
-    }
-
-    public String getGetStatusBarHeight() {
-        return getStatusBarHeight;
-    }
-
-    public void setGetStatusBarHeight(String getStatusBarHeight) {
-        this.getStatusBarHeight = getStatusBarHeight;
-    }
-
-    public String getGetNavigationBarHeight() {
-        return getNavigationBarHeight;
-    }
-
-    public void setGetNavigationBarHeight(String getNavigationBarHeight) {
-        this.getNavigationBarHeight = getNavigationBarHeight;
-    }
-
-    public String getDensityScale() {
+    public float getDensityScale() {
         return densityScale;
     }
 
-    public void setDensityScale(String densityScale) {
+    public void setDensityScale(float densityScale) {
         this.densityScale = densityScale;
     }
 
-    public String getDensityDpi() {
+    public int getDensityDpi() {
         return densityDpi;
     }
 
-    public void setDensityDpi(String densityDpi) {
+    public void setDensityDpi(int densityDpi) {
         this.densityDpi = densityDpi;
     }
 
-    public String getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(String width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public String getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public String getIsScreenAuto() {
+    public boolean isScreenAuto() {
         return isScreenAuto;
     }
 
-    public void setIsScreenAuto(String isScreenAuto) {
-        this.isScreenAuto = isScreenAuto;
+    public void setScreenAuto(boolean screenAuto) {
+        isScreenAuto = screenAuto;
     }
 
-    public String getScreenBrightness() {
+    public int getScreenBrightness() {
         return screenBrightness;
     }
 
-    public void setScreenBrightness(String screenBrightness) {
+    public void setScreenBrightness(int screenBrightness) {
         this.screenBrightness = screenBrightness;
     }
 
-    public String getIsScreenAutoChange() {
+    public boolean isScreenAutoChange() {
         return isScreenAutoChange;
     }
 
-    public void setIsScreenAutoChange(String isScreenAutoChange) {
-        this.isScreenAutoChange = isScreenAutoChange;
+    public void setScreenAutoChange(boolean screenAutoChange) {
+        isScreenAutoChange = screenAutoChange;
+    }
+
+    public boolean isCheckHideStatusBar() {
+        return checkHideStatusBar;
+    }
+
+    public void setCheckHideStatusBar(boolean checkHideStatusBar) {
+        this.checkHideStatusBar = checkHideStatusBar;
+    }
+
+    public boolean isCheckHasNavigationBar() {
+        return checkHasNavigationBar;
+    }
+
+    public void setCheckHasNavigationBar(boolean checkHasNavigationBar) {
+        this.checkHasNavigationBar = checkHasNavigationBar;
+    }
+
+    public int getGetStatusBarHeight() {
+        return getStatusBarHeight;
+    }
+
+    public void setGetStatusBarHeight(int getStatusBarHeight) {
+        this.getStatusBarHeight = getStatusBarHeight;
+    }
+
+    public int getGetNavigationBarHeight() {
+        return getNavigationBarHeight;
+    }
+
+    public void setGetNavigationBarHeight(int getNavigationBarHeight) {
+        this.getNavigationBarHeight = getNavigationBarHeight;
     }
 
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.Screen.DENSITY_SCALE, isEmpty(densityScale));
-            jsonObject.put(BaseData.Screen.DENSITY_DPI, isEmpty(densityDpi));
-            jsonObject.put(BaseData.Screen.WIDTH, isEmpty(width));
-            jsonObject.put(BaseData.Screen.HEIGHT, isEmpty(height));
-            jsonObject.put(BaseData.Screen.IS_SCREEN_AUTO, isEmpty(isScreenAuto));
-            jsonObject.put(BaseData.Screen.IS_SCREEN_AUTO_CHANGE, isEmpty(isScreenAutoChange));
-            jsonObject.put(BaseData.Screen.SCREEN_BRIGHTNESS, isEmpty(screenBrightness));
-            jsonObject.put(BaseData.Screen.CHECK_HIDE_STATUSBAR, isEmpty(checkHideStatusBar));
-            jsonObject.put(BaseData.Screen.CHECK_HAS_NAVIGATIONBAR, isEmpty(checkHasNavigationBar));
-            jsonObject.put(BaseData.Screen.GET_STATUSBAR_HEIGHT, isEmpty(getStatusBarHeight));
-            jsonObject.put(BaseData.Screen.GET_NAVIGATIONBAR_HEIGHT, isEmpty(getNavigationBarHeight));
-            jsonObject.put(BaseData.Screen.IS_WINDOW_NOTCH, isEmpty(isWindowNotch));
-            jsonObject.put(BaseData.Screen.WINDOW_NOTCH_HEIGHT, isEmpty(windowNotchHeight + ""));
+            jsonObject.put(BaseData.Screen.DENSITY_SCALE, densityScale);
+            jsonObject.put(BaseData.Screen.DENSITY_DPI, densityDpi);
+            jsonObject.put(BaseData.Screen.WIDTH, width);
+            jsonObject.put(BaseData.Screen.HEIGHT, height);
+            jsonObject.put(BaseData.Screen.IS_SCREEN_AUTO, isScreenAuto);
+            jsonObject.put(BaseData.Screen.IS_SCREEN_AUTO_CHANGE, isScreenAutoChange);
+            jsonObject.put(BaseData.Screen.SCREEN_BRIGHTNESS, screenBrightness);
+            jsonObject.put(BaseData.Screen.CHECK_HIDE_STATUSBAR, checkHideStatusBar);
+            jsonObject.put(BaseData.Screen.CHECK_HAS_NAVIGATIONBAR, checkHasNavigationBar);
+            jsonObject.put(BaseData.Screen.GET_STATUSBAR_HEIGHT, getStatusBarHeight);
+            jsonObject.put(BaseData.Screen.GET_NAVIGATIONBAR_HEIGHT, getNavigationBarHeight);
+            jsonObject.put(BaseData.Screen.IS_WINDOW_NOTCH, isWindowNotch);
+            jsonObject.put(BaseData.Screen.WINDOW_NOTCH_HEIGHT, windowNotchHeight + "");
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

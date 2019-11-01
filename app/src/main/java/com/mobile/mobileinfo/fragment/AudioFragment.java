@@ -22,7 +22,7 @@ public class AudioFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(AudioHelper.mobGetMobAudio(getContext()));
+        return getListParam(AudioHelper.mobGetMobAudio());
     }
 
 

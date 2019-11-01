@@ -94,12 +94,12 @@ public class EmulatorBean extends BaseBean {
     @Override
     protected JSONObject toJSONObject() {
         try {
-            jsonObject.put(BaseData.Emulator.CHECK_BUILD, isEmpty(checkBuild));
-            jsonObject.put(BaseData.Emulator.CHECK_PKG, isEmpty(checkPkg));
-            jsonObject.put(BaseData.Emulator.CHECK_PIPES, isEmpty(checkPipes));
-            jsonObject.put(BaseData.Emulator.CHECK_QEMU_DRIVER_FILE, isEmpty(checkQEmuDriverFile));
-            jsonObject.put(BaseData.Emulator.CHECK_HAS_LIGHT_SENSOR_MANAGER, isEmpty(checkHasLightSensorManager));
-            jsonObject.put(BaseData.Emulator.CHECK_CPU_INFO, isEmpty(checkCpuInfo));
+            jsonObject.put(BaseData.Emulator.CHECK_BUILD, checkBuild);
+            jsonObject.put(BaseData.Emulator.CHECK_PKG, checkPkg);
+            jsonObject.put(BaseData.Emulator.CHECK_PIPES, checkPipes);
+            jsonObject.put(BaseData.Emulator.CHECK_QEMU_DRIVER_FILE, checkQEmuDriverFile);
+            jsonObject.put(BaseData.Emulator.CHECK_HAS_LIGHT_SENSOR_MANAGER, checkHasLightSensorManager);
+            jsonObject.put(BaseData.Emulator.CHECK_CPU_INFO, checkCpuInfo);
 
         } catch (Exception e) {
             Log.e(TAG, e.toString());

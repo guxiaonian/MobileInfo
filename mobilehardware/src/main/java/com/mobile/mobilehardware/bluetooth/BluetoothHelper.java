@@ -1,7 +1,8 @@
 package com.mobile.mobilehardware.bluetooth;
 
 
-import android.content.Context;
+
+import com.mobile.mobilehardware.MobileHardWareHelper;
 
 import org.json.JSONObject;
 
@@ -15,11 +16,10 @@ public class BluetoothHelper extends BluetoothInfo {
 
     /**
      * 获取蓝牙信息
-     * @param context
      * @return
      */
-    public static JSONObject mobGetMobBluetooth(Context context) {
-        return getMobBluetooth(context);
+    public static JSONObject mobGetMobBluetooth() {
+        return getMobBluetooth(MobileHardWareHelper.getContext());
     }
 
 

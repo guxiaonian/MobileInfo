@@ -5,7 +5,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.mobile.mobilehardware.utils.CommandUtils;
+import com.mobile.mobilehardware.utils.CommandUtil;
 
 import org.json.JSONObject;
 
@@ -107,7 +107,7 @@ class MoreOpenInfo {
                 return false;
             }
 
-            String result = CommandUtils.getSingleInstance().exec("ps");
+            String result = CommandUtil.getSingleInstance().exec("ps");
             if (TextUtils.isEmpty(result)) {
                 return false;
             }
@@ -138,7 +138,7 @@ class MoreOpenInfo {
 
     private static String getUidStrFormat() {
         try {
-            String filter = CommandUtils.getSingleInstance().exec("cat /proc/self/cgroup");
+            String filter = CommandUtil.getSingleInstance().exec("cat /proc/self/cgroup");
             if (filter == null || filter.length() == 0) {
                 return null;
             }

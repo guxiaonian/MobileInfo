@@ -24,7 +24,7 @@ public class BluetoothBean extends BaseBean {
     /**
      * 蓝牙是否打开
      */
-    private String isEnabled;
+    private boolean isEnabled;
 
     /**
      * 连接的手机的信息
@@ -44,12 +44,12 @@ public class BluetoothBean extends BaseBean {
         this.bluetoothAddress = bluetoothAddress;
     }
 
-    public String getIsEnabled() {
+    public boolean isEnabled() {
         return isEnabled;
     }
 
-    public void setIsEnabled(String isEnabled) {
-        this.isEnabled = isEnabled;
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 
     public List<JSONObject> getDevice() {
@@ -72,7 +72,7 @@ public class BluetoothBean extends BaseBean {
     protected JSONObject toJSONObject() {
         try {
             jsonObject.put(BaseData.Bluetooth.BLUETOOTH_ADDRESS, isEmpty(bluetoothAddress));
-            jsonObject.put(BaseData.Bluetooth.IS_ENABLED, isEmpty(isEnabled));
+            jsonObject.put(BaseData.Bluetooth.IS_ENABLED, isEnabled);
             jsonObject.put(BaseData.Bluetooth.DEVICE, new JSONArray(device));
             jsonObject.put(BaseData.Bluetooth.PHONE_NAME, isEmpty(phoneName));
 

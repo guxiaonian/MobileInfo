@@ -22,7 +22,7 @@ public class DebugFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(DebugHelper.getDebuggingData(getContext()));
+        return getListParam(DebugHelper.getDebuggingData());
     }
 
 

@@ -22,7 +22,7 @@ public class NetWorkFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(NetWorkHelper.mobGetMobNetWork(getContext()));
+        return getListParam(NetWorkHelper.mobGetMobNetWork());
     }
 
 

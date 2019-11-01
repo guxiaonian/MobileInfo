@@ -8,9 +8,8 @@ import android.os.BatteryManager;
 import android.util.Log;
 
 import com.mobile.mobilehardware.base.BaseData;
-import com.mobile.mobilehardware.utils.DoubleUtils;
+import com.mobile.mobilehardware.utils.DoubleUtil;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -52,7 +51,7 @@ class BatteryInfo {
                 int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
                 double batteryLevel = -1;
                 if (level != -1 && scale != -1) {
-                    batteryLevel = DoubleUtils.divide((double) level, (double) scale);
+                    batteryLevel = DoubleUtil.divide((double) level, (double) scale);
                 }
                 // unknown=1, charging=2, discharging=3, not charging=4, full=5
                 int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
@@ -64,11 +63,11 @@ class BatteryInfo {
                 String technology = batteryStatus.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY);
                 int temperature = batteryStatus.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1);
                 int voltage = batteryStatus.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1);
-                batteryBean.setBr(DoubleUtils.mul(batteryLevel,100d)+ "%");
+                batteryBean.setBr(DoubleUtil.mul(batteryLevel,100d)+ "%");
                 batteryBean.setStatus(batteryStatus(status));
                 batteryBean.setPlugState(batteryPlugged(plugState));
                 batteryBean.setHealth(batteryHealth(health));
-                batteryBean.setPresent(present + "");
+                batteryBean.setPresent(present);
                 batteryBean.setTechnology(technology);
                 batteryBean.setTemperature(temperature / 10 + "℃");
                 if (voltage > 1000) {

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Param implements Serializable {
 
     private String key;
-    private String value;
+    private Object value;
 
     public Param() {
     }
@@ -18,11 +18,11 @@ public class Param implements Serializable {
         this.key = key;
     }
 
-    public String getValue() {
+    public Object getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(Object value) {
         this.value = value;
     }
 }

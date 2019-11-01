@@ -22,7 +22,7 @@ public class MoreOpenFragment extends BaseFragment {
 
     @Override
     public List<Param> addListView() {
-        return getListParam(MoreOpenHelper.checkVirtual(getContext()));
+        return getListParam(MoreOpenHelper.checkVirtual());
     }
 
 

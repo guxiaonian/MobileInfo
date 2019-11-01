@@ -11,7 +11,7 @@ import android.provider.Settings;
 import android.util.Log;
 
 
-import com.mobile.mobilehardware.utils.DataUtils;
+import com.mobile.mobilehardware.utils.DataUtil;
 
 import org.json.JSONObject;
 
@@ -30,12 +30,12 @@ class NetWorkInfo {
     static JSONObject getMobNetWork(Context context) {
         NetWorkBean netWorkBean = new NetWorkBean();
         try {
-            netWorkBean.setType(DataUtils.networkTypeALL(context));
-            netWorkBean.setNetworkAvailable(DataUtils.isNetworkAvailable(context) + "");
-            netWorkBean.setHaveIntent(haveIntent(context) + "");
-            netWorkBean.setIsFlightMode(getAirplaneMode(context) + "");
-            netWorkBean.setIsNFCEnabled(hasNfc(context) + "");
-            netWorkBean.setIsHotspotEnabled(isWifiApEnabled(context) + "");
+            netWorkBean.setType(DataUtil.networkTypeALL(context));
+            netWorkBean.setNetworkAvailable(DataUtil.isNetworkAvailable(context));
+            netWorkBean.setHaveIntent(haveIntent(context));
+            netWorkBean.setFlightMode(getAirplaneMode(context));
+            netWorkBean.setNFCEnabled(hasNfc(context));
+            netWorkBean.setHotspotEnabled(isWifiApEnabled(context));
             WifiManager mWifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             if (mWifiManager == null) {
                 return netWorkBean.toJSONObject();

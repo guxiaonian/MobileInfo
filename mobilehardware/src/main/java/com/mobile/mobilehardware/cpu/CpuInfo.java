@@ -29,7 +29,7 @@ class CpuInfo {
             cpuBean.setCpuMaxFreq(getMaxCpuFreq() + "KHZ");
             cpuBean.setCpuMinFreq(getMinCpuFreq() + "KHZ");
             cpuBean.setCpuHardware(Build.HARDWARE);
-            cpuBean.setCpuCores(getHeart() + "");
+            cpuBean.setCpuCores(getHeart());
             cpuBean.setCpuTemp(getCpuTemp() + "℃");
             cpuBean.setCpuAbi(putCpuAbi());
         } catch (Exception e) {
