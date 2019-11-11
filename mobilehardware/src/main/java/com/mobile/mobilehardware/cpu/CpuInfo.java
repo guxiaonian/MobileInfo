@@ -1,6 +1,7 @@
 package com.mobile.mobilehardware.cpu;
 
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -70,7 +71,7 @@ class CpuInfo {
         } catch (IOException e) {
             Log.i(TAG, e.toString());
         }
-        return temp;
+        return TextUtils.isEmpty(temp)?null:temp.length()>=5?(Integer.valueOf(temp)/1000)+"":temp;
     }
 
     private static int getHeart() {

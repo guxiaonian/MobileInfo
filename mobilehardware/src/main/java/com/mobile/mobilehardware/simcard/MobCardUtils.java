@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
@@ -70,7 +71,7 @@ public class MobCardUtils {
      * @param context
      * @return
      */
-    @SuppressLint("HardwareIds")
+    @SuppressLint({"HardwareIds", "MissingPermission"})
     public static void mobGetCardInfo(Context context, SimCardBean simCardBean) {
         TelephonyManager telephonyManager = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE));
         if (telephonyManager == null) {
@@ -170,9 +171,29 @@ public class MobCardUtils {
         } else {
             simCardBean.setSim2ImsiOperator(sim2Operator);
         }
+        if (simCardBean.getSimSlotIndex()!=0&&simCardBean.getSimSlotIndex()!=1) {
+            String operator = telephonyManager.getSimOperator();
+            if (TextUtils.isEmpty(operator) && Build.VERSION.SDK_INT <= 28 && checkPermission(context, Manifest.permission.READ_PHONE_STATE)) {
+                String thisOperator = null;
+                try {
+                    thisOperator = telephonyManager.getSubscriberId();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (!TextUtils.isEmpty(thisOperator) && thisOperator.length() >= 5) {
+                    operator = thisOperator.substring(0, 5);
 
-        simCardBean.setOperator(simCardBean.getSimSlotIndex() == 0 ? simCardBean.getSim1ImsiOperator() : simCardBean.getSim2ImsiOperator());
+                }
+            }
+            simCardBean.setOperator(getOperators(operator));
+        } else {
+            simCardBean.setOperator(simCardBean.getSimSlotIndex() == 0 ? simCardBean.getSim1ImsiOperator() : simCardBean.getSim2ImsiOperator());
+        }
+    }
 
+    private static boolean checkPermission(Context context, String permission) {
+        PackageManager packageManager = context.getPackageManager();
+        return packageManager != null && PackageManager.PERMISSION_GRANTED == packageManager.checkPermission(permission, context.getPackageName());
     }
 
     private static String getIccidOperators(String data) {
