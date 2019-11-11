@@ -171,7 +171,9 @@ public class MobCardUtils {
         } else {
             simCardBean.setSim2ImsiOperator(sim2Operator);
         }
-        if (simCardBean.getSimSlotIndex()!=0&&simCardBean.getSimSlotIndex()!=1) {
+
+        simCardBean.setOperator(simCardBean.getSimSlotIndex() == 0 ? simCardBean.getSim1ImsiOperator() : simCardBean.getSim2ImsiOperator());
+        if (TextUtils.isEmpty(simCardBean.getOperator())) {
             String operator = telephonyManager.getSimOperator();
             if (TextUtils.isEmpty(operator) && Build.VERSION.SDK_INT <= 28 && checkPermission(context, Manifest.permission.READ_PHONE_STATE)) {
                 String thisOperator = null;
@@ -186,8 +188,6 @@ public class MobCardUtils {
                 }
             }
             simCardBean.setOperator(getOperators(operator));
-        } else {
-            simCardBean.setOperator(simCardBean.getSimSlotIndex() == 0 ? simCardBean.getSim1ImsiOperator() : simCardBean.getSim2ImsiOperator());
         }
     }
 
