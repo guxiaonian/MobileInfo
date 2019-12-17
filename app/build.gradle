@@ -21,6 +21,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -36,4 +41,6 @@ dependencies {
     implementation 'fairy.easy:httpmodel:1.0.2'
     //依赖外部网络库
     implementation 'com.squareup.okhttp3:okhttp:4.1.0'
+    //OAID
+    implementation(name: 'miit_mdid_1.0.10', ext: 'aar')
 }
