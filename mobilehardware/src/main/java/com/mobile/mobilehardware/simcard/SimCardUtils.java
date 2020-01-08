@@ -20,6 +20,7 @@ import java.util.List;
  * 手机卡工具类
  */
 @SuppressLint("MissingPermission")
+@Deprecated
 public class SimCardUtils {
     private static final String TAG = "SimCardUtils";
     private static volatile SimCardUtils mGopSimCardUtils;

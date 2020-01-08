@@ -8,6 +8,7 @@ public class MobData {
     public static List<String> mobLists = new ArrayList<>();
 
     static {
+        mobLists.add("Random信息");
         mobLists.add("OAID信息");
         mobLists.add("应用信息");
         mobLists.add("音量信息");
@@ -41,6 +42,7 @@ public class MobData {
     public static List<String> mobUrl = new ArrayList<>();
 
     static {
+        mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Random");
         mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Oaid");
         mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Package");
         mobUrl.add("https://github.com/guxiaonian/MobileInfo/wiki/Audio");

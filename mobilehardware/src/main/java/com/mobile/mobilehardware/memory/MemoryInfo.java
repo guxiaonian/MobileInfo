@@ -9,11 +9,9 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
-import android.support.annotation.RequiresApi;
 import android.text.format.Formatter;
 import android.util.Log;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -233,7 +231,7 @@ class MemoryInfo {
      * API 26 android O
      * 获取总共容量大小，包括系统大小
      */
-    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("NewApi")
     public static long getTotalSize(Context context, String fsUuid) {
         try {
             UUID id;

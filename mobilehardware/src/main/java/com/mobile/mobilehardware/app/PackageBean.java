@@ -18,6 +18,33 @@ public class PackageBean extends BaseBean {
      * app名字
      */
     private String appName;
+    private String launcherAppName;
+    private long firstInstallTime;
+    private long lastUpdateTime;
+
+    public String getLauncherAppName() {
+        return launcherAppName;
+    }
+
+    public void setLauncherAppName(String launcherAppName) {
+        this.launcherAppName = launcherAppName;
+    }
+
+    public long getFirstInstallTime() {
+        return firstInstallTime;
+    }
+
+    public void setFirstInstallTime(long firstInstallTime) {
+        this.firstInstallTime = firstInstallTime;
+    }
+
+    public long getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(long lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
 
     /**
      * 包名
@@ -135,6 +162,9 @@ public class PackageBean extends BaseBean {
     protected JSONObject toJSONObject() {
         try {
             jsonObject.put(BaseData.App.APP_NAME, isEmpty(appName));
+            jsonObject.put(BaseData.App.LAUNCHER_APP_NAME, isEmpty(launcherAppName));
+            jsonObject.put(BaseData.App.LAST_UPDATE_TIME, lastUpdateTime);
+            jsonObject.put(BaseData.App.FIRST_INSTALL_TIME, firstInstallTime);
             jsonObject.put(BaseData.App.PACKAGE_NAME, isEmpty(packageName));
             jsonObject.put(BaseData.App.PACKAGE_SIGN, isEmpty(packageSign));
             jsonObject.put(BaseData.App.APP_VERSION_CODE, appVersionCode);

@@ -20,16 +20,72 @@ import java.util.regex.Pattern;
  * @date 2018/1/5
  */
 class CpuInfo {
+
+    /**
+     * 获取CPU的名字
+     *
+     * @return
+     */
+    @SuppressWarnings("StatementWithEmptyBody")
+    private static void getCpuName(CpuBean cpuBean) {
+        try {
+            FileReader fr = new FileReader("/proc/cpuinfo");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            try {
+                while ((line = br.readLine()) != null) {
+                    String result = line.toLowerCase();
+                    String[] array = result.split(":\\s+", 2);
+                    //cpu名字
+                    if (array[0].startsWith("model name")) {
+                        cpuBean.setCpuName(array[1]);
+                    }
+                    //cpu架构
+                    else if (array[0].startsWith("cpu part")) {
+                        cpuBean.setCpuPart(array[1]);
+                    }
+                    //cpu品牌
+                    else if (array[0].startsWith("hardware")) {
+                        cpuBean.setCpuHardware(array[1]);
+                    }
+                    //cpu速度
+                    else if (array[0].startsWith("bogomips")) {
+                        cpuBean.setBogomips(array[1]);
+                    }
+                    //cpu细节描述
+                    else if (array[0].startsWith("features")) {
+                        cpuBean.setFeatures(array[1]);
+                    }
+                    //cpu ARM架构
+                    else if (array[0].startsWith("cpu implementer")) {
+                        cpuBean.setCpuImplementer(array[1]);
+                    }
+                    //cpu 指令集架构
+                    else if (array[0].startsWith("cpu architecture")) {
+                        cpuBean.setCpuArchitecture(array[1]);
+                    }
+                    //cpu 变化
+                    else if (array[0].startsWith("cpu variant")) {
+                        cpuBean.setCpuVariant(array[1]);
+                    }
+                }
+            } catch (IOException e) {
+                Log.i(TAG, e.toString());
+            }
+        } catch (IOException e) {
+            Log.i(TAG, e.toString());
+        }
+    }
+
     private static final String TAG = CpuInfo.class.getSimpleName();
 
     static JSONObject getCpuInfo() {
         CpuBean cpuBean = new CpuBean();
         try {
-            cpuBean.setCpuName(getCpuName());
+            getCpuName(cpuBean);
             cpuBean.setCpuFreq(getCurCpuFreq() + "KHZ");
             cpuBean.setCpuMaxFreq(getMaxCpuFreq() + "KHZ");
             cpuBean.setCpuMinFreq(getMinCpuFreq() + "KHZ");
-            cpuBean.setCpuHardware(Build.HARDWARE);
             cpuBean.setCpuCores(getHeart());
             cpuBean.setCpuTemp(getCpuTemp() + "℃");
             cpuBean.setCpuAbi(putCpuAbi());
@@ -71,7 +127,7 @@ class CpuInfo {
         } catch (IOException e) {
             Log.i(TAG, e.toString());
         }
-        return TextUtils.isEmpty(temp)?null:temp.length()>=5?(Integer.valueOf(temp)/1000)+"":temp;
+        return TextUtils.isEmpty(temp) ? null : temp.length() >= 5 ? (Integer.valueOf(temp) / 1000) + "" : temp;
     }
 
     private static int getHeart() {
@@ -89,42 +145,8 @@ class CpuInfo {
         @Override
         public boolean accept(File pathname) {
             return Pattern.matches("cpu[0-9]", pathname.getName());
-//            String path = pathname.getName();
-//            //regex is slow, so checking char by char.
-//            if (path.startsWith("cpu")) {
-//                for (int i = 3; i < path.length(); i++) {
-//                    if (path.charAt(i) < '0' || path.charAt(i) > '9') {
-//                        return false;
-//                    }
-//                }
-//                return true;
-//            }
-//            return false;
         }
     };
-
-    /**
-     * 获取CPU的名字
-     *
-     * @return
-     */
-    @SuppressWarnings("StatementWithEmptyBody")
-    private static String getCpuName() {
-        try {
-            FileReader fr = new FileReader("/proc/cpuinfo");
-            BufferedReader br = new BufferedReader(fr);
-            String text = br.readLine();
-            String[] array = text.split(":\\s+", 2);
-//            //noinspection StatementWithEmptyBody
-//            for (String anArray : array) {
-//            }
-            return array[1];
-        } catch (IOException e) {
-            Log.i(TAG, e.toString());
-        }
-        return "";
-    }
-
 
     private static String getCurCpuFreq() {
 

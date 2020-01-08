@@ -27,6 +27,15 @@ public class BandBean extends BaseBean {
      * linux内核版本
      */
     private String linuxBand;
+    private String detailLinuxBand;
+
+    public String getDetailLinuxBand() {
+        return detailLinuxBand;
+    }
+
+    public void setDetailLinuxBand(String detailLinuxBand) {
+        this.detailLinuxBand = detailLinuxBand;
+    }
 
     public String getBaseBand() {
         return baseBand;
@@ -58,6 +67,7 @@ public class BandBean extends BaseBean {
             jsonObject.put(BaseData.Band.BASE_BAND, isEmpty(baseBand));
             jsonObject.put(BaseData.Band.INNER_BAND, isEmpty(innerBand));
             jsonObject.put(BaseData.Band.LINUX_BAND, isEmpty(linuxBand));
+            jsonObject.put(BaseData.Band.DETAIL_LINUX_BAND, isEmpty(detailLinuxBand));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

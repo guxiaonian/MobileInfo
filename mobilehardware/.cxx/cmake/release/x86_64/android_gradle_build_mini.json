@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/cmake --build /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/x86_64 --target clean"
+  ],
+  "libraries": {
+    "fairymob-lib-Release-x86_64": {
+      "artifactName": "fairymob-lib",
+      "buildCommand": "/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/cmake --build /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/x86_64 --target fairymob-lib",
+      "abi": "x86_64",
+      "output": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates/cmake/release/obj/x86_64/libfairymob-lib.so"
+    }
+  }
+}

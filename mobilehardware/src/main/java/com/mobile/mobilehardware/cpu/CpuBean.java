@@ -17,6 +17,52 @@ public class CpuBean extends BaseBean {
      * CPU名字
      */
     private String cpuName;
+    private String cpuPart;
+    private String bogomips;
+    private String features;
+    private String cpuImplementer;
+    private String cpuArchitecture;
+    private String cpuVariant;
+
+    public String getBogomips() {
+        return bogomips;
+    }
+
+    public void setBogomips(String bogomips) {
+        this.bogomips = bogomips;
+    }
+
+    public String getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(String features) {
+        this.features = features;
+    }
+
+    public String getCpuImplementer() {
+        return cpuImplementer;
+    }
+
+    public void setCpuImplementer(String cpuImplementer) {
+        this.cpuImplementer = cpuImplementer;
+    }
+
+    public String getCpuArchitecture() {
+        return cpuArchitecture;
+    }
+
+    public void setCpuArchitecture(String cpuArchitecture) {
+        this.cpuArchitecture = cpuArchitecture;
+    }
+
+    public String getCpuVariant() {
+        return cpuVariant;
+    }
+
+    public void setCpuVariant(String cpuVariant) {
+        this.cpuVariant = cpuVariant;
+    }
 
     /**
      * CPU频率
@@ -117,10 +163,24 @@ public class CpuBean extends BaseBean {
         this.cpuAbi = cpuAbi;
     }
 
+    public String getCpuPart() {
+        return cpuPart;
+    }
+
+    public void setCpuPart(String cpuPart) {
+        this.cpuPart = cpuPart;
+    }
+
     @Override
     protected JSONObject toJSONObject() {
         try {
             jsonObject.put(BaseData.Cpu.CPU_NAME, isEmpty(cpuName));
+            jsonObject.put(BaseData.Cpu.CPU_PART, isEmpty(cpuPart));
+            jsonObject.put(BaseData.Cpu.BOGO_MIPS, isEmpty(bogomips));
+            jsonObject.put(BaseData.Cpu.FEATURES, isEmpty(features));
+            jsonObject.put(BaseData.Cpu.CPU_IMPLEMENTER, isEmpty(cpuImplementer));
+            jsonObject.put(BaseData.Cpu.CPU_ARCHITECTURE, isEmpty(cpuArchitecture));
+            jsonObject.put(BaseData.Cpu.CPU_VARIANT, isEmpty(cpuVariant));
             jsonObject.put(BaseData.Cpu.CPU_FREQ, isEmpty(cpuFreq));
             jsonObject.put(BaseData.Cpu.CPU_MAX_FREQ, isEmpty(cpuMaxFreq));
             jsonObject.put(BaseData.Cpu.CPU_MIN_FREQ, isEmpty(cpuMinFreq));

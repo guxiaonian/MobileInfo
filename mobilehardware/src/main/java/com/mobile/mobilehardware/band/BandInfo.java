@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.mobile.mobilehardware.MobileNativeHelper;
 import com.mobile.mobilehardware.base.BaseData;
 
 import org.json.JSONException;
@@ -36,6 +37,7 @@ class BandInfo {
             bandBean.setInnerBand(getInner());
             String linuxBand = getLinuxKernalInfo();
             bandBean.setLinuxBand(TextUtils.isEmpty(linuxBand) ? System.getProperty("os.version") : linuxBand);
+            bandBean.setDetailLinuxBand(MobileNativeHelper.kennel());
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

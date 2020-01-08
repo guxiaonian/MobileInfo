@@ -19,7 +19,8 @@ public class ListAppBean extends BaseBean {
      * app名字
      */
     private String appName;
-
+    private long firstInstallTime;
+    private long lastUpdateTime;
     /**
      * 包名
      */
@@ -145,10 +146,28 @@ public class ListAppBean extends BaseBean {
         isSystem = system;
     }
 
+    public long getFirstInstallTime() {
+        return firstInstallTime;
+    }
+
+    public void setFirstInstallTime(long firstInstallTime) {
+        this.firstInstallTime = firstInstallTime;
+    }
+
+    public long getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(long lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
     @Override
     protected JSONObject toJSONObject() {
         try {
             jsonObject.put(BaseData.App.APP_NAME, isEmpty(appName));
+            jsonObject.put(BaseData.App.LAST_UPDATE_TIME, lastUpdateTime);
+            jsonObject.put(BaseData.App.FIRST_INSTALL_TIME, firstInstallTime);
             jsonObject.put(BaseData.App.PACKAGE_NAME, isEmpty(packageName));
             jsonObject.put(BaseData.App.PACKAGE_SIGN, isEmpty(packageSign));
             jsonObject.put(BaseData.App.APP_VERSION_CODE, appVersionCode);

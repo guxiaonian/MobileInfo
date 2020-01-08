@@ -36,6 +36,8 @@ class ListAppInfo {
                 listAppBean.setDescription(packageInfo.applicationInfo.loadDescription(packageManager));
                 listAppBean.setIcon(packageInfo.applicationInfo.loadIcon(packageManager));
                 listAppBean.setTargetSdkVersion(packageInfo.applicationInfo.targetSdkVersion);
+                listAppBean.setLastUpdateTime(packageInfo.lastUpdateTime);
+                listAppBean.setFirstInstallTime(packageInfo.firstInstallTime);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     listAppBean.setMinSdkVersion(packageInfo.applicationInfo.minSdkVersion);
                 }

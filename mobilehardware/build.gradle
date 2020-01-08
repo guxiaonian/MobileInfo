@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "2.4.1"
+version = "2.4.2"
 apply plugin: 'com.android.library'
 
 android {
@@ -13,11 +13,23 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 241
-        versionName "2.4.1"
+        versionCode 242
+        versionName "2.4.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+            ndk {
+                abiFilters "armeabi","armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+            }
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
     }
 
     buildTypes {
@@ -34,17 +46,17 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    compileOnly 'com.android.support:appcompat-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//
+////    implementation 'com.android.support:appcompat-v7:28.0.0'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 def SDK_NAME = "mobile_hardware_android_v"
 def DATE = new SimpleDateFormat('yyyyMMdd_HHmm').format(new Date())
 def LIB_DIR = '../libs'
-def version = "2.4.1"
+def version = "2.4.2"
 
 task clearJar(type: Delete) {
     //删除旧包

@@ -2,8 +2,10 @@ package com.mobile.mobilehardware.app;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.Signature;
 import android.os.Build;
 import android.util.Log;
@@ -44,10 +46,27 @@ class PackageInfo {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 packageBean.setMinSdkVersion(applicationInfo.minSdkVersion);
             }
+            packageBean.setLauncherAppName(getLauncherPackageName(context));
+            packageBean.setLastUpdateTime(packageInfo.lastUpdateTime);
+            packageBean.setFirstInstallTime(packageInfo.firstInstallTime);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
         return packageBean.toJSONObject();
+    }
+
+   private static String getLauncherPackageName(Context context) {
+        final Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        final ResolveInfo res = context.getPackageManager().resolveActivity(intent, 0);
+        if (res.activityInfo == null) {
+            return "$unknown";
+        }
+        if (res.activityInfo.packageName.equals("android")) {
+            return "$unknown";
+        } else {
+            return res.activityInfo.packageName;
+        }
     }
 
 }

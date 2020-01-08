@@ -6,8 +6,8 @@ android {
         applicationId "com.mobile.mobileinfo"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 230
-        versionName "2.3.0"
+        versionCode 242
+        versionName "2.4.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -38,7 +38,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':mobilehardware')
     //网络工具库
-    implementation 'fairy.easy:httpmodel:1.0.2'
+    implementation 'fairy.easy:httpmodel:1.0.5'
     //依赖外部网络库
     implementation 'com.squareup.okhttp3:okhttp:4.1.0'
     //OAID

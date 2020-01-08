@@ -1,5 +1,6 @@
 package com.mobile.mobilehardware.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -14,6 +15,7 @@ import com.mobile.mobilehardware.base.BaseData;
  * @author 谷闹年
  * @date 2018/1/3
  */
+@SuppressLint("MissingPermission")
 public class DataUtil {
     private static final String TAG = "DataUtil";
 

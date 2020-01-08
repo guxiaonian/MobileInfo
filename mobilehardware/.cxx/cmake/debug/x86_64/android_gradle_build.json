@@ -1,0 +1,47 @@
+
+{
+	"buildFiles" : 
+	[
+		"/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/cmake --build /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/x86_64 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"fairymob-lib-Debug-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "fairymob-lib",
+			"buildCommand" : "/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/cmake --build /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/x86_64 --target fairymob-lib",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=x86_64-none-linux-android --gcc-toolchain=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/x86_64-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sysroot  -Dfairymob_lib_EXPORTS -isystem /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86_64/include -isystem /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sysroot/usr/include/x86_64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/src/main/cpp/mob-lib.cpp",
+					"workingDirectory" : "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/x86_64"
+				},
+				
+				{
+					"flags" : "  --target=x86_64-none-linux-android --gcc-toolchain=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/x86_64-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sysroot  -Dfairymob_lib_EXPORTS -isystem /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86_64/include -isystem /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/sysroot/usr/include/x86_64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/src/main/cpp/mob-info.cpp",
+					"workingDirectory" : "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/x86_64"
+				}
+			],
+			"output" : "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates/cmake/debug/obj/x86_64/libfairymob-lib.so",
+			"toolchain" : "2189096935909420705"
+		}
+	},
+	"toolchains" : 
+	{
+		"2189096935909420705" : 
+		{
+			"cCompilerExecutable" : "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+		}
+	}
+}

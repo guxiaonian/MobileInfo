@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.telephony.CellInfo;
 import android.telephony.CellInfoCdma;
 import android.telephony.CellInfoGsm;
@@ -85,9 +84,6 @@ class SignalInfo {
             TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             List<CellInfo> cellInfoList;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    return;
-                }
                 if (tm == null) {
                     return;
                 }
@@ -250,6 +246,7 @@ class SignalInfo {
             signalBean.setLevel(calculateSignalLevel(rssi));
             isWifiProxy(mContext, signalBean);
             signalBean.setSupplicantState(mWifiInfo.getSupplicantState().name());
+            signalBean.setnIpAddressIpv6(getNetIP());
         } catch (Exception e) {
             Log.i(TAG, e.toString());
         }

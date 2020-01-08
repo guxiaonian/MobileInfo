@@ -1,0 +1,7 @@
+# ninja log v5
+0	784	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
+1	856	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
+856	1017	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25
+1	429	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
+3	538	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
+538	653	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25

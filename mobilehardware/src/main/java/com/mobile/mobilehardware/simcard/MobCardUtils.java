@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -18,7 +17,6 @@ import android.util.Log;
 
 import com.mobile.mobilehardware.exceptions.MobException;
 
-import org.json.JSONException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

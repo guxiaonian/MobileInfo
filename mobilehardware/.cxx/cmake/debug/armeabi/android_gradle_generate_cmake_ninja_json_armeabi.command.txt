@@ -1,0 +1,15 @@
+Executable : /Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/cmake
+arguments : 
+-H/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware
+-B/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/armeabi
+-DANDROID_ABI=armeabi
+-DANDROID_PLATFORM=android-14
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates/cmake/debug/obj/armeabi
+-DCMAKE_BUILD_TYPE=Debug
+-DANDROID_NDK=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle
+-DCMAKE_CXX_FLAGS=
+-DCMAKE_TOOLCHAIN_FILE=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja
+-GAndroid Gradle - Ninja
+jvmArgs : 
+

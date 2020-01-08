@@ -1,0 +1,76 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo",
+      "sdkFolder": "/Users/gunaonian/Downloads/android-sdk-macosx",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates",
+      "gradleModulePathName": ":mobilehardware",
+      "moduleRootFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware",
+      "makeFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "compilerSettingsCacheFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/.cxx",
+      "cxxFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx",
+      "ndkFolder": "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle",
+      "ndkVersion": "16.1.4479499",
+      "ndkSupportedAbiList": [
+        "ARMEABI",
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "MIPS",
+        "MIPS64",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [],
+    "cFlagList": [],
+    "cppFlagsList": [
+      ""
+    ],
+    "variantName": "release",
+    "soFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates/cmake/release/lib",
+    "objFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates/cmake/release/obj",
+    "jsonFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release",
+    "gradleBuildOutputFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI",
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 21,
+  "cxxBuildFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/arm64-v8a",
+  "jsonFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/arm64-v8a/android_gradle_build.json",
+  "gradleBuildOutputFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release/arm64-v8a",
+  "objFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates/cmake/release/obj/arm64-v8a",
+  "buildCommandFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/arm64-v8a/build_command.txt",
+  "buildOutputFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/arm64-v8a/build_output.txt",
+  "modelOutputFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/arm64-v8a/build_model.json",
+  "cmake": {
+    "cmakeListsWrapperFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release/arm64-v8a/CMakeLists.txt",
+    "toolchainWrapperFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release/arm64-v8a/android_gradle_build.toolchain.cmake",
+    "buildGenerationStateFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release/arm64-v8a/build_generation_state.json",
+    "cacheKeyFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release/arm64-v8a/compiler_cache_key.json",
+    "compilerCacheUseFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release/arm64-v8a/compiler_cache_use.json",
+    "compilerCacheWriteFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release/arm64-v8a/compiler_cache_write.json",
+    "toolchainSettingsFromCacheFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/release/arm64-v8a/compiler_settings_cache.cmake",
+    "cmakeWrappingBaseFolder": "."
+  },
+  "jsonGenerationLoggingRecordFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/arm64-v8a/json_generation_record.json",
+  "compileCommandsJsonFile": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/arm64-v8a/compile_commands.json"
+}

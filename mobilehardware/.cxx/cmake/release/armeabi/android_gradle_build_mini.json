@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/cmake --build /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/armeabi --target clean"
+  ],
+  "libraries": {
+    "fairymob-lib-Release-armeabi": {
+      "artifactName": "fairymob-lib",
+      "buildCommand": "/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/cmake --build /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/release/armeabi --target fairymob-lib",
+      "abi": "armeabi",
+      "output": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so"
+    }
+  }
+}

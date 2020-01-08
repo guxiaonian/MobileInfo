@@ -117,6 +117,7 @@ public class BaseData {
         public static final String BASE_BAND = "baseBand";
         public static final String INNER_BAND = "innerBand";
         public static final String LINUX_BAND = "linuxBand";
+        public static final String DETAIL_LINUX_BAND = "detailLinuxBand";
     }
 
     public static class Local {
@@ -138,6 +139,14 @@ public class BaseData {
 
     public static class Settings {
         public static final String ANDROID_ID = "androidId";
+        public static final String SCREEN_OFF_TIMEOUT= "screenOffTimeout";
+        public static final String SOUND_EFFECTS_ENABLED= "soundEffectsEnabled";
+        public static final String SCREEN_BRIGHTNESS_MODE= "screenBrightnessMode";
+        public static final String DEVELOPMENT_SETTINGS_ENABLED= "developmentSettingsEnabled";
+        public static final String ACCELEROMETER_ROTATION= "accelerometerRotation";
+        public static final String LOCK_PATTERN_VISIBLE_PATTERN= "lockPatternVisiblePattern";
+        public static final String LOCK_PATTERN_AUTOLOCK= "lockPatternAutoLock";
+        public static final String USB_MASS_STORAGE_ENABLED= "usbMassStorageEnabled";
     }
 
     public static class Screen {
@@ -158,6 +167,12 @@ public class BaseData {
 
     public static class Cpu {
         public static final String CPU_NAME = "cpuName";
+        public static final String CPU_PART = "cpuPart";
+        public static final String BOGO_MIPS="bogoMIPs";
+        public static final String FEATURES="features";
+        public static final String CPU_IMPLEMENTER="cpuImplementer";
+        public static final String CPU_ARCHITECTURE="cpuArchitecture";
+        public static final String CPU_VARIANT="cpuVariant";
         public static final String CPU_FREQ = "cpuFreq";
         public static final String CPU_MAX_FREQ = "cpuMaxFreq";
         public static final String CPU_MIN_FREQ = "cpuMinFreq";
@@ -197,6 +212,9 @@ public class BaseData {
 
     public static class App {
         public static final String APP_NAME = "appName";
+        public static final String LAUNCHER_APP_NAME = "launcherAppName";
+        public static final String FIRST_INSTALL_TIME = "firstInstallTime";
+        public static final String LAST_UPDATE_TIME = "lastUpdateTime";
         public static final String PACKAGE_NAME = "packageName";
         public static final String PACKAGE_SIGN = "packageSign";
         public static final String APP_VERSION_CODE = "appVersionCode";

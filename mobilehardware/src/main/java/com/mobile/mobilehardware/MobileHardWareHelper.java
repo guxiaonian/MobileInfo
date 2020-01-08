@@ -1,8 +1,6 @@
 package com.mobile.mobilehardware;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.Window;
 
 import com.mobile.mobilehardware.applist.ListAppHelper;
@@ -55,7 +53,7 @@ public class MobileHardWareHelper {
      *
      * @param context 上下文
      */
-    public static void init(@NonNull Context context) {
+    public static void init(Context context) {
         mContext = context;
     }
 
@@ -166,7 +164,7 @@ public class MobileHardWareHelper {
      * @param host ip地址
      * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Host
      */
-    public static String getHostAddressInfo(@NonNull String host) {
+    public static String getHostAddressInfo(String host) {
         return DnsHelper.mobDNS(host);
     }
 
@@ -239,7 +237,7 @@ public class MobileHardWareHelper {
      *
      * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Screen
      */
-    public static JSONObject getScreenInfo(@Nullable Window window) {
+    public static JSONObject getScreenInfo(Window window) {
         return ScreenHelper.mobGetMobScreen(window);
     }
 
@@ -304,7 +302,7 @@ public class MobileHardWareHelper {
      * @param thread 所要获取的线程
      * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Stack
      */
-    public static String getThreadStackInfo(@NonNull Thread thread) {
+    public static String getThreadStackInfo(Thread thread) {
         return StackSampler.getStackInfo(thread);
     }
 

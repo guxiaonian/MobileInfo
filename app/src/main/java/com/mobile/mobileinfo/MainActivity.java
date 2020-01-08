@@ -31,6 +31,7 @@ import com.mobile.mobileinfo.fragment.MoreOpenFragment;
 import com.mobile.mobileinfo.fragment.NetFragment;
 import com.mobile.mobileinfo.fragment.NetWorkFragment;
 import com.mobile.mobileinfo.fragment.OaidFragment;
+import com.mobile.mobileinfo.fragment.RandomFragment;
 import com.mobile.mobileinfo.fragment.RootFragment;
 import com.mobile.mobileinfo.fragment.SDcardFragment;
 import com.mobile.mobileinfo.fragment.ScreenFragment;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addParam() {
+        mList.add(RandomFragment.newInstance());
         mList.add(OaidFragment.newInstance());
         mList.add(AppFragment.newInstance());
         mList.add(AudioFragment.newInstance());

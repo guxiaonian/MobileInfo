@@ -1,0 +1,3 @@
+/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
+/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/x86/CMakeFiles/fairymob-lib.dir
