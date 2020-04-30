@@ -25,5 +25,10 @@ public class MoreOpenFragment extends BaseFragment {
         return getListParam(MoreOpenHelper.checkVirtual());
     }
 
+    @Override
+    public String getDescription() {
+        return "Safety information of moreOpen";
+    }
+
 
 }

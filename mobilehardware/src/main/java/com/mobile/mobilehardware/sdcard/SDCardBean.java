@@ -23,6 +23,25 @@ public class SDCardBean extends BaseBean {
      */
     private String sDCardPath;
 
+    private boolean isExtendedMemory;
+    private String extendedMemoryPath;
+
+    public boolean isExtendedMemory() {
+        return isExtendedMemory;
+    }
+
+    public void setExtendedMemory(boolean extendedMemory) {
+        isExtendedMemory = extendedMemory;
+    }
+
+    public String getExtendedMemoryPath() {
+        return extendedMemoryPath;
+    }
+
+    public void setExtendedMemoryPath(String extendedMemoryPath) {
+        this.extendedMemoryPath = extendedMemoryPath;
+    }
+
     public boolean isSDCardEnable() {
         return isSDCardEnable;
     }
@@ -44,7 +63,8 @@ public class SDCardBean extends BaseBean {
         try {
             jsonObject.put(BaseData.SDCard.IS_SDCARD_ENABLE, isSDCardEnable);
             jsonObject.put(BaseData.SDCard.SDCARD_PATH, isEmpty(sDCardPath));
-
+            jsonObject.put("isExtendedMemory", isExtendedMemory);
+            jsonObject.put("extendedMemoryPath", isEmpty(extendedMemoryPath));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

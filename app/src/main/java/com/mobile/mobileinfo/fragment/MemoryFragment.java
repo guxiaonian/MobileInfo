@@ -25,5 +25,10 @@ public class MemoryFragment extends BaseFragment {
         return getListParam(MemoryHelper.getMemoryInfo());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone memory information";
+    }
+
 
 }

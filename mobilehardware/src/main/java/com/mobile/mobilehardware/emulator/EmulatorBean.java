@@ -33,10 +33,6 @@ public class EmulatorBean extends BaseBean {
      */
     private boolean checkQEmuDriverFile;
 
-    /**
-     * 光传感器检测
-     */
-    private boolean checkHasLightSensorManager;
 
     /**
      * cpu架构检测
@@ -75,14 +71,6 @@ public class EmulatorBean extends BaseBean {
         this.checkQEmuDriverFile = checkQEmuDriverFile;
     }
 
-    public boolean isCheckHasLightSensorManager() {
-        return checkHasLightSensorManager;
-    }
-
-    public void setCheckHasLightSensorManager(boolean checkHasLightSensorManager) {
-        this.checkHasLightSensorManager = checkHasLightSensorManager;
-    }
-
     public boolean isCheckCpuInfo() {
         return checkCpuInfo;
     }
@@ -98,7 +86,6 @@ public class EmulatorBean extends BaseBean {
             jsonObject.put(BaseData.Emulator.CHECK_PKG, checkPkg);
             jsonObject.put(BaseData.Emulator.CHECK_PIPES, checkPipes);
             jsonObject.put(BaseData.Emulator.CHECK_QEMU_DRIVER_FILE, checkQEmuDriverFile);
-            jsonObject.put(BaseData.Emulator.CHECK_HAS_LIGHT_SENSOR_MANAGER, checkHasLightSensorManager);
             jsonObject.put(BaseData.Emulator.CHECK_CPU_INFO, checkCpuInfo);
 
         } catch (Exception e) {

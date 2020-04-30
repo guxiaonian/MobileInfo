@@ -26,5 +26,10 @@ public class AppListFragment extends BaseFragment {
         return getListParam(new JSONArray(ListAppHelper.mobListApp()));
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone appList information";
+    }
+
 
 }

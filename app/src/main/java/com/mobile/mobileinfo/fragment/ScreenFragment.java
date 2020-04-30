@@ -25,5 +25,10 @@ public class ScreenFragment extends BaseFragment {
         return getListParam(ScreenHelper.mobGetMobScreen(getActivity().getWindow()));
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone network screen";
+    }
+
 
 }

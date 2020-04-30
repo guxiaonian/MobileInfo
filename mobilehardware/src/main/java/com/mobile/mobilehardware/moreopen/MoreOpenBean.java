@@ -28,6 +28,16 @@ public class MoreOpenBean extends BaseBean {
      */
     private boolean checkByHasSameUid;
 
+    private boolean checkLs;
+
+    public boolean isCheckLs() {
+        return checkLs;
+    }
+
+    public void setCheckLs(boolean checkLs) {
+        this.checkLs = checkLs;
+    }
+
     public boolean isCheckByPrivateFilePath() {
         return checkByPrivateFilePath;
     }
@@ -58,6 +68,7 @@ public class MoreOpenBean extends BaseBean {
             jsonObject.put(BaseData.MoreOpen.CHECK_BY_PRIVATE_FILE_PATH, checkByPrivateFilePath);
             jsonObject.put(BaseData.MoreOpen.CHECK_BY_MULTIAPK_PACKAGE_NAME, checkByMultiApkPackageName);
             jsonObject.put(BaseData.MoreOpen.CHECK_BY_HAS_SAMEUID, checkByHasSameUid);
+            jsonObject.put("checkLs", checkLs);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

@@ -25,5 +25,10 @@ public class AppFragment extends BaseFragment {
         return getListParam(PackageHelper.getPackageInfo());
     }
 
+    @Override
+    public String getDescription() {
+        return "Detailed information of the current APP";
+    }
+
 
 }

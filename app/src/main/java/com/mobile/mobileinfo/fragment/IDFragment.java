@@ -26,5 +26,10 @@ public class IDFragment extends BaseFragment {
         return getListParam("uniqueID", PhoneIdHelper.getUniqueID());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone uniqueId information(invalid)";
+    }
+
 
 }

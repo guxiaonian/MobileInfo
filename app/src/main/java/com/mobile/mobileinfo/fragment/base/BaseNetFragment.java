@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobile.mobileinfo.R;
@@ -40,6 +41,7 @@ public abstract class BaseNetFragment extends Fragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ListView mListView;
     private MobListAdapter adapter;
+    private TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,6 +49,8 @@ public abstract class BaseNetFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_app, container, false);
         mListView = view.findViewById(R.id.lv_mob);
         mSwipeRefreshLayout = view.findViewById(R.id.spl_mob);
+        textView = view.findViewById(R.id.fragment_app_tv);
+        textView.setText(getDescription());
         onSwipeRefreshLayout();
         adapter = new MobListAdapter(getActivity());
         mListView.setAdapter(adapter);
@@ -54,7 +58,7 @@ public abstract class BaseNetFragment extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    ClipData clipData = ClipData.newPlainText("Label", (String) adapter.getParam(position).getKey()+"\b"+((adapter.getParam(position).getValue() instanceof String)?(String) adapter.getParam(position).getValue():""));
+                    ClipData clipData = ClipData.newPlainText("Label", (String) adapter.getParam(position).getKey() + "\b" + ((adapter.getParam(position).getValue() instanceof String) ? (String) adapter.getParam(position).getValue() : ""));
                     ((ClipboardManager) getContext().getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(clipData);
                     Toast.makeText(getContext(), "copy success", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
@@ -92,7 +96,7 @@ public abstract class BaseNetFragment extends Fragment {
     public abstract HttpType getType();
 
 
-    private  void getParam() {
+    private void getParam() {
         HttpModelHelper.getInstance()
                 .init(getContext())
                 .setChina(false)
@@ -103,7 +107,7 @@ public abstract class BaseNetFragment extends Fragment {
                 .startAsync("https://www.baidu.com", new HttpListener() {
                     @Override
                     public void onFail(String data) {
-                        adapter.addAll(getListParam(getType().getName(),data));
+                        adapter.addAll(getListParam(getType().getName(), data));
                         mSwipeRefreshLayout.setRefreshing(false);
                     }
 
@@ -146,4 +150,5 @@ public abstract class BaseNetFragment extends Fragment {
         return list;
     }
 
+    public abstract String getDescription();
 }

@@ -5,6 +5,7 @@
       "sdkFolder": "/Users/gunaonian/Downloads/android-sdk-macosx",
       "isNativeCompilerSettingsCacheEnabled": false,
       "isBuildOnlyTargetAbiEnabled": true,
+      "ideBuildTargetAbi": "x86",
       "splitsAbiFilterSet": [],
       "intermediatesFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/build/intermediates",
       "gradleModulePathName": ":mobilehardware",
@@ -44,11 +45,7 @@
     "gradleBuildOutputFolder": "/Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cxx/debug",
     "isDebuggableEnabled": true,
     "validAbiList": [
-      "ARMEABI",
-      "ARMEABI_V7A",
-      "ARM64_V8A",
-      "X86",
-      "X86_64"
+      "X86"
     ],
     "buildTargetSet": []
   },

@@ -24,5 +24,10 @@ public class SimCardFragment extends BaseFragment {
         return getListParam(SimCardHelper.mobileSimInfo());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone simCard information";
+    }
+
 
 }

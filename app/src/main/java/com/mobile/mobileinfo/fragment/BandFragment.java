@@ -25,5 +25,10 @@ public class BandFragment extends BaseFragment {
         return getListParam(BandHelper.mobGetBandInfo());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone band information";
+    }
+
 
 }

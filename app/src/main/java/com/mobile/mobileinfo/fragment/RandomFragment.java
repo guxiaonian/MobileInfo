@@ -1,7 +1,6 @@
 package com.mobile.mobileinfo.fragment;
 
 
-
 import android.os.Bundle;
 
 import com.mobile.mobilehardware.MobileNativeHelper;
@@ -24,6 +23,11 @@ public class RandomFragment extends BaseFragment {
     @Override
     public List<Param> addListView() {
         return getListParam(MobileNativeHelper.getRandomData());
+    }
+
+    @Override
+    public String getDescription() {
+        return "The value of file in the \"/proc/sys/kernel/random/\" directory";
     }
 
 

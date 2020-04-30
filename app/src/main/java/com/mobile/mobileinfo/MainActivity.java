@@ -39,8 +39,11 @@ import com.mobile.mobileinfo.fragment.SettingFragment;
 import com.mobile.mobileinfo.fragment.SignalFragment;
 import com.mobile.mobileinfo.fragment.SimCardFragment;
 import com.mobile.mobileinfo.fragment.UAFragment;
+import com.mobile.mobileinfo.fragment.WifiListFragment;
 import com.mobile.mobileinfo.fragment.XposedFragment;
 import com.mobile.mobileinfo.util.PermissionUtil;
+
+import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         mList.add(UAFragment.newInstance());
         mList.add(HostFragment.newInstance());
         mList.add(XposedFragment.newInstance());
+        mList.add(WifiListFragment.newInstance());
         mList.add(AppListFragment.newInstance());
     }
 

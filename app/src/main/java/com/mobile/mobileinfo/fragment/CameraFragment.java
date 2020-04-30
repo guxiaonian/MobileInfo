@@ -32,5 +32,10 @@ public class CameraFragment extends BaseFragment {
         return null;
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone camera information";
+    }
+
 
 }

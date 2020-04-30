@@ -111,6 +111,26 @@ public class HookBean extends BaseBean {
          */
         private boolean checkXposedBridge;
 
+        private boolean cMap;
+
+        private boolean cPackage;
+
+        public boolean iscMap() {
+            return cMap;
+        }
+
+        public void setcMap(boolean cMap) {
+            this.cMap = cMap;
+        }
+
+        public boolean iscPackage() {
+            return cPackage;
+        }
+
+        public void setcPackage(boolean cPackage) {
+            this.cPackage = cPackage;
+        }
+
         public boolean isCheckXposedPackage() {
             return checkXposedPackage;
         }
@@ -195,7 +215,8 @@ public class HookBean extends BaseBean {
                 jsonObject.put(BaseData.Hook.Xposed.CHECK_EXEC_LIB, checkExecLib);
                 jsonObject.put(BaseData.Hook.Xposed.CHECK_CHECKMAN, checkCheckman);
                 jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_BRIDGE, checkXposedBridge);
-
+                jsonObject.put("cMap", cMap);
+                jsonObject.put("cPackage", cPackage);
             } catch (Exception e) {
                 Log.e(TAG, e.toString());
             }
@@ -220,6 +241,34 @@ public class HookBean extends BaseBean {
          * 检测内存中可疑的jars
          */
         private boolean checkSubstrateJars;
+
+        private boolean cSo;
+        private boolean cMap;
+        private boolean cPackage;
+
+        public boolean iscSo() {
+            return cSo;
+        }
+
+        public void setcSo(boolean cSo) {
+            this.cSo = cSo;
+        }
+
+        public boolean iscMap() {
+            return cMap;
+        }
+
+        public void setcMap(boolean cMap) {
+            this.cMap = cMap;
+        }
+
+        public boolean iscPackage() {
+            return cPackage;
+        }
+
+        public void setcPackage(boolean cPackage) {
+            this.cPackage = cPackage;
+        }
 
         public boolean isCheckSubstratePackage() {
             return checkSubstratePackage;
@@ -251,7 +300,9 @@ public class HookBean extends BaseBean {
                 jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_PACKAGE, checkSubstratePackage);
                 jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_HOOK_METHOD, checkSubstrateHookMethod);
                 jsonObject.put(BaseData.Hook.Substrate.CHECK_SUBSTRATE_JARS, checkSubstrateJars);
-
+                jsonObject.put("cSo",cSo);
+                jsonObject.put("cMap",cMap);
+                jsonObject.put("cPackage",cPackage);
 
             } catch (Exception e) {
                 Log.e(TAG, e.toString());
@@ -271,6 +322,16 @@ public class HookBean extends BaseBean {
          * 检测内存中可疑的jars
          */
         private boolean checkFridaJars;
+
+        private boolean cMap;
+
+        public boolean iscMap() {
+            return cMap;
+        }
+
+        public void setcMap(boolean cMap) {
+            this.cMap = cMap;
+        }
 
         public boolean isCheckRunningProcesses() {
             return checkRunningProcesses;
@@ -293,6 +354,8 @@ public class HookBean extends BaseBean {
             try {
                 jsonObject.put(BaseData.Hook.Frida.CHECK_RUNNING_PROCESSES, checkRunningProcesses);
                 jsonObject.put(BaseData.Hook.Frida.CHECK_FRIDA_JARS, checkFridaJars);
+                jsonObject.put("cMap", cMap);
+
 
 
             } catch (Exception e) {

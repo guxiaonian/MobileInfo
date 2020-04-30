@@ -25,5 +25,10 @@ public class BuildFragment extends BaseFragment {
         return getListParam(BuildHelper.mobGetBuildInfo());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone \"android.os.Build\" information";
+    }
+
 
 }

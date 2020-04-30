@@ -29,47 +29,6 @@ class EmulatorInfo {
      */
     private static final String TAG = EmulatorInfo.class.getSimpleName();
 
-    /**
-     * 判断是否是模拟器
-     * 通过静态资源，设备特征参数来判断
-     * //        if (isEmulatorAbsoluly()) {
-     * //            return true;
-     * //        } else if
-     * //            //通过是否同时包含两个模拟器特有的app来判断
-     * //                (isPkgInstalled(context, "com.example.android.apis") && isPkgInstalled(context, "com.android.development")) {
-     * //            return true;
-     * //        } else if
-     * //            //通过判断mac地址来判断
-     * //                ("$unknown".equals(getMacAddress(context))) {
-     * //            return true;
-     * //        } else if
-     * //            //通过设备文件特征来判断（Qemu）
-     * //                (checkPipes()) {
-     * //            return true;
-     * //        } else if
-     * //            //通过驱动程序列表来判断（Qemu）
-     * //                (checkQEmuDriverFile("/proc/tty/drivers") || checkQEmuDriverFile("/proc/cpuinfo")) {
-     * //            return true;
-     * //        } else if
-     * //            //通过获取蓝牙名称来判断
-     * //                (notHasBlueTooth(context)) {
-     * //            return true;
-     * //        } else if
-     * //            //通过判断是否有光传感器来判断
-     * //                (notHasLightSensorManager(context)) {
-     * //            return true;
-     * //        } else if
-     * //            //通过判断cpu的信息来判断
-     * //                (readCpuInfo()) {
-     * //            return true;
-     * //        } else {
-     * //            return false;
-     * //        }
-     *
-     * @param context 上下文
-     * @return true为模拟器
-     */
-
     static JSONObject checkEmulator(Context context) {
         EmulatorBean emulatorBean = new EmulatorBean();
         try {
@@ -77,13 +36,11 @@ class EmulatorInfo {
             boolean checkPkg = isPkgInstalled(context, "com.example.android.apis") && isPkgInstalled(context, "com.android.development");
             boolean checkPipes = checkPipes();
             boolean checkQEmuDriverFile = checkQEmuDriverFile("/proc/tty/drivers") || checkQEmuDriverFile("/proc/cpuinfo");
-            boolean checkHasLightSensorManager = notHasLightSensorManager(context);
             boolean checkCpuInfo = readCpuInfo();
             emulatorBean.setCheckBuild(checkBuild);
             emulatorBean.setCheckPkg(checkPkg);
             emulatorBean.setCheckPipes(checkPipes);
             emulatorBean.setCheckQEmuDriverFile(checkQEmuDriverFile);
-            emulatorBean.setCheckHasLightSensorManager(checkHasLightSensorManager);
             emulatorBean.setCheckCpuInfo(checkCpuInfo);
         } catch (Exception e) {
             Log.i(TAG, e.toString());
@@ -116,21 +73,6 @@ class EmulatorInfo {
             Log.i(TAG, ex.toString());
         }
         return (result.contains("intel") || result.contains("amd"));
-    }
-
-    /**
-     * 判断是否存在光传感器来判断是否为模拟器
-     * 部分真机也不存在温度和压力传感器。其余传感器模拟器也存在。
-     *
-     * @return true 为模拟器
-     */
-    private static Boolean notHasLightSensorManager(Context context) {
-        SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        Sensor sensor = null;
-        if (sensorManager != null) {
-            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-        }
-        return null == sensor;
     }
 
 

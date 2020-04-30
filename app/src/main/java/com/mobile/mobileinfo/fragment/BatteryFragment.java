@@ -25,5 +25,10 @@ public class BatteryFragment extends BaseFragment {
         return getListParam(BatteryHelper.mobGetBattery());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone battery information";
+    }
+
 
 }

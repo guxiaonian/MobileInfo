@@ -33,10 +33,7 @@ public class DebugBean extends BaseBean {
      */
     private boolean isReadProcStatus;
 
-    /**
-     * 是否可以打开位置模拟
-     */
-    private boolean isAllowMockLocation;
+
 
     public boolean isOpenDebug() {
         return isOpenDebug;
@@ -70,13 +67,6 @@ public class DebugBean extends BaseBean {
         isReadProcStatus = readProcStatus;
     }
 
-    public boolean isAllowMockLocation() {
-        return isAllowMockLocation;
-    }
-
-    public void setAllowMockLocation(boolean allowMockLocation) {
-        isAllowMockLocation = allowMockLocation;
-    }
 
     @Override
     protected JSONObject toJSONObject() {
@@ -85,7 +75,6 @@ public class DebugBean extends BaseBean {
             jsonObject.put(BaseData.Debug.IS_DEBUG_VERSION, isDebugVersion);
             jsonObject.put(BaseData.Debug.IS_DEBUGGING, isDebugging);
             jsonObject.put(BaseData.Debug.IS_READ_PROC_STATUS, isReadProcStatus);
-            jsonObject.put(BaseData.Debug.IS_ALLOW_MOCK_LOCATION, isAllowMockLocation);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

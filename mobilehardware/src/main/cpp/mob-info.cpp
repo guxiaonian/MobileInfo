@@ -131,3 +131,102 @@ string shellExecute(const string &cmdStr) {
     }
     return resultStr;
 }
+
+string getMyPid() {
+    pid_t pid = getpid();
+    char str[BUF_SIZE_16];
+    sprintf(str, "%d", pid);
+    return str;
+}
+
+
+string getPackageName(const string &pid) {
+    if (pid.empty()) {
+        return "";
+    }
+
+    string path = "/proc/" + pid + "/cmdline";
+    string result = readFile(path);
+    if (result.empty()) {
+        return "";
+    }
+    return result;
+}
+
+int existsFile(const string &path) {
+    int access_result = access(path.c_str(), F_OK);
+    if (access_result == -1) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+int checkMoreOpenByUid() {
+    if (existsFile("/system/bin/ls")) {
+        char path[BUF_SIZE_256];
+        string name = getPackageName(getMyPid());
+        sprintf(path, "ls /data/data/%s", name.c_str());
+        string result = shellExecute(path);
+
+        if (result.empty()) {
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+    return 0;
+}
+
+int checkSubstrateBySo() {
+    void *imagehandle = dlopen("libsubstrate-dvm.so", RTLD_GLOBAL | RTLD_NOW);
+    if (imagehandle != NULL) {
+        void *sym = dlsym(imagehandle, "MSJavaHookMethod");
+        if (sym != NULL) {
+            dlclose(imagehandle);
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+string checkHookByMap() {
+    string data = "";
+    string path = "/proc/self/maps";
+    string mapsStr = readFile(path);
+    if (mapsStr.empty()) {
+        mapsStr = shellExecute("/proc/myself/maps");
+        if (mapsStr.empty()) {
+            return 0;
+        }
+    }
+    const char *maps = mapsStr.c_str();
+    if (strstr(maps, "frida")) {
+        data += "frida";
+    }
+
+    if (strstr(maps, "com.saurik.substrate")) {
+        data += "substrate";
+    }
+
+    if (strstr(maps, "XposedBridge.jar")) {
+        data += "xposed";
+    }
+    return data;
+
+}
+
+string checkHookByPackage() {
+    string data = "";
+    if (existsFile("/data/data/de.robv.android.xposed.installer") ||
+        existsFile("/data/data/io.va.exposed")) {
+        data += "xposed";
+    }
+    if (existsFile("/data/data/com.saurik.substrate")) {
+        data += "substrate";
+    }
+    return data;
+
+}

@@ -22,4 +22,9 @@ public class NetFragment extends BaseNetFragment {
     public HttpType getType() {
         return HttpType.NET;
     }
+
+    @Override
+    public String getDescription() {
+        return "Current phone net information";
+    }
 }

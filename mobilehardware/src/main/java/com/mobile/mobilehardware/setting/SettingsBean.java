@@ -25,6 +25,15 @@ public class SettingsBean extends BaseBean {
     private String lockPatternVisiblePattern;
     private String lockPatternAutolock;
     private String usbMassStorageEnabled;
+    private boolean allowMockLocation;
+
+    public boolean getAllowMockLocation() {
+        return allowMockLocation;
+    }
+
+    public void setAllowMockLocation(boolean allowMockLocation) {
+        this.allowMockLocation = allowMockLocation;
+    }
 
     public String getUsbMassStorageEnabled() {
         return usbMassStorageEnabled;
@@ -110,6 +119,7 @@ public class SettingsBean extends BaseBean {
             jsonObject.put(BaseData.Settings.LOCK_PATTERN_VISIBLE_PATTERN, isEmpty(lockPatternVisiblePattern));
             jsonObject.put(BaseData.Settings.LOCK_PATTERN_AUTOLOCK, isEmpty(lockPatternAutolock));
             jsonObject.put(BaseData.Settings.USB_MASS_STORAGE_ENABLED, isEmpty(usbMassStorageEnabled));
+            jsonObject.put(BaseData.Debug.IS_ALLOW_MOCK_LOCATION, allowMockLocation);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

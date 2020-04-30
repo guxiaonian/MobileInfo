@@ -46,4 +46,12 @@ public class MobileNativeHelper implements MobileInterface {
         }
         return jsonObject;
     }
+
+    public static native int checkMoreOpenByUid();
+
+    public static native int checkSubstrateBySo();
+
+    public static native String checkHookByMap();
+
+    public static native String checkHookByPackage();
 }

@@ -26,5 +26,10 @@ public class UAFragment extends BaseFragment {
         return getListParam("userAgent", UserAgentHelper.getDefaultUserAgent());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone userAgent information";
+    }
+
 
 }

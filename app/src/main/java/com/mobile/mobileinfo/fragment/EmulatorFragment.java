@@ -25,5 +25,10 @@ public class EmulatorFragment extends BaseFragment {
         return getListParam(EmulatorHelper.mobCheckEmulator());
     }
 
+    @Override
+    public String getDescription() {
+        return "Safety information of emulator";
+    }
+
 
 }

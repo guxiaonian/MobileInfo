@@ -25,5 +25,10 @@ public class CpuFragment extends BaseFragment {
         return getListParam(CpuHelper.mobGetCpuInfo());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone cpu information";
+    }
+
 
 }

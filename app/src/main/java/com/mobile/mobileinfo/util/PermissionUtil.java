@@ -27,6 +27,12 @@ public class PermissionUtil {
                 }
                 permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
             }
+            if (context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (permissions == null) {
+                    permissions = new ArrayList<>();
+                }
+                permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+            }
             if (context.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 if (permissions == null) {
                     permissions = new ArrayList<>();

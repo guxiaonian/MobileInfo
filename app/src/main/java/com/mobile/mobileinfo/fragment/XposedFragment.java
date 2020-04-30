@@ -25,5 +25,10 @@ public class XposedFragment extends BaseFragment {
         return getListParam(XposedHookHelper.checkXposedInjet());
     }
 
+    @Override
+    public String getDescription() {
+        return "Safety information of xposed details information";
+    }
+
 
 }

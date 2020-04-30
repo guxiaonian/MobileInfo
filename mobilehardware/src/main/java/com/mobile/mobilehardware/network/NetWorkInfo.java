@@ -134,4 +134,17 @@ class NetWorkInfo {
         return mobileDataEnabled;
     }
 
+    @SuppressLint("MissingPermission")
+    public static boolean getVpnData(Context context) {
+        try {
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm == null) {
+                return false;
+            }
+            return cm.getNetworkInfo(ConnectivityManager.TYPE_VPN).isConnectedOrConnecting();
+        } catch (Exception e) {
+            // e.printStackTrace();
+            return false;
+        }
+    }
 }

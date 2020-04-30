@@ -25,5 +25,10 @@ public class SignalFragment extends BaseFragment {
         return getListParam(SignalHelper.mobGetNetRssi());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone signal information";
+    }
+
 
 }

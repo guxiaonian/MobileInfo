@@ -25,5 +25,10 @@ public class NetWorkFragment extends BaseFragment {
         return getListParam(NetWorkHelper.mobGetMobNetWork());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone network information";
+    }
+
 
 }

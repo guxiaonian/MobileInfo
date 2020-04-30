@@ -32,5 +32,10 @@ public class OaidFragment extends BaseFragment {
         return getListParam(miIdHelper.getDeviceIds(getContext()));
     }
 
+    @Override
+    public String getDescription() {
+        return "Android anonymous device identifier \"OAID\"";
+    }
+
 
 }

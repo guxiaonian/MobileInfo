@@ -25,5 +25,10 @@ public class SettingFragment extends BaseFragment {
         return getListParam(SettingsHelper.mobGetMobSettings());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone setting information";
+    }
+
 
 }

@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.mobile.mobilehardware.MobileNativeHelper;
 import com.mobile.mobilehardware.utils.CommandUtil;
 
 
@@ -48,6 +49,30 @@ class HookInfo {
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
+
+        substrateBean.setcSo(MobileNativeHelper.checkSubstrateBySo() == 1);
+        String mapData = MobileNativeHelper.checkHookByMap();
+        String packageData = MobileNativeHelper.checkHookByPackage();
+        if (!TextUtils.isEmpty(mapData)) {
+            if (mapData.contains("xposed")) {
+                xposedBean.setcMap(true);
+            }
+            if (mapData.contains("frida")) {
+                fridaBean.setcMap(true);
+            }
+            if (mapData.contains("substrate")) {
+                substrateBean.setcMap(true);
+            }
+        }
+        if (!TextUtils.isEmpty(packageData)) {
+            if (packageData.contains("xposed")) {
+                xposedBean.setcPackage(true);
+            }
+            if (packageData.contains("substrate")) {
+                substrateBean.setcPackage(true);
+            }
+        }
+
         hookBean.setIsHaveXposed(xposedBean.toJSONObject());
         hookBean.setIsHaveSubstrate(substrateBean.toJSONObject());
         hookBean.setIsHaveFrida(fridaBean.toJSONObject());
@@ -79,11 +104,11 @@ class HookInfo {
      * @return 是否安装了Xposed
      */
     private static void addMethod(Context context, HookBean.XposedBean xposedBean) {
-        xposedBean.setCheckClassLoader(testClassLoader() );
-        xposedBean.setCheckNativeMethod(checkNativeMethod() );
-        xposedBean.setCheckSystem(checkSystem() );
-        xposedBean.setCheckExecLib(checkExecLib() );
-        xposedBean.setCheckCheckman(checkCheckman(context) );
+        xposedBean.setCheckClassLoader(testClassLoader());
+        xposedBean.setCheckNativeMethod(checkNativeMethod());
+        xposedBean.setCheckSystem(checkSystem());
+        xposedBean.setCheckExecLib(checkExecLib());
+        xposedBean.setCheckCheckman(checkCheckman(context));
         xposedBean.setCheckXposedBridge(checkXposedBridge());
 
     }
@@ -195,7 +220,7 @@ class HookInfo {
             }
 
             if ("com.saurik.substrate".equals(item.packageName)) {
-                substrateBean.setCheckSubstratePackage(true );
+                substrateBean.setCheckSubstratePackage(true);
             }
         }
     }
@@ -217,21 +242,21 @@ class HookInfo {
                 if ("com.android.internal.os.ZygoteInit".equals(item.getClassName())) {
                     zygoteInitCallCount++;
                     if (zygoteInitCallCount == 2) {
-                        substrateBean.setCheckSubstrateHookMethod(true );
+                        substrateBean.setCheckSubstrateHookMethod(true);
                     }
                 }
 
                 if ("com.saurik.substrate.MS$2".equals(item.getClassName()) && "invoke".equals(item.getMethodName())) {
-                    substrateBean.setCheckSubstrateHookMethod(true );
+                    substrateBean.setCheckSubstrateHookMethod(true);
                 }
 
                 if ("de.robv.android.xposed.XposedBridge".equals(item.getClassName())
                         && "main".equals(item.getMethodName())) {
-                    xposedBean.setCheckXposedHookMethod(true );
+                    xposedBean.setCheckXposedHookMethod(true);
                 }
                 if ("de.robv.android.xposed.XposedBridge".equals(item.getClassName())
                         && "handleHookedMethod".equals(item.getMethodName())) {
-                    xposedBean.setCheckXposedHookMethod(true );
+                    xposedBean.setCheckXposedHookMethod(true);
                 }
 
             }
@@ -250,7 +275,7 @@ class HookInfo {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.toLowerCase().contains("frida")) {
-                    fridaBean.setCheckFridaJars(true );
+                    fridaBean.setCheckFridaJars(true);
                 }
                 if (line.endsWith(".so") || line.endsWith(".jar")) {
                     int n = line.lastIndexOf(" ");
@@ -261,10 +286,10 @@ class HookInfo {
             }
             for (String library : libraries) {
                 if (library.contains("com.saurik.substrate")) {
-                    substrateBean.setCheckSubstrateJars(true );
+                    substrateBean.setCheckSubstrateJars(true);
                 }
                 if (library.contains("XposedBridge.jar")) {
-                    xposedBean.setCheckXposedJars(true );
+                    xposedBean.setCheckXposedJars(true);
                 }
             }
 

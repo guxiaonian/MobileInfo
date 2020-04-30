@@ -24,5 +24,10 @@ public class BluetoothFragment extends BaseFragment {
         return getListParam(BluetoothHelper.mobGetMobBluetooth());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone bluetooth information";
+    }
+
 
 }

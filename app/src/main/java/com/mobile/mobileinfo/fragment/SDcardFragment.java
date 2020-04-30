@@ -25,5 +25,10 @@ public class SDcardFragment extends BaseFragment {
         return getListParam(SDCardHelper.mobGetSdCard());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone sdcard information";
+    }
+
 
 }

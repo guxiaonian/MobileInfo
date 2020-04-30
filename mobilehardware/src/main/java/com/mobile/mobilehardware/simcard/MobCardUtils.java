@@ -75,15 +75,23 @@ public class MobCardUtils {
         if (telephonyManager == null) {
             return;
         }
+        int simStub = getDefaultDataSub(context);
+        int sim1 = 0;
+        int sim2 = 1;
+        if (simStub == 2) {
+            sim1 = 1;
+            sim2 = 2;
+        }
+        simCardBean.setSimSlotIndex(simStub);
         boolean sim1Ready = telephonyManager.getSimState() == TelephonyManager.SIM_STATE_READY;
         boolean sim2Ready = false;
         try {
-            sim1Ready = getSIMStateBySlot(telephonyManager, "getSimStateGemini", 0);
-            sim2Ready = getSIMStateBySlot(telephonyManager, "getSimStateGemini", 1);
+            sim1Ready = getSIMStateBySlot(telephonyManager, "getSimStateGemini", sim1);
+            sim2Ready = getSIMStateBySlot(telephonyManager, "getSimStateGemini", sim2);
         } catch (MobException e) {
             try {
-                sim1Ready = getSIMStateBySlot(telephonyManager, "getSimState", 0);
-                sim2Ready = getSIMStateBySlot(telephonyManager, "getSimState", 1);
+                sim1Ready = getSIMStateBySlot(telephonyManager, "getSimState", sim1);
+                sim2Ready = getSIMStateBySlot(telephonyManager, "getSimState", sim2);
             } catch (MobException e1) {
                 Log.i(TAG, e1.toString());
             }
@@ -96,12 +104,12 @@ public class MobCardUtils {
         String sim1Imei = null;
         String sim2Imei = null;
         try {
-            sim1Imei = getSIMOperator(telephonyManager, "getDeviceIdGemini", 0);
-            sim2Imei = getSIMOperator(telephonyManager, "getDeviceIdGemini", 1);
+            sim1Imei = getSIMOperator(telephonyManager, "getDeviceIdGemini", sim1);
+            sim2Imei = getSIMOperator(telephonyManager, "getDeviceIdGemini", sim2);
         } catch (MobException e) {
             try {
-                sim1Imei = getSIMOperator(telephonyManager, "getDeviceId", 0);
-                sim2Imei = getSIMOperator(telephonyManager, "getDeviceId", 1);
+                sim1Imei = getSIMOperator(telephonyManager, "getDeviceId", sim1);
+                sim2Imei = getSIMOperator(telephonyManager, "getDeviceId", sim2);
 
             } catch (MobException e1) {
                 Log.i(TAG, e1.toString());
@@ -117,12 +125,12 @@ public class MobCardUtils {
         String sim1Imsi = null;
         String sim2Imsi = null;
         try {
-            sim1Imsi = getSIMOperator(telephonyManager, "getSubscriberIdGemini", 0);
-            sim2Imsi = getSIMOperator(telephonyManager, "getSubscriberIdGemini", 1);
+            sim1Imsi = getSIMOperator(telephonyManager, "getSubscriberIdGemini", sim1);
+            sim2Imsi = getSIMOperator(telephonyManager, "getSubscriberIdGemini", sim2);
         } catch (MobException e) {
             try {
-                sim1Imsi = getSIMOperator(telephonyManager, "getSubscriberId", 0);
-                sim2Imsi = getSIMOperator(telephonyManager, "getSubscriberId", 1);
+                sim1Imsi = getSIMOperator(telephonyManager, "getSubscriberId", sim1);
+                sim2Imsi = getSIMOperator(telephonyManager, "getSubscriberId", sim2);
 
             } catch (MobException e1) {
                 Log.i(TAG, e1.toString());
@@ -134,19 +142,18 @@ public class MobCardUtils {
         String sim1Operator = null;
         String sim2Operator = null;
         try {
-            sim1Operator = getOperators(getSIMOperator(telephonyManager, "getSimOperatorGemini", 0));
-            sim2Operator = getOperators(getSIMOperator(telephonyManager, "getSimOperatorGemini", 1));
+            sim1Operator = getOperators(getSIMOperator(telephonyManager, "getSimOperatorGemini", sim1));
+            sim2Operator = getOperators(getSIMOperator(telephonyManager, "getSimOperatorGemini", sim2));
         } catch (MobException e) {
             try {
-                sim1Operator = getOperators(getSIMOperator(telephonyManager, "getSimOperator", 0));
-                sim2Operator = getOperators(getSIMOperator(telephonyManager, "getSimOperator", 1));
+                sim1Operator = getOperators(getSIMOperator(telephonyManager, "getSimOperator", sim1));
+                sim2Operator = getOperators(getSIMOperator(telephonyManager, "getSimOperator", sim2));
 
             } catch (MobException e1) {
                 Log.i(TAG, e1.toString());
             }
         }
 
-        simCardBean.setSimSlotIndex(getDefaultDataSub(context));
         simCardBean.setMeid(MidInfo.getMeid(context));
         simInfoQuery(context, simCardBean);
         if (TextUtils.isEmpty(sim1Operator)) {

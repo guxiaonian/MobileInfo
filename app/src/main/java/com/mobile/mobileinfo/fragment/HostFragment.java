@@ -22,4 +22,9 @@ public class HostFragment extends BaseNetFragment {
     public HttpType getType() {
         return HttpType.HOST;
     }
+
+    @Override
+    public String getDescription() {
+        return "Current phone host information";
+    }
 }

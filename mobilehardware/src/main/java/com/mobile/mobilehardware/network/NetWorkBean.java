@@ -58,6 +58,15 @@ public class NetWorkBean extends BaseBean {
      */
     private String encryptionType;
 
+    private boolean isVpn;
+
+    public boolean isVpn() {
+        return isVpn;
+    }
+
+    public void setVpn(boolean vpn) {
+        isVpn = vpn;
+    }
 
     public String getType() {
         return type;
@@ -143,6 +152,7 @@ public class NetWorkBean extends BaseBean {
             jsonObject.put(BaseData.NetWork.HOTSPOT_SSID, isEmpty(hotspotSSID));
             jsonObject.put(BaseData.NetWork.HOTSPOT_PWD, isEmpty(hotspotPwd));
             jsonObject.put(BaseData.NetWork.ENCRYPTION_TYPE, isEmpty(encryptionType));
+            jsonObject.put("isVpn", isVpn);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

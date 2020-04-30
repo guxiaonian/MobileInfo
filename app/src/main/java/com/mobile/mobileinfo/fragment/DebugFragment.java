@@ -25,5 +25,10 @@ public class DebugFragment extends BaseFragment {
         return getListParam(DebugHelper.getDebuggingData());
     }
 
+    @Override
+    public String getDescription() {
+        return "Safety information of debug";
+    }
+
 
 }

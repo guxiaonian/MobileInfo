@@ -25,5 +25,10 @@ public class AudioFragment extends BaseFragment {
         return getListParam(AudioHelper.mobGetMobAudio());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone volume information";
+    }
+
 
 }

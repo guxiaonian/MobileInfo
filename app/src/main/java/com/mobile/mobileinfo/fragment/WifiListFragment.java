@@ -1,4 +1,4 @@
-package com.mobile.mobileinfo.fragment.base;
+package com.mobile.mobileinfo.fragment;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobile.mobilehardware.wifilist.WifiHelper;
+import com.mobile.mobilehardware.wifilist.WifiScanListener;
 import com.mobile.mobileinfo.R;
 import com.mobile.mobileinfo.adapter.MobListAdapter;
 import com.mobile.mobileinfo.data.Param;
 import com.mobile.mobileinfo.util.StringUtil;
-import com.mobile.mobileinfo.util.ThreadPoolUtil;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,14 +33,19 @@ import java.util.List;
 
 import static android.content.Context.CLIPBOARD_SERVICE;
 
-public abstract class BaseFragment extends Fragment {
+public class WifiListFragment extends Fragment {
 
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ListView mListView;
     private MobListAdapter adapter;
     private TextView textView;
-
+    public static WifiListFragment newInstance() {
+        Bundle args = new Bundle();
+        WifiListFragment fragment = new WifiListFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,7 +53,7 @@ public abstract class BaseFragment extends Fragment {
         mListView = view.findViewById(R.id.lv_mob);
         mSwipeRefreshLayout = view.findViewById(R.id.spl_mob);
         textView = view.findViewById(R.id.fragment_app_tv);
-        textView.setText(getDescription());
+        textView.setText("Current phone wifiList information");
         onSwipeRefreshLayout();
         adapter = new MobListAdapter(getActivity());
         mListView.setAdapter(adapter);
@@ -89,20 +96,13 @@ public abstract class BaseFragment extends Fragment {
                 android.R.color.holo_green_light);
     }
 
-    private static Handler mainHandler = new Handler(Looper.getMainLooper());
 
     private void getParam() {
-        ThreadPoolUtil.getInstance().execute(new Runnable() {
+        WifiHelper.wifiList(new WifiScanListener() {
             @Override
-            public void run() {
-                final List<Param> list = addListView();
-                mainHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        adapter.addAll(list);
-                        mSwipeRefreshLayout.setRefreshing(false);
-                    }
-                });
+            public void onResult(JSONObject jsonObject) {
+                adapter.addAll(getListParam(jsonObject));
+                mSwipeRefreshLayout.setRefreshing(false);
             }
         });
     }
@@ -166,27 +166,4 @@ public abstract class BaseFragment extends Fragment {
         return list;
     }
 
-    public List<Param> getListCameraParam(JSONArray jsonArray) {
-        List<Param> list = new ArrayList<>();
-        try {
-            for (int i = 0; i < jsonArray.length(); i++) {
-                Param param = new Param();
-                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-                param.setKey(i + 1 + "");
-                String value = jsonObject.toString();
-                param.setValue(value);
-
-                list.add(param);
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-
-
-    public abstract List<Param> addListView();
-
-    public abstract String getDescription();
 }

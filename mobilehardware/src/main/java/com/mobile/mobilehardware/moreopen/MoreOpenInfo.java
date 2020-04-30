@@ -5,6 +5,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.mobile.mobilehardware.MobileNativeHelper;
 import com.mobile.mobilehardware.utils.CommandUtil;
 
 import org.json.JSONObject;
@@ -25,9 +26,10 @@ class MoreOpenInfo {
     static JSONObject checkVirtualInfo(Context context) {
         MoreOpenBean moreOpenBean = new MoreOpenBean();
         try {
-            moreOpenBean.setCheckByPrivateFilePath(checkByPrivateFilePath(context) );
-            moreOpenBean.setCheckByMultiApkPackageName(checkByMultiApkPackageName() );
+            moreOpenBean.setCheckByPrivateFilePath(checkByPrivateFilePath(context));
+            moreOpenBean.setCheckByMultiApkPackageName(checkByMultiApkPackageName());
             moreOpenBean.setCheckByHasSameUid(checkByHasSameUid());
+            moreOpenBean.setCheckLs(MobileNativeHelper.checkMoreOpenByUid() == 1);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

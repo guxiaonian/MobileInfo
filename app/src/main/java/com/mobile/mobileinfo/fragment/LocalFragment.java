@@ -25,5 +25,10 @@ public class LocalFragment extends BaseFragment {
         return getListParam(LocalHelper.mobGetMobLocal());
     }
 
+    @Override
+    public String getDescription() {
+        return "Current phone local information";
+    }
+
 
 }

@@ -25,5 +25,10 @@ public class HookFragment extends BaseFragment {
         return getListParam(HookHelper.isXposedHook());
     }
 
+    @Override
+    public String getDescription() {
+        return "Safety information of hook";
+    }
+
 
 }

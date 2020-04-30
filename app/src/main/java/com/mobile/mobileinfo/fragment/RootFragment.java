@@ -25,5 +25,10 @@ public class RootFragment extends BaseFragment {
         return getListParam("isRoot",RootHelper.mobileRoot());
     }
 
+    @Override
+    public String getDescription() {
+        return "Safety information of root";
+    }
+
 
 }
