@@ -102,11 +102,6 @@ public class HookBean extends BaseBean {
         private boolean checkExecLib;
 
         /**
-         * 内核查找Xposed链接库
-         */
-        private boolean checkCheckman;
-
-        /**
          * 环境变量特征字判断
          */
         private boolean checkXposedBridge;
@@ -187,13 +182,6 @@ public class HookBean extends BaseBean {
             this.checkExecLib = checkExecLib;
         }
 
-        public boolean isCheckCheckman() {
-            return checkCheckman;
-        }
-
-        public void setCheckCheckman(boolean checkCheckman) {
-            this.checkCheckman = checkCheckman;
-        }
 
         public boolean isCheckXposedBridge() {
             return checkXposedBridge;
@@ -213,7 +201,6 @@ public class HookBean extends BaseBean {
                 jsonObject.put(BaseData.Hook.Xposed.CHECK_NATIVE_METHOD, checkNativeMethod);
                 jsonObject.put(BaseData.Hook.Xposed.CHECK_SYSTEM, checkSystem);
                 jsonObject.put(BaseData.Hook.Xposed.CHECK_EXEC_LIB, checkExecLib);
-                jsonObject.put(BaseData.Hook.Xposed.CHECK_CHECKMAN, checkCheckman);
                 jsonObject.put(BaseData.Hook.Xposed.CHECK_XPOSED_BRIDGE, checkXposedBridge);
                 jsonObject.put("cMap", cMap);
                 jsonObject.put("cPackage", cPackage);

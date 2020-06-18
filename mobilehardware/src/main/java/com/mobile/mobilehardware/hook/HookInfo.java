@@ -45,7 +45,7 @@ class HookInfo {
             chargeXposedHookMethod(xposedBean, substrateBean);
             chargeXposedJars(xposedBean, substrateBean, fridaBean);
             fridaBean.setCheckRunningProcesses(checkRunningProcesses(context));
-            addMethod(context, xposedBean);
+            addMethod(xposedBean);
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
@@ -100,15 +100,13 @@ class HookInfo {
     /**
      * 新增方法
      *
-     * @param context 上下文
-     * @return 是否安装了Xposed
+     * 是否安装了Xposed
      */
-    private static void addMethod(Context context, HookBean.XposedBean xposedBean) {
+    private static void addMethod( HookBean.XposedBean xposedBean) {
         xposedBean.setCheckClassLoader(testClassLoader());
         xposedBean.setCheckNativeMethod(checkNativeMethod());
         xposedBean.setCheckSystem(checkSystem());
         xposedBean.setCheckExecLib(checkExecLib());
-        xposedBean.setCheckCheckman(checkCheckman(context));
         xposedBean.setCheckXposedBridge(checkXposedBridge());
 
     }
@@ -173,18 +171,6 @@ class HookInfo {
         return result.contains("xposed");
     }
 
-    /**
-     * 内核查找Xposed链接库
-     * 方法参考自<url>https://github.com/w568w/XposedChecker/</url>
-     *
-     * @param context 上下文
-     * @return 是否安装了Xposed
-     */
-    private static boolean checkCheckman(Context context) {
-        String result = CommandUtil.getSingleInstance().exec(context.getFilesDir().getAbsolutePath() + "/checkman " + android.os.Process.myPid());
-        return !TextUtils.isEmpty(result);
-
-    }
 
     /**
      * 环境变量特征字判断

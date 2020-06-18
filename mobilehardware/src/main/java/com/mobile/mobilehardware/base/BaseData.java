@@ -80,7 +80,6 @@ public class BaseData {
             public static final String CHECK_NATIVE_METHOD = "checkNativeMethod";
             public static final String CHECK_SYSTEM = "checkSystem";
             public static final String CHECK_EXEC_LIB = "checkExecLib";
-            public static final String CHECK_CHECKMAN = "checkCheckman";
             public static final String CHECK_XPOSED_BRIDGE = "checkXposedBridge";
 
         }

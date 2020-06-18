@@ -8,3 +8,6 @@
 3	193	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	fe32fe0d318c2df2
 3	309	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	51c2aa95c4ee753e
 309	387	0	../../../../build/intermediates/cmake/release/obj/armeabi-v7a/libfairymob-lib.so	8b7f5b297b0b3c68
+2	247	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	fe32fe0d318c2df2
+3	329	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	51c2aa95c4ee753e
+329	408	0	../../../../build/intermediates/cmake/release/obj/armeabi-v7a/libfairymob-lib.so	8b7f5b297b0b3c68
