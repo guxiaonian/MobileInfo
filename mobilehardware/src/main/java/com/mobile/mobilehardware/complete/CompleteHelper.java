@@ -13,8 +13,8 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -45,18 +45,64 @@ public class CompleteHelper {
                     PackageManager.GET_SIGNATURES);
             Signature[] signs = packageInfo.signatures;
             Signature sign = signs[0];
-            MessageDigest md1 = MessageDigest.getInstance("MD5");
-            md1.update(sign.toByteArray());
-            BigInteger biMd5 = new BigInteger(1, md1.digest());
-            jsonObject.put("signMD5", biMd5.toString(16));
-            MessageDigest md2 = MessageDigest.getInstance("SHA1");
-            md2.update(sign.toByteArray());
-            BigInteger biSHA1 = new BigInteger(1, md2.digest());
-            jsonObject.put("signSHA1", biSHA1.toString(16));
+            byte[] signBytes = sign.toByteArray();
+            jsonObject.put("signMD5", getMD5(signBytes));
+            jsonObject.put("signSHA1", getSHA1(signBytes));
         } catch (Exception e) {
             //e.printStackTrace();
         }
     }
+
+    private static String getMD5(byte[] value) {
+        if (value == null) {
+            return null;
+        }
+        MessageDigest md5;
+        try {
+            md5 = MessageDigest.getInstance("MD5");
+            byte[] bytes = md5.digest(value);
+            StringBuilder result = new StringBuilder();
+            for (byte b : bytes) {
+                String temp = Integer.toHexString(b & 0xff);
+                if (temp.length() == 1) {
+                    temp = "0" + temp;
+                }
+                result.append(temp);
+            }
+            return result.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static String getSHA1(byte[] value) {
+        MessageDigest md;
+        String strDes;
+        try {
+            md = MessageDigest.getInstance("SHA-1");
+            md.update(value);
+            strDes = bytes2Hex(md.digest());
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
+        return strDes;
+    }
+
+
+    private static String bytes2Hex(byte[] bts) {
+        StringBuilder des = new StringBuilder();
+        String tmp;
+        for (byte bt : bts) {
+            tmp = (Integer.toHexString(bt & 0xFF));
+            if (tmp.length() == 1) {
+                des.append("0");
+            }
+            des.append(tmp);
+        }
+        return des.toString();
+    }
+
 
     private static String getCrc32(Context context) {
         String apkPath = getApkPath(context);
@@ -98,8 +144,7 @@ public class CompleteHelper {
             while ((byteCount = fis.read(bytes)) > 0) {
                 msgDigest.update(bytes, 0, byteCount);
             }
-            BigInteger bi = new BigInteger(1, msgDigest.digest());
-            return bi.toString(16);
+            return bytes2Hex(msgDigest.digest());
         } catch (Exception e) {
             //e.printStackTrace();
         } finally {
