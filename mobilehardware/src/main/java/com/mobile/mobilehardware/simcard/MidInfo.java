@@ -10,10 +10,7 @@ import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 
 /**
- * 卡信息获取工具类
- *
- * @author gunaonian
- * @date 2019-03-21
+ * @author guxiaonian
  */
 public class MidInfo {
 

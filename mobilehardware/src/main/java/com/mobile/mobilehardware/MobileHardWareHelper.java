@@ -4,15 +4,16 @@ import android.content.Context;
 import android.view.Window;
 
 import com.mobile.mobilehardware.applist.ListAppHelper;
+import com.mobile.mobilehardware.attestation.AttestationSdk;
 import com.mobile.mobilehardware.audio.AudioHelper;
 import com.mobile.mobilehardware.band.BandHelper;
 import com.mobile.mobilehardware.bluetooth.BluetoothHelper;
 import com.mobile.mobilehardware.build.BuildHelper;
 import com.mobile.mobilehardware.complete.CompleteHelper;
-import com.mobile.mobilehardware.proxy.ProxyHelper;
 import com.mobile.mobilehardware.sdcard.SDCardHelper;
 import com.mobile.mobilehardware.simcard.SimCardHelper;
-import com.mobile.mobilehardware.vpn.VpnHelper;
+import com.mobile.mobilehardware.wifilist.WifiHelper;
+import com.mobile.mobilehardware.wifilist.WifiScanListener;
 import com.mobile.mobilehardware.xposed.XposedHookHelper;
 import com.mobile.mobilehardware.root.RootHelper;
 import com.mobile.mobilehardware.stack.StackSampler;
@@ -39,10 +40,8 @@ import org.json.JSONObject;
 import java.util.List;
 
 /**
- * @author gunaonian
- * @date 2018/3/27
+ * @author guxiaonian
  */
-
 public class MobileHardWareHelper {
 
     /**
@@ -68,6 +67,16 @@ public class MobileHardWareHelper {
     public static Context getContext() {
         return mContext;
     }
+
+    /**
+     * Random文件信息
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Random
+     */
+    public static JSONObject getRandomInfo() {
+        return MobileNativeHelper.getRandomData();
+    }
+
 
     /**
      * app包信息
@@ -236,24 +245,6 @@ public class MobileHardWareHelper {
     }
 
     /**
-     * 手机是否开启VPN
-     *
-     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Vpn
-     */
-    public static boolean isOpenVpn() {
-        return VpnHelper.getVpnData();
-    }
-
-
-    /**
-     * 手机是否开启代理
-     *
-     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Proxy
-     */
-    public static JSONObject getProxy() {
-        return ProxyHelper.getProxyData();
-    }
-    /**
      * APP完整性校验
      *
      * @return @see https://github.com/guxiaonian/MobileInfo/wiki/Complete
@@ -345,5 +336,22 @@ public class MobileHardWareHelper {
         return SimCardHelper.mobileSimInfo();
     }
 
+    /**
+     * 获取WIFI列表清单文件
+     *
+     * @see https://github.com/guxiaonian/MobileInfo/wiki/WifiList
+     */
+    public static void getWifiListInfo(WifiScanListener wifiScanListener) {
+        WifiHelper.wifiList(wifiScanListener);
+    }
+
+    /**
+     * 获取证书链认证
+     *
+     * @return @see https://github.com/guxiaonian/MobileInfo/wiki/WifiList
+     */
+    public static JSONObject getKeyAttestation() {
+        return AttestationSdk.getKeyAttestation();
+    }
 
 }

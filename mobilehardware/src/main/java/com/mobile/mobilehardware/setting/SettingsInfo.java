@@ -9,9 +9,8 @@ import android.util.Log;
 import org.json.JSONObject;
 
 /**
- * Created by gunaonian on 2018/3/28.
+ * @author guxiaonian
  */
-
 class SettingsInfo {
     private static final String TAG = SettingsInfo.class.getSimpleName();
 

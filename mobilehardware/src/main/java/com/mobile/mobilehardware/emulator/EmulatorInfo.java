@@ -19,10 +19,8 @@ import java.util.Locale;
 
 
 /**
- * @author gunaonian
- * @date 2018/3/12
+ * @author guxiaonian
  */
-
 class EmulatorInfo {
     /**
      * log TAG
@@ -55,7 +53,7 @@ class EmulatorInfo {
      * @return true为模拟器
      */
     private static boolean readCpuInfo() {
-        String result = "$unknown";
+        String result = "unknown";
         try {
             String[] args = {"/system/bin/cat", "/proc/cpuinfo"};
             ProcessBuilder cmd = new ProcessBuilder(args);

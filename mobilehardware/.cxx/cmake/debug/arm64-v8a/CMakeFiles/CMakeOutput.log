@@ -3,17 +3,17 @@ The host system is: Darwin - 18.6.0 - x86_64
 Determining if the C compiler works passed with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_715df"
-[1/2] Building C object CMakeFiles/cmTC_715df.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_715df
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_cd43c"
+[1/2] Building C object CMakeFiles/cmTC_cd43c.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_cd43c
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_b81f3"
-[1/2] Building C object CMakeFiles/cmTC_b81f3.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_b81f3
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_a097e"
+[1/2] Building C object CMakeFiles/cmTC_a097e.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_a097e
 Android clang version 5.0.300080  (based on LLVM 5.0.300080)
 Target: aarch64-none-linux-android
 Thread model: posix
@@ -22,16 +22,16 @@ Found candidate GCC installation: /Users/gunaonian/Downloads/android-sdk-macosx/
 Selected GCC installation: /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64 -pie --fix-cortex-a53-843419 --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_b81f3 /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_b81f3.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtend_android.o
+ "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64 -pie --fix-cortex-a53-843419 --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_a097e /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_a097e.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtend_android.o
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(aarch64-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_b81f3"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_b81f3.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_b81f3]
+  ignore line: [Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_a097e"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_a097e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_a097e]
   ignore line: [Android clang version 5.0.300080  (based on LLVM 5.0.300080)]
   ignore line: [Target: aarch64-none-linux-android]
   ignore line: [Thread model: posix]
@@ -42,7 +42,7 @@ Parsed C implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64 -pie --fix-cortex-a53-843419 --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_b81f3 /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_b81f3.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtend_android.o]
+  link line: [ "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64 -pie --fix-cortex-a53-843419 --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_a097e /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_a097e.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtend_android.o]
     arg [/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld] ==> ignore
     arg [--sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64] ==> ignore
     arg [-pie] ==> ignore
@@ -53,7 +53,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker64] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_b81f3] ==> ignore
+    arg [cmTC_a097e] ==> ignore
     arg [/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64] ==> dir [/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64]
     arg [-L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x] ==> dir [/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x]
@@ -73,7 +73,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_b81f3.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_a097e.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
     arg [-lc] ==> lib [c]
@@ -97,9 +97,9 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_cc21d"
-[1/2] Building C object CMakeFiles/cmTC_cc21d.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_cc21d
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_d6c1c"
+[1/2] Building C object CMakeFiles/cmTC_d6c1c.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_d6c1c
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -111,9 +111,9 @@ Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.41114
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_41b82"
-[1/2] Building C object CMakeFiles/cmTC_41b82.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_41b82
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_de374"
+[1/2] Building C object CMakeFiles/cmTC_de374.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_de374
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -125,9 +125,9 @@ Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.41114
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_25b92"
-[1/2] Building C object CMakeFiles/cmTC_25b92.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_25b92
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_23046"
+[1/2] Building C object CMakeFiles/cmTC_23046.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_23046
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -137,17 +137,17 @@ Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.41114
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_0fc77"
-[1/2] Building CXX object CMakeFiles/cmTC_0fc77.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_0fc77
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_d9313"
+[1/2] Building CXX object CMakeFiles/cmTC_d9313.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_d9313
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_02785"
-[1/2] Building CXX object CMakeFiles/cmTC_02785.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_02785
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_56cfa"
+[1/2] Building CXX object CMakeFiles/cmTC_56cfa.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_56cfa
 Android clang version 5.0.300080  (based on LLVM 5.0.300080)
 Target: aarch64-none-linux-android
 Thread model: posix
@@ -156,16 +156,16 @@ Found candidate GCC installation: /Users/gunaonian/Downloads/android-sdk-macosx/
 Selected GCC installation: /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
- "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64 -pie --fix-cortex-a53-843419 --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_02785 /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_02785.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtend_android.o
+ "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64 -pie --fix-cortex-a53-843419 --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_56cfa /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_56cfa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtend_android.o
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(aarch64-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_02785"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_02785.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_02785]
+  ignore line: [Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_56cfa"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_56cfa.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_56cfa]
   ignore line: [Android clang version 5.0.300080  (based on LLVM 5.0.300080)]
   ignore line: [Target: aarch64-none-linux-android]
   ignore line: [Thread model: posix]
@@ -176,7 +176,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
-  link line: [ "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64 -pie --fix-cortex-a53-843419 --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_02785 /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_02785.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtend_android.o]
+  link line: [ "/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld" --sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64 -pie --fix-cortex-a53-843419 --eh-frame-hdr -m aarch64linux -dynamic-linker /system/bin/linker64 -o cmTC_56cfa /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib/../lib64 -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/lib -L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_56cfa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtend_android.o]
     arg [/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x/../../../../aarch64-linux-android/bin/ld] ==> ignore
     arg [--sysroot=/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64] ==> ignore
     arg [-pie] ==> ignore
@@ -187,7 +187,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker64] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_02785] ==> ignore
+    arg [cmTC_56cfa] ==> ignore
     arg [/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/platforms/android-21/arch-arm64/usr/lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64] ==> dir [/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/5.0.300080/lib/linux/aarch64]
     arg [-L/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x] ==> dir [/Users/gunaonian/Downloads/android-sdk-macosx/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/lib/gcc/aarch64-linux-android/4.9.x]
@@ -207,7 +207,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_02785.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_56cfa.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -237,9 +237,9 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_bff20"
-[1/2] Building CXX object CMakeFiles/cmTC_bff20.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_bff20
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_3365b"
+[1/2] Building CXX object CMakeFiles/cmTC_3365b.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_3365b
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -304,9 +304,9 @@ Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.41114
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_78159"
-[1/2] Building CXX object CMakeFiles/cmTC_78159.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_78159
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_3ef06"
+[1/2] Building CXX object CMakeFiles/cmTC_3ef06.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_3ef06
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -371,9 +371,9 @@ Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.41114
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /Users/gunaonian/AndroidStudioProjects/MobileInfo/mobilehardware/.cxx/cmake/debug/arm64-v8a/CMakeFiles/CMakeTmp
 
-Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_ddb1b"
-[1/2] Building CXX object CMakeFiles/cmTC_ddb1b.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_ddb1b
+Run Build Command:"/Users/gunaonian/Downloads/android-sdk-macosx/cmake/3.6.4111459/bin/ninja" "cmTC_f9aad"
+[1/2] Building CXX object CMakeFiles/cmTC_f9aad.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_f9aad
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

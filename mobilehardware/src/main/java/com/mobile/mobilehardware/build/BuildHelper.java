@@ -4,10 +4,8 @@ package com.mobile.mobilehardware.build;
 import org.json.JSONObject;
 
 /**
- * @author gunaonian
- * @date 2018/3/28
+ * @author guxiaonian
  */
-
 public class BuildHelper extends BuildInfo {
 
     /**

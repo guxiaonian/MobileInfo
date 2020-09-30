@@ -8,11 +8,8 @@ import java.util.List;
 
 
 /**
- *
- * @author gunaonian
- * @date 2018/5/10
+ * @author guxiaonian
  */
-
 public class DnsHelper {
 
     private static final String TAG = DnsHelper.class.getSimpleName();

@@ -12,8 +12,7 @@ import com.mobile.mobilehardware.base.BaseData;
 
 
 /**
- * @author 谷闹年
- * @date 2018/1/3
+ * @author guxiaonian
  */
 @SuppressLint("MissingPermission")
 public class DataUtil {

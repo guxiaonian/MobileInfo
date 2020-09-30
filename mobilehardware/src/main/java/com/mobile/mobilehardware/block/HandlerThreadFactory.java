@@ -18,6 +18,9 @@ package com.mobile.mobilehardware.block;
 import android.os.Handler;
 import android.os.HandlerThread;
 
+/**
+ * @author guxiaonian
+ */
 final class HandlerThreadFactory {
 
     private static HandlerThreadWrapper sLoopThread = new HandlerThreadWrapper("loop");

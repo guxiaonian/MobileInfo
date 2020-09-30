@@ -1,12 +1,10 @@
 package com.mobile.mobilehardware.app;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.pm.Signature;
 import android.os.Build;
 import android.util.Log;
 
@@ -14,11 +12,9 @@ import com.mobile.mobilehardware.utils.PackageSignUtil;
 
 import org.json.JSONObject;
 
-import java.security.MessageDigest;
 
 /**
- * @author 谷闹年
- * @date 2018/1/12
+ * @author guxiaonian
  */
 class PackageInfo {
 
@@ -60,10 +56,10 @@ class PackageInfo {
         intent.addCategory(Intent.CATEGORY_HOME);
         final ResolveInfo res = context.getPackageManager().resolveActivity(intent, 0);
         if (res.activityInfo == null) {
-            return "$unknown";
+            return "unknown";
         }
         if (res.activityInfo.packageName.equals("android")) {
-            return "$unknown";
+            return "unknown";
         } else {
             return res.activityInfo.packageName;
         }

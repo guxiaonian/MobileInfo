@@ -1,11 +1,13 @@
 # ninja log v5
-1	299	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	6cfc6ece4e7e332e
-1	267	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	6cfc6ece4e7e332e
-2	399	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	b67ba752b91288f
-399	517	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libfairymob-lib.so	57a4c60013136f52
-4	216	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	6cfc6ece4e7e332e
-4	380	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	b67ba752b91288f
-380	496	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libfairymob-lib.so	57a4c60013136f52
-9	225	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	6cfc6ece4e7e332e
-9	390	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	b67ba752b91288f
-390	522	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libfairymob-lib.so	57a4c60013136f52
+1	249	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	6cfc6ece4e7e332e
+2	453	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	b67ba752b91288f
+453	594	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libfairymob-lib.so	57a4c60013136f52
+1	332	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	6cfc6ece4e7e332e
+1	510	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	b67ba752b91288f
+511	619	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libfairymob-lib.so	57a4c60013136f52
+0	211	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	6cfc6ece4e7e332e
+1	402	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	b67ba752b91288f
+402	520	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libfairymob-lib.so	57a4c60013136f52
+2	449	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	6cfc6ece4e7e332e
+3	613	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	b67ba752b91288f
+613	745	0	../../../../build/intermediates/cmake/release/obj/arm64-v8a/libfairymob-lib.so	57a4c60013136f52

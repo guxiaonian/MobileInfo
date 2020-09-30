@@ -18,8 +18,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
- * @author 谷闹年
- * @date 2018/1/5
+ * @author guxiaonian
  */
 public class RootHelper {
     private static final String TAG =RootHelper.class.getSimpleName();

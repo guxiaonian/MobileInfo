@@ -1,8 +1,6 @@
-import java.text.SimpleDateFormat
-
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "2.4.5"
+version = "2.4.8"
 apply plugin: 'com.android.library'
 
 android {
@@ -13,8 +11,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 245
-        versionName "2.4.5"
+        versionCode 248
+        versionName "2.4.8"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
@@ -22,7 +20,7 @@ android {
                 cppFlags ""
             }
             ndk {
-                abiFilters "armeabi","armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+                abiFilters "armeabi", "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
             }
         }
     }
@@ -32,69 +30,40 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
-            //改为不混淆
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     lintOptions {
         abortOnError false
     }
 
+
 }
 
 dependencies {
-//    implementation fileTree(dir: 'libs', include: ['*.jar'])
-//
-////    implementation 'com.android.support:appcompat-v7:28.0.0'
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-}
-def SDK_NAME = "mobile_hardware_android_v"
-def DATE = new SimpleDateFormat('yyyyMMdd_HHmm').format(new Date())
-def LIB_DIR = '../libs'
-def version = "2.4.5"
-
-task clearJar(type: Delete) {
-    //删除旧包
-    // println '删除旧包'
-    // delete 'build/libs/'
-    // delete '../libs/'
+    implementation 'org.bouncycastle:bcpkix-jdk15on:1.61'
 }
 
-task makeJar(type: org.gradle.api.tasks.bundling.Jar) {
-    //jar 包名称
-    archiveName = SDK_NAME + version + '_' + DATE + '.jar'
-    //指定jar 存放目录
-    destinationDir = file(LIB_DIR)
-    //从哪里打包class文件
-    from('build/intermediates/classes/release/com/mobile/mobilehardware/')
-    //打包到jar后的目录结构
-    into('com/mobile/mobilehardware/')
-    //去掉不需要打包的目录和文件
-    exclude('test/', 'BuildConfig.class', 'R.class')
-}
-makeJar.dependsOn(clearJar, build)
 
-//./gradlew makeJar
-
-
-def siteUrl = 'https://github.com/guxiaonian/MobileInfo'      // 项目的主页
-def gitUrl = 'https://github.com/guxiaonian/MobileInfo.git'   // Git仓库的url
-group = "fairy.easy"                                        // Maven Group ID for the artifact，一般填你唯一的包名
+def siteUrl = 'https://github.com/guxiaonian/MobileInfo'
+def gitUrl = 'https://github.com/guxiaonian/MobileInfo.git'
+group = "fairy.easy"
 install {
     repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
         pom {
             project {
                 packaging 'jar'
-                // Add your description here
-                name 'Android'    //项目描述
+                name 'Android'
                 url siteUrl
-                // Set your license
                 licenses {
                     license {
                         name 'The Apache Software License, Version 2.0'
@@ -103,7 +72,7 @@ install {
                 }
                 developers {
                     developer {
-                        id 'mobile'        //填写的一些基本信息
+                        id 'mobile'
                         name 'mobile'
                         email 'gunaonian@geetest.com'
                     }
@@ -134,16 +103,16 @@ artifacts {
     archives sourcesJar
 }
 
-// bintrayUpload使用
+
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
-    user =  properties.getProperty("bintray.user")
-    key =  properties.getProperty("bintray.apikey")
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "mobile"    //发布到JCenter上的项目名字
+        name = "mobile"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

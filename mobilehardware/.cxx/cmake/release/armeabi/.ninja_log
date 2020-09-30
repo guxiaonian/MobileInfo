@@ -1,13 +1,13 @@
 # ninja log v5
-0	784	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
-1	856	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
-856	1017	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25
-1	429	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
-3	538	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
-538	653	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25
-3	892	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
-3	940	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
-940	1232	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25
-9	969	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
-11	1080	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
-1080	1205	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25
+2	692	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
+0	804	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
+805	938	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25
+1	1414	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
+2	1452	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
+1452	1565	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25
+1	1084	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
+2	1139	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
+1139	1467	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25
+2	2443	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o	9166c7568c3efc1a
+4	2680	0	CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o	d96a5611c2507086
+2680	2833	0	../../../../build/intermediates/cmake/release/obj/armeabi/libfairymob-lib.so	52edb6ec1ce15e25

@@ -5,16 +5,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.mobile.mobileinfo.data.MobData;
-
 import java.util.List;
 
 public class MobPageAdapter extends FragmentStatePagerAdapter {
     private List<Fragment> fragments;
+    private List<String> titleList;
 
-    public MobPageAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public MobPageAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titleList) {
         super(fm);
         this.fragments = fragments;
+        this.titleList = titleList;
     }
 
     @Override
@@ -30,6 +30,6 @@ public class MobPageAdapter extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return MobData.mobLists.get(position);
+        return titleList.get(position);
     }
 }

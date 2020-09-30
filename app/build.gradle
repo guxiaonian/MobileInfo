@@ -6,8 +6,9 @@ android {
         applicationId "com.mobile.mobileinfo"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 243
-        versionName "2.4.3"
+        versionCode 248
+        versionName "2.4.8"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

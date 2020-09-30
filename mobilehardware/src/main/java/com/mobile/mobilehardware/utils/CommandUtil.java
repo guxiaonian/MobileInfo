@@ -6,7 +6,7 @@ import java.io.IOException;
 
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class CommandUtil {
     private CommandUtil() {

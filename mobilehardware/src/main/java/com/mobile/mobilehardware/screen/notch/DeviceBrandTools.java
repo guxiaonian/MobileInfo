@@ -4,7 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 
 /**
- * Created by 谷闹年 on 2019/9/12.
+ * @author guxiaonian
  */
 public class DeviceBrandTools {
     private static DeviceBrandTools sDeviceBrandTools;

@@ -6,7 +6,7 @@ import android.os.Build;
 import java.util.UUID;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class PhoneIdHelper {
     /**

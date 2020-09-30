@@ -25,8 +25,7 @@ import java.util.Locale;
 import java.util.UUID;
 
 /**
- * @author 谷闹年
- * @date 2018/1/5
+ * @author guxiaonian
  */
 class MemoryInfo {
     private static final String TAG = MemoryInfo.class.getSimpleName();

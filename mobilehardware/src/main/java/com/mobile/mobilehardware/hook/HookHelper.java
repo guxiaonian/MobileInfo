@@ -8,9 +8,7 @@ import org.json.JSONObject;
 
 
 /**
- * @author 谷闹年
- * @date 2018/8/8
- * Xposed  CydiaSubstrate 框架检测工具类
+ * @author guxiaonian
  */
 public class HookHelper extends HookInfo {
 

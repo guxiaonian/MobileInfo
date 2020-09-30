@@ -11,10 +11,8 @@ import com.mobile.mobilehardware.base.BaseData;
 import org.json.JSONObject;
 
 /**
- * @author gunaonian
- * @date 2018/3/28
+ * @author guxiaonian
  */
-
 class BuildInfo {
     private static final String TAG = BuildInfo.class.getSimpleName();
 

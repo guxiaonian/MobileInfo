@@ -10,7 +10,7 @@ import com.mobile.mobilehardware.base.BaseData;
 import java.lang.reflect.Method;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class UserAgentHelper {
 

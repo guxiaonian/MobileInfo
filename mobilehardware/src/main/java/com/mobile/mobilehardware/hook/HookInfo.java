@@ -22,9 +22,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author 谷闹年
- * @date 2018/8/8
- * Xposed  CydiaSubstrate 框架检测工具类
+ * @author guxiaonian
  */
 class HookInfo {
     private static final String TAG = HookInfo.class.getSimpleName();

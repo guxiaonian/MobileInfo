@@ -8,7 +8,7 @@ import android.util.Log;
 import org.json.JSONObject;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 class AudioInfo {
 

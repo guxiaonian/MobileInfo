@@ -1,1 +1,3 @@
-ninja: no work to do.
+[1/3] Building CXX object CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-lib.cpp.o
+[2/3] Building CXX object CMakeFiles/fairymob-lib.dir/src/main/cpp/mob-info.cpp.o
+[3/3] Linking CXX shared library ../../../../build/intermediates/cmake/debug/obj/armeabi/libfairymob-lib.so

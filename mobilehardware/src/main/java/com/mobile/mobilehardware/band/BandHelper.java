@@ -5,8 +5,7 @@ import org.json.JSONObject;
 
 
 /**
- * @author 谷闹年
- * @date 2018/1/5
+ * @author guxiaonian
  */
 public class BandHelper extends BandInfo {
 

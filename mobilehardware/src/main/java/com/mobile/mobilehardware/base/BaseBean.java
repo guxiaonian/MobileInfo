@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import java.io.Serializable;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class BaseBean implements Serializable {
 

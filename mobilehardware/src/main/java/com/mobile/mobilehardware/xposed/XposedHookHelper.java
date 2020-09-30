@@ -7,8 +7,7 @@ import com.mobile.mobilehardware.MobileHardWareHelper;
 import org.json.JSONObject;
 
 /**
- * @author 谷闹年
- * @date 2018/8/8
+ * @author guxiaonian
  */
 public class XposedHookHelper extends XposedHookInfo {
 

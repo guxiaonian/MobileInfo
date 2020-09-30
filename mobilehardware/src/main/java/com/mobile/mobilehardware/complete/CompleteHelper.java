@@ -20,8 +20,7 @@ import java.util.zip.ZipFile;
 
 
 /**
- * @author 谷闹年
- * @date 2018/1/5
+ * @author guxiaonian
  */
 public class CompleteHelper {
     private static final String TAG = CompleteHelper.class.getSimpleName();

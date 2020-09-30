@@ -1,6 +1,8 @@
 package com.mobile.mobilehardware.block;
 
-
+/**
+ * @author guxiaonian
+ */
 public final class CpuInternals {
 
     private CpuSampler cpuSampler;

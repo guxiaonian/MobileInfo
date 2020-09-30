@@ -3,7 +3,7 @@ package com.mobile.mobilehardware.screen.notch;
 import java.lang.reflect.Method;
 
 /**
- * Created by 谷闹年 on 2019/9/12.
+ * @author guxiaonian
  */
 public class SystemProperties {
     private static Method getStringProperty;

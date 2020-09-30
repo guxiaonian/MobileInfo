@@ -6,7 +6,7 @@ import com.mobile.mobilehardware.MobileHardWareHelper;
 import org.json.JSONObject;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class AudioHelper extends AudioInfo {
 

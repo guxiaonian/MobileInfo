@@ -18,8 +18,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
 /**
- * @author 谷闹年
- * @date 2018/1/5
+ * @author guxiaonian
  */
 @SuppressWarnings("ALL")
 class BandInfo {

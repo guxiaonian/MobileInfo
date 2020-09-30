@@ -17,9 +17,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * Created by 谷闹年 on 2019/9/12.\
- * <p>本方法参考自https://github.com/zhangzhun132/NotchTools </p>
- * 感谢
+ * @author guxiaonian
  */
 public class WindowInsetsUtils {
 

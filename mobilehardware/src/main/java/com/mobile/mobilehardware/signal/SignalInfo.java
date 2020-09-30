@@ -1,9 +1,7 @@
 package com.mobile.mobilehardware.signal;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -34,8 +32,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * @author 谷闹年
- * @date 2018/1/3
+ * @author guxiaonian
  */
 class SignalInfo {
 

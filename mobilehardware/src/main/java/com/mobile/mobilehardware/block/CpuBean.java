@@ -1,7 +1,7 @@
 package com.mobile.mobilehardware.block;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class CpuBean {
 

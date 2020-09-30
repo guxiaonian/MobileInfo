@@ -15,12 +15,11 @@
  */
 package com.mobile.mobilehardware.block;
 
-import android.os.CpuUsageInfo;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * {@link AbstractSampler} sampler defines sampler work flow.
+ * @author guxiaonian
  */
 abstract class AbstractSampler {
 

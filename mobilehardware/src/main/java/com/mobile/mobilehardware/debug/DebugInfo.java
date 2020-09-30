@@ -12,8 +12,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 /**
- * @author 谷闹年
- * @date 2018/11/20
+ * @author guxiaonian
  */
 class DebugInfo {
     private static final String TAG = DebugInfo.class.getSimpleName();

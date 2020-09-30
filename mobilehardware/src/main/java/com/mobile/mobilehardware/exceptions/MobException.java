@@ -1,7 +1,7 @@
 package com.mobile.mobilehardware.exceptions;
 
 /**
- * exception
+ * @author guxiaonian
  */
 public class MobException extends Exception {
 

@@ -16,6 +16,9 @@ import org.json.JSONArray;
 
 import java.util.List;
 
+/**
+ * @author guxiaonian
+ */
 class WifiInfo {
 
 

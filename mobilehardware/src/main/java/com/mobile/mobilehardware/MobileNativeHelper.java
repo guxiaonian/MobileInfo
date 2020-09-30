@@ -4,6 +4,9 @@ package com.mobile.mobilehardware;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * @author guxiaonian
+ */
 public class MobileNativeHelper implements MobileInterface {
 
     static {

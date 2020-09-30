@@ -15,9 +15,8 @@ import java.util.Set;
 
 
 /**
- * Created by gunaonian on 2018/3/28.
+ * @author guxiaonian
  */
-
 class BluetoothInfo {
     private static final String TAG = BluetoothInfo.class.getSimpleName();
 

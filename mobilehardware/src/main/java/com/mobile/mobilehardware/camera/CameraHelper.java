@@ -1,6 +1,5 @@
 package com.mobile.mobilehardware.camera;
 
-import android.content.Context;
 
 import com.mobile.mobilehardware.MobileHardWareHelper;
 
@@ -8,8 +7,7 @@ import org.json.JSONObject;
 
 
 /**
- * @author 谷闹年
- * @date 2018/1/5
+ * @author guxiaonian
  */
 public class CameraHelper extends CameraInfo {
 

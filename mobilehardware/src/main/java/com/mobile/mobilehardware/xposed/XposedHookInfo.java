@@ -11,8 +11,7 @@ import java.lang.reflect.Field;
 import java.util.Map;
 
 /**
- * @author 谷闹年
- * @date 2018/8/8
+ * @author guxiaonian
  */
 class XposedHookInfo {
     private static final String TAG = XposedHookInfo.class.getSimpleName();

@@ -1,14 +1,14 @@
 package com.mobile.mobilehardware.wifilist;
 
 
-import android.util.Log;
-
 import com.mobile.mobilehardware.base.BaseBean;
-import com.mobile.mobilehardware.base.BaseData;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * @author guxiaonian
+ */
 public class WifiBean extends BaseBean {
     private boolean wifiScanStatus;
     private JSONArray wifiScanResult;

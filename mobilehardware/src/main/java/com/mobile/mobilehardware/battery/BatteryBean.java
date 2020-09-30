@@ -8,7 +8,7 @@ import com.mobile.mobilehardware.base.BaseData;
 import org.json.JSONObject;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class BatteryBean extends BaseBean {
     private static final String TAG = BatteryBean.class.getSimpleName();

@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 class SDCardInfo {
 

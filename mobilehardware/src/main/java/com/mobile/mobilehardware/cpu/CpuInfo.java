@@ -16,8 +16,7 @@ import java.io.InputStream;
 import java.util.regex.Pattern;
 
 /**
- * @author 谷闹年
- * @date 2018/1/5
+ * @author guxiaonian
  */
 class CpuInfo {
 
@@ -127,7 +126,7 @@ class CpuInfo {
         } catch (IOException e) {
             Log.i(TAG, e.toString());
         }
-        return TextUtils.isEmpty(temp) ? null : temp.length() >= 5 ? (Integer.valueOf(temp) / 1000) + "" : temp;
+        return TextUtils.isEmpty(temp) ? null : temp.length() >= 5 ? (Integer.valueOf(temp) / 1000) + "" : temp.length() >= 4 ? (Integer.valueOf(temp) / 100) + "" : temp;
     }
 
     private static int getHeart() {

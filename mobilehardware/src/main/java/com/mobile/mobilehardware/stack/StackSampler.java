@@ -2,8 +2,7 @@ package com.mobile.mobilehardware.stack;
 
 
 /**
- * Dumps thread stack.
- * @author gunaonian
+ * @author guxiaonian
  */
 public class StackSampler {
 

@@ -8,7 +8,7 @@ import com.mobile.mobilehardware.base.BaseData;
 import org.json.JSONObject;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class SignalBean extends BaseBean {
     private static final String TAG = SignalBean.class.getSimpleName();

@@ -15,10 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author gunaonian
- * @date 2018/5/10
+ * @author guxiaonian
  */
-
 class ListAppInfo {
 
     private static final String TAG = ListAppInfo.class.getSimpleName();

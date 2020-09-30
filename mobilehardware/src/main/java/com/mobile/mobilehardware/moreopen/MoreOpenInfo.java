@@ -17,8 +17,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 /**
- * @author 谷闹年
- * @date 2018/11/20
+ * @author guxiaonian
  */
 class MoreOpenInfo {
     private static final String TAG = MoreOpenInfo.class.getSimpleName();

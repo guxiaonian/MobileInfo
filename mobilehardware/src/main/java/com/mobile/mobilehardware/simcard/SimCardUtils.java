@@ -16,8 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by 谷闹年 on 2018/8/6.
- * 手机卡工具类
+ * @author guxiaonian
  */
 @SuppressLint("MissingPermission")
 @Deprecated

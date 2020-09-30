@@ -8,10 +8,8 @@ import org.json.JSONObject;
 import java.util.Locale;
 
 /**
- * @author gunaonian
- * @date 2018/3/28
+ * @author guxiaonian
  */
-
 class LocalInfo {
 
     public static final String TAG = LocalInfo.class.getSimpleName();

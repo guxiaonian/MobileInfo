@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.util.Log;
 
 /**
- * 初始化
+ * @author guxiaonian
  */
 public class MobInitializer extends ContentProvider {
 

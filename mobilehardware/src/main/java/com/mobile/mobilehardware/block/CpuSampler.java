@@ -30,7 +30,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Dumps cpu usage.
+ * @author guxiaonian
  */
 public class CpuSampler extends AbstractSampler {
 

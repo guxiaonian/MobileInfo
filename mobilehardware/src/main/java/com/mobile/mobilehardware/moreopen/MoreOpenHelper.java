@@ -9,8 +9,7 @@ import org.json.JSONObject;
 
 
 /**
- * @author 谷闹年
- * @date 2018/11/20
+ * @author guxiaonian
  */
 public class MoreOpenHelper extends MoreOpenInfo {
 

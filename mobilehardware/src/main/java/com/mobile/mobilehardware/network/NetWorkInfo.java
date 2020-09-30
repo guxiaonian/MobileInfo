@@ -20,10 +20,8 @@ import java.lang.reflect.Method;
 
 
 /**
- * @author gunaonian
- * @date 2018/3/28
+ * @author guxiaonian
  */
-
 class NetWorkInfo {
     private static final String TAG = NetWorkInfo.class.getSimpleName();
 

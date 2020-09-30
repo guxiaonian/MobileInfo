@@ -6,10 +6,8 @@ import com.mobile.mobilehardware.MobileHardWareHelper;
 import org.json.JSONObject;
 
 /**
- * @author gunaonian
- * @date 2018/3/28
+ * @author guxiaonian
  */
-
 public class SettingsHelper extends SettingsInfo {
 
     /**

@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class CameraBean extends BaseBean {
     private static final String TAG = CameraBean.class.getSimpleName();

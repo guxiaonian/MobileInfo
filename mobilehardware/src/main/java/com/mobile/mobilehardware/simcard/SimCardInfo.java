@@ -8,9 +8,7 @@ import android.util.Log;
 import org.json.JSONObject;
 
 /**
- * @author 谷闹年
- * @date 2018/8/6
- * 运营商获取类
+ * @author guxiaonian
  */
 class SimCardInfo {
     private static final String TAG = SimCardInfo.class.getSimpleName();

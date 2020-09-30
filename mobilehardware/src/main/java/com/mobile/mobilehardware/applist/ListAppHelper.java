@@ -8,10 +8,8 @@ import org.json.JSONObject;
 import java.util.List;
 
 /**
- * @author gunaonian
- * @date 2018/5/10
+ * @author guxiaonian
  */
-
 public class ListAppHelper extends ListAppInfo {
 
     /**

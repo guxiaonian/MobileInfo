@@ -7,8 +7,7 @@ import org.json.JSONObject;
 
 
 /**
- * @author 谷闹年
- * @date 2018/1/3
+ * @author guxiaonian
  */
 public class SignalHelper extends SignalInfo {
 

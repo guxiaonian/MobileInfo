@@ -7,6 +7,9 @@ import android.content.pm.Signature;
 
 import java.security.MessageDigest;
 
+/**
+ * @author guxiaonian
+ */
 public class PackageSignUtil {
 
     @SuppressLint("PackageManagerGetSignatures")

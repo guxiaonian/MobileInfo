@@ -1,10 +1,10 @@
 package com.mobile.mobilehardware.base;
 
 /**
- * @author gunaonian
+ * @author guxiaonian
  */
 public class BaseData {
-    public static final String UNKNOWN_PARAM = "$unknown";
+    public static final String UNKNOWN_PARAM = "unknown";
 
 
     public static class Aduio {

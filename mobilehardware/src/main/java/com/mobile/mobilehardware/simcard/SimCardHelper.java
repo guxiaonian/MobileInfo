@@ -1,6 +1,5 @@
 package com.mobile.mobilehardware.simcard;
 
-import android.content.Context;
 
 import com.mobile.mobilehardware.MobileHardWareHelper;
 
@@ -8,9 +7,7 @@ import org.json.JSONObject;
 
 
 /**
- * @author 谷闹年
- * @date 2018/8/6
- * 运营商获取类
+ * @author guxiaonian
  */
 public class SimCardHelper extends SimCardInfo {
 

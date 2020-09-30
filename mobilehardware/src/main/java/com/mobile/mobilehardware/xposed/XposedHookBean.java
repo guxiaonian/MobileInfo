@@ -8,8 +8,7 @@ import com.mobile.mobilehardware.base.BaseData;
 import org.json.JSONObject;
 
 /**
- * @author 谷闹年
- * @date 2018/8/14
+ * @author guxiaonian
  */
 public class XposedHookBean extends BaseBean {
     private static final String TAG = XposedHookBean.class.getSimpleName();

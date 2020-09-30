@@ -22,8 +22,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * @author 谷闹年
- * @date 2018/1/4
+ * @author guxiaonian
  */
 public class MobCardUtils {
 
@@ -371,7 +370,7 @@ public class MobCardUtils {
      */
     private static String getSIMOperator(TelephonyManager telephony, String predictedMethodName, int slotID) throws MobException {
 
-        String imei = "$unknown";
+        String imei = "unknown";
 
 
         try {
