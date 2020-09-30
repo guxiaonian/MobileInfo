@@ -37,4 +37,4 @@ version|update content|updated
 **2.4.6** |1、New certificate authentication function| 2020-09-20
 **2.4.5** |1、Solve some problems| 2020-06-19
 
-## [Reward(Develop HttpDns)](./reward.md)
+## [Reward](./reward.md)
